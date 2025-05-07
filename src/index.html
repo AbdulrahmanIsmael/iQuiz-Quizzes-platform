@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=htmlWebpackPlugin.options.title%></title>
+  </head>
+  <body class="bg-whtie">
+    <!--* Header & Navigation Bar -->
+    <header>
+      <!--? Navbar -->
+      <nav
+        class="w-full px-10 pt-6 pb-2 flex justify-between items-center flex-nowrap"
+      >
+        <!--! Logo: logo -->
+        <div class="text-2xl font-bold"><a>IQuiz</a></div>
+        <!--! Navbar links: href -->
+        <ul class="flex gap-x-3 basis-2/3">
+          <li
+            class="px-6 pb-2.5 text-sm cursor-pointer border-solid border-b-4 border-white transition duration-100 ease-in-out hover:text-purple-500 hover:border-purple-500 active-navlink"
+          >
+            <a>Home</a>
+          </li>
+          <li
+            class="px-6 pb-2.5 cursor-pointer border-solid border-b-4 border-white transition duration-100 ease-in-out hover:text-purple-500 hover:border-purple-500 text-sm"
+          >
+            <a>About</a>
+          </li>
+          <li
+            class="px-6 pb-2.5 cursor-pointer border-solid border-b-4 transition duration-100 ease-in-out hover:text-purple-500 border-white hover:border-purple-500 text-sm"
+          >
+            <a>Features</a>
+          </li>
+        </ul>
+        <!-- Sign in and Register buttons -->
+        <div class="flex gap-x-5">
+          <button type="button" class="btn-transparent" id="register-btn">
+            Register
+          </button>
+          <button type="button" class="btn-fill" id="signIn-btn">
+            Sign in
+          </button>
+        </div>
+      </nav>
+
+      <!--? Showcase -->
+      <section>
+        <h2>Create & Discover Quizzes</h2>
+        <p>
+          Engage with several quizzes and surveys or Create your own in
+          seconds...
+        </p>
+        <button type="button">Sign Up</button>
+      </section>
+    </header>
+
+    <!--* Main Content -->
+    <main>
+      <div>
+        <!--? About Us -->
+        <section>
+          <!-- Details about us -->
+          <div>
+            <h2>About us</h2>
+            <p>
+              IQuiz is your ultimate platform for fun, interactive and
+              educational quizzes designed to challenge and engage users of all
+              ages.
+            </p>
+            <!-- Charactaristics of IQuiz -->
+            <div>
+              <div>
+                <h3>Innovation</h3>
+                <p>
+                  We leverage cutting-edge technology and creative design to
+                  deliver an engaging and seamless quiz experience, redefining
+                  how people learn and test their knowledge.
+                </p>
+              </div>
+              <div>
+                <h3>Customer Centric</h3>
+                <p>
+                  Our commitment is to you, the user. We strive to create a
+                  platform that is intuitive, enjoyable, and constantly evolving
+                  to meet your needs.
+                </p>
+              </div>
+              <div>
+                <h3>Expertise</h3>
+                <p>
+                  Our team is composed of experts in education, design, and
+                  technology, bringing years of experience and passion to create
+                  a world-class quiz platform.
+                </p>
+              </div>
+              <div>
+                <h3>Integrity</h3>
+                <p>
+                  At IQuiz, we value transparency, honesty, and a user-first
+                  approach, ensuring you always feel confident in our platform
+                  and its purpose.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Image -->
+          <div>
+            <img src="./assets/test.png" alt="IQuiz workplace image" />
+          </div>
+        </section>
+
+        <!--? Features -->
+        <section>
+          <h2>Features</h2>
+          <!-- Features Cards -->
+          <div>
+            <div>
+              <div>
+                <img
+                  src="./assets/test.png"
+                  alt="Custom Quizzes showcasing feature image"
+                />
+              </div>
+              <h3>Custom Quizzes</h3>
+              <small>Personalization</small>
+              <p>
+                Create tailored quizzes match your interests and challenge your
+                knowledge.
+              </p>
+            </div>
+            <div>
+              <div>
+                <img
+                  src="./assets/test.png"
+                  alt="Multiplayer Competition showcasing feature image"
+                />
+              </div>
+              <h3>Multiplayer Competition</h3>
+              <small>Real-Time Play</small>
+              <p>Compete with friends or players globally in quizzes.</p>
+            </div>
+            <div>
+              <div>
+                <img
+                  src="./assets/test.png"
+                  alt="Detailed Analytics showcasing feature image"
+                />
+              </div>
+              <h3>Detailed Analytics</h3>
+              <small>Insights</small>
+              <p>
+                Track your progress with in-depth performance reports and stats.
+              </p>
+            </div>
+          </div>
+          <!-- register button -->
+          <button type="button">Start Your Journey Now</button>
+        </section>
+
+        <!--? Join -->
+        <section>
+          <div>
+            <div>
+              <h3>Join IQuiz Now!</h3>
+              <p>
+                Sign up or log in now to unlock exciting quizzes and challenge
+                your knowledge across various topics!
+              </p>
+              <button type="button">Join for free</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!--* Footer -->
+    <footer>
+      <!--? Links -->
+      <section>
+        <div>IQuiz</div>
+        <ul>
+          <li>About us</li>
+          <li>Features</li>
+          <li>Help Center</li>
+          <li>Contact us</li>
+          <li>FAQs</li>
+        </ul>
+      </section>
+
+      <!--? Copyright & Social media -->
+      <section>
+        <p>&copy; 2025 Brand, Inc. &dot; Privacy &dot; Terms &dot; Sitemap</p>
+        <ul>
+          <li>
+            <a>twitter</a>
+          </li>
+          <li>
+            <a>Facebook</a>
+          </li>
+          <li>
+            <a>LinkedIn</a>
+          </li>
+          <li>
+            <a>Youtube</a>
+          </li>
+        </ul>
+      </section>
+    </footer>
+  </body>
+</html>

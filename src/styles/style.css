@@ -1,0 +1,14 @@
+@import url("./normalize.css");
+@import "tailwindcss";
+
+.btn-fill {
+  @apply cursor-pointer border-2 border-solid border-purple-500 bg-purple-500 text-white px-8 py-1.5 rounded-lg text-sm font-bold hover:bg-transparent hover:text-purple-500 hover:brightness-125 transition duration-150 ease-linear;
+}
+
+.btn-transparent {
+  @apply cursor-pointer bg-transparent border-2 border-solid border-purple-500 text-purple-500 px-8 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-500 hover:text-white transition duration-150 ease-linear;
+}
+
+.active-navlink {
+  @apply transition-none border-b-4 border-solid border-purple-500 text-purple-500 font-bold;
+}
