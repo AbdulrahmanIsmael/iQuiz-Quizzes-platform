@@ -10,5 +10,5 @@
 }
 
 .active-navlink {
-  @apply transition-none border-b-4 border-solid border-purple-500 text-purple-500 font-bold;
+  @apply transition-none border-b-4 max-md:border-b-2 border-solid border-purple-500 text-purple-500 font-bold;
 }
