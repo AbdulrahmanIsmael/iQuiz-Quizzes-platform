@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=htmlWebpackPlugin.options.title%></title>
+    <title>IQuiz - A dedicated space for your quizzes</title>
   </head>
-  <body class="bg-whtie">
+  <body class="bg-white font-['inter']">
     <!--* Header & Navigation Bar -->
     <header>
-      <!--? Navbar -->
+      <!--? Navbar: JS stuff -->
+      <!--! JS Code for responsiveness -->
       <nav
-        class="w-full px-10 pt-6 pb-2 flex flex-col gap-y-3 justify-stretch items-center border-b-2 border-solid md:border-transparent max-md:border-purple-500"
+        class="bg-white w-full px-10 pt-6 pb-2 flex flex-col gap-y-3 justify-stretch items-baseline border-b-2 border-solid md:border-transparent max-md:border-purple-500 shadow-md"
       >
         <!-- Respnsiveness menu -->
         <div
@@ -38,7 +39,7 @@
           >
             <a href="./" class="flex items-center gap-x-2 max-md:gap-x-5">
               <img
-                src="./assets/light-bulb (64).png"
+                src="../public/assets/images/light-bulb (64).png"
                 alt="Light bulb image - logo"
                 class="w-9 max-md:w-12"
               />
@@ -78,58 +79,67 @@
       </nav>
 
       <!--? Showcase -->
-      <section>
-        <h2>Create & Discover Quizzes</h2>
-        <p>
-          Engage with several quizzes and surveys or Create your own in
-          seconds...
+      <!--! Replace Image -->
+      <section
+        class="relative before:absolute before:content-empty before:inset-0 before:bg-black/40 before:-z-10 isolate bg-[url('../../public/assets/images/test.png')] bg-cover bg-center bg-fixed h-[90vh] flex flex-col justify-center md:justify-end items-center md:items-start md:pb-30 md:pl-30 gap-y-5"
+      >
+        <h2 class="text-3xl lg:text-5xl text-center font-bold text-white">
+          Create & Discover Quizzes
+        </h2>
+        <p class="lg:text-xl text-white text-center">
+          Engage with several quizzes and surveys or Create your own in seconds.
         </p>
-        <button type="button">Sign Up</button>
+        <button type="button" class="btn-fill">Sign Up</button>
       </section>
     </header>
 
     <!--* Main Content -->
     <main>
-      <div>
-        <!--? About Us -->
-        <section>
+      <div class="container mx-auto">
+        <!--? About Us: Replace images -->
+        <!--! Center text in about details section -->
+        <section
+          class="py-20 px-3 flex lg:gap-x-25 max-lg:flex-col max-lg:gap-y-25 lg:items-stretch min-h-screen"
+        >
           <!-- Details about us -->
-          <div>
-            <h2>About us</h2>
-            <p>
-              IQuiz is your ultimate platform for fun, interactive and
+          <div class="h-full flex flex-col gap-y-5 max-lg:gap-y-3">
+            <h2 class="section-title">About us</h2>
+            <p class="text-xl/normal text-gray-500 w-11/12">
+              iQuiz is your ultimate platform for fun, interactive and
               educational quizzes designed to challenge and engage users of all
               ages.
             </p>
             <!-- Charactaristics of IQuiz -->
-            <div>
+            <div
+              class="flex flex-col gap-y-6 max-lg:gap-y-3 w-5/6 max-lg:w-11/12 [&>*:not(:last-child)]:border-b-2 [&>*:not(:last-child)]:border-b-gray-200 [&>*:not(:last-child)]:pb-6 [&>*]:flex [&>*]:flex-col [&>*]:gap-y-6"
+            >
               <div>
-                <h3>Innovation</h3>
-                <p>
+                <h3 class="about-char-title">Innovation</h3>
+                <p class="about-char-paragraph">
                   We leverage cutting-edge technology and creative design to
                   deliver an engaging and seamless quiz experience, redefining
                   how people learn and test their knowledge.
                 </p>
               </div>
               <div>
-                <h3>Customer Centric</h3>
-                <p>
+                <h3 class="about-char-title">Customer Centric</h3>
+                <p class="about-char-paragraph">
                   Our commitment is to you, the user. We strive to create a
                   platform that is intuitive, enjoyable, and constantly evolving
                   to meet your needs.
                 </p>
               </div>
               <div>
-                <h3>Expertise</h3>
-                <p>
+                <h3 class="about-char-title">Expertise</h3>
+                <p class="about-char-paragraph">
                   Our team is composed of experts in education, design, and
                   technology, bringing years of experience and passion to create
                   a world-class quiz platform.
                 </p>
               </div>
               <div>
-                <h3>Integrity</h3>
-                <p>
+                <h3 class="about-char-title">Integrity</h3>
+                <p class="about-char-paragraph">
                   At IQuiz, we value transparency, honesty, and a user-first
                   approach, ensuring you always feel confident in our platform
                   and its purpose.
@@ -138,25 +148,31 @@
             </div>
           </div>
           <!-- Image -->
-          <div>
-            <img src="./assets/test.png" alt="IQuiz workplace image" />
+          <div class="max-h-full w-11/12">
+            <img
+              src="../public/assets/images/test.png"
+              alt="IQuiz workplace image"
+              class="h-full object-cover rounded-md"
+            />
           </div>
         </section>
 
         <!--? Features -->
-        <section>
-          <h2>Features</h2>
+        <section
+          class="py-20 px-3 min-h-screen flex flex-col items-center gap-y-10 max-md:gap-y-6 bg-gray-50 bg-full-gray"
+        >
+          <h2 class="section-title">Features</h2>
           <!-- Features Cards -->
-          <div>
+          <div class="grid grid-responsive gap-8 card-blocks">
             <div>
               <div>
                 <img
-                  src="./assets/test.png"
+                  src="../public/assets/images/test.png"
                   alt="Custom Quizzes showcasing feature image"
                 />
               </div>
-              <h3>Custom Quizzes</h3>
-              <small>Personalization</small>
+              <h3 class="text-xl font-bold">Custom Quizzes</h3>
+              <small class="text-sm text-gray-500">Personalization</small>
               <p>
                 Create tailored quizzes match your interests and challenge your
                 knowledge.
@@ -165,30 +181,30 @@
             <div>
               <div>
                 <img
-                  src="./assets/test.png"
+                  src="../public/assets/images/test.png"
                   alt="Multiplayer Competition showcasing feature image"
                 />
               </div>
-              <h3>Multiplayer Competition</h3>
-              <small>Real-Time Play</small>
+              <h3 class="text-xl font-bold">Multiplayer Competition</h3>
+              <small class="text-sm text-gray-500">Real-Time Play</small>
               <p>Compete with friends or players globally in quizzes.</p>
             </div>
             <div>
               <div>
                 <img
-                  src="./assets/test.png"
+                  src="../public/assets/images/test.png"
                   alt="Detailed Analytics showcasing feature image"
                 />
               </div>
-              <h3>Detailed Analytics</h3>
-              <small>Insights</small>
+              <h3 class="text-xl font-bold">Detailed Analytics</h3>
+              <small class="text-sm text-gray-500">Insights</small>
               <p>
                 Track your progress with in-depth performance reports and stats.
               </p>
             </div>
           </div>
           <!-- register button -->
-          <button type="button">Start Your Journey Now</button>
+          <button type="button" class="btn-fill">Start Your Journey Now</button>
         </section>
 
         <!--? Join -->

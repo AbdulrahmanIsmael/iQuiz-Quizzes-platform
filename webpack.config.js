@@ -5,7 +5,6 @@ const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CSSMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
 const { env } = require("process");
 
 module.exports = {
@@ -19,7 +18,7 @@ module.exports = {
     filename: "scripts/[name]_[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
-    assetModuleFilename: "assets/[name][ext]",
+    assetModuleFilename: "assets/[name]_[hash][ext]",
   },
   resolve: {
     extensions: [".ts", ".js"],
@@ -55,6 +54,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/i,
+        use: {
+          loader: "html-loader",
+          options: {
+            sources: true,
+          },
+        },
+      },
+      {
         test: /\.ts$/i,
         use: {
           loader: "ts-loader",
@@ -75,7 +83,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        test: /\.(png|svg|jpe?g|gif|webp)$/i,
         type: "asset/resource",
         use: {
           loader: "image-webpack-loader",
@@ -94,7 +102,6 @@ module.exports = {
     new HTMLPlugin({
       template: path.resolve(__dirname, "src", "index.html"),
       filename: "index.html",
-      title: "IQuiz - A dedicated space for your quizzes",
       meta: {
         description:
           "IQuiz is designed for both quiz makers and solvers. It offers easy and seamless management of quizzes for professional use.",
@@ -119,7 +126,6 @@ module.exports = {
     new HTMLPlugin({
       template: path.resolve(__dirname, "src", "pages", "register.html"),
       filename: "pages/register.html",
-      title: "IQuiz - Register",
       meta: {
         description: "Sign up and Start your journey with IQuiz!",
         keywords:
@@ -143,7 +149,6 @@ module.exports = {
     new HTMLPlugin({
       template: path.resolve(__dirname, "src", "pages", "signIn.html"),
       filename: "pages/signIn.html",
-      title: "IQuiz - Sign In",
       meta: {
         description: "Sign In and start making or solving Quizzes Now!",
         keywords:
@@ -176,14 +181,6 @@ module.exports = {
       algorithm: "gzip",
       threshold: 10240,
       minRatio: 0.8,
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "public", "assets"),
-          to: path.resolve(__dirname, "dist", "assets"),
-        },
-      ],
     }),
   ],
 };
