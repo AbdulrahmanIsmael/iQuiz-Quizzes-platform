@@ -8,14 +8,39 @@
     format("truetype");
 }
 
-/* Custom Components */
+@theme {
+  --font-inter: "inter";
+}
+
+/* @layer: Base styleing */
+@layer base {
+  :root {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white font-inter scroll-smooth;
+  }
+
+  section {
+    @apply py-20 px-3;
+  }
+
+  button {
+    &:active {
+      scale: 95%;
+    }
+  }
+}
+
+/* @layer: Custom Components */
 @layer components {
   .btn-fill {
-    @apply cursor-pointer border-2 border-solid border-purple-500 bg-purple-500 text-white px-8 py-1.5 rounded-lg text-sm font-bold hover:bg-transparent hover:text-purple-500 hover:brightness-125 transition duration-150 ease-linear;
+    @apply cursor-pointer border-2 border-solid border-purple-500 bg-purple-500 text-white px-8 py-1.5 rounded-lg text-sm font-bold hover:bg-white hover:text-purple-500 hover:brightness-125 transition duration-150 ease-linear;
   }
 
   .btn-transparent {
-    @apply cursor-pointer bg-transparent border-2 border-solid border-purple-500 text-purple-500 px-8 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-500 hover:text-white transition duration-150 ease-linear;
+    @apply bg-white cursor-pointer border-2 border-solid border-purple-500 text-purple-500 px-8 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-500 hover:text-white transition duration-150 ease-linear;
   }
 
   .card-blocks {
@@ -31,12 +56,8 @@
   }
 }
 
-/*  Custom Utilities */
+/* @layer: Custom Utilities */
 @layer utilities {
-  .content-empty {
-    content: "";
-  }
-
   .grid-responsive {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
@@ -47,19 +68,50 @@
   }
 }
 
-/* Custom classes using Tailwind CSS Utilities */
+/* @apply: Custom classes using Tailwind CSS Utilities */
+.flexbox-column {
+  @apply flex flex-col;
+}
+
+.flexbox-center {
+  @apply justify-center items-center;
+}
+
+.bg-image-clean {
+  @apply bg-cover bg-center bg-no-repeat;
+}
+
+.navbar-style {
+  @apply bg-white w-full px-10 pt-6 pb-2 border-b-2 border-solid md:border-transparent max-md:border-purple-500 shadow-md;
+}
+
+.navlink-style {
+  @apply sm:px-3 lg:px-6 pb-2.5 text-sm border-solid border-b-4 max-md:border-b-0 border-white hover:text-purple-500 hover:border-purple-500;
+}
+
 .active-navlink {
   @apply transition-none border-b-4 max-md:border-b-2 border-solid border-purple-500 text-purple-500 font-bold;
 }
 
-.section-title {
-  @apply max-sm:text-4xl max-md:text-5xl md:text-6xl font-semibold tracking-tighter text-gray-900;
+.navbar-menu-btn {
+  @apply hidden cursor-pointer w-full h-8 max-md:flex justify-end items-center;
 }
 
+.section-title {
+  @apply max-sm:text-4xl max-md:text-5xl md:text-6xl font-semibold tracking-tighter text-purple-800;
+}
+
+.about-char-children-style {
+  @apply [&>*:not(:last-child)]:border-b-2 [&>*:not(:last-child)]:border-b-gray-200 [&>*:not(:last-child)]:pb-6 [&>*]:flex [&>*]:flex-col [&>*]:gap-y-6;
+}
 .about-char-title {
-  @apply max-lg:text-lg text-xl font-semibold;
+  @apply text-purple-800 max-lg:text-lg text-xl font-semibold;
 }
 
 .about-char-paragraph {
   @apply text-lg text-gray-500;
+}
+
+.overlay {
+  @apply before:absolute before:content-[""] before:inset-0 before:bg-black/40 before:-z-10;
 }
