@@ -27,7 +27,7 @@
   }
 
   button {
-    &:active {
+    &:active:not(:first-of-type) {
       scale: 95%;
     }
   }
@@ -94,7 +94,7 @@
 }
 
 .navbar-menu-btn {
-  @apply hidden cursor-pointer w-full h-8 max-md:flex justify-end items-center;
+  @apply bg-transparent border-0 hidden cursor-pointer w-full h-8 max-md:flex justify-end items-center;
 }
 
 .section-title {

@@ -74,15 +74,6 @@ module.exports = {
         use: [MiniCSSExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
-        test: /\.ts$/i,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
-      },
-      {
         test: /\.(png|svg|jpe?g|gif|webp)$/i,
         type: "asset/resource",
         use: {
@@ -137,7 +128,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["register"],
+      chunks: ["register", "main"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -160,7 +151,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["signIn"],
+      chunks: ["signIn", "main"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,

@@ -13,17 +13,16 @@
   <body>
     <!--* Header & Navigation Bar -->
     <header>
-      <!--? Navbar: JS stuff -->
-      <!--! JS Code for responsiveness -->
+      <!--? Navbar -->
       <nav
         class="navbar-style flexbox-column gap-y-3 justify-stretch items-baseline"
       >
         <!-- Respnsiveness menu -->
-        <div
-          id="menu-btn"
+        <button
+          id="menuBtn"
           class="navbar-menu-btn"
-          title="menu button"
-          role="button"
+          type="button"
+          title="Menu Button"
         >
           <div
             class="flex gap-y-1 flex-col justify-between items-stretch translate-x-5"
@@ -32,17 +31,21 @@
             <div class="h-1 w-7 bg-purple-400"></div>
             <div class="h-1 w-7 bg-purple-400"></div>
           </div>
-        </div>
+        </button>
 
         <!-- large Screen: looking alone / Responsive: menu with collapse button -->
         <div
-          class="w-full flex max-md:flex-col max-md:gap-y-5 justify-between items-center flex-nowrap"
+          class="w-full flex max-md:flex-col max-md:!hidden max-md:gap-y-5 justify-between items-center flex-nowrap transition-all duration-200 ease-linear"
+          id="responsiveMenu"
         >
           <!-- Logo -->
           <div
             class="text-purple-700 max-md:pb-5 max-md:text-xl max-lg:text-2xl lg:text-3xl"
           >
-            <a href="./" class="flex items-center gap-x-2 max-md:gap-x-5">
+            <a
+              href="/index.html"
+              class="flex items-center gap-x-2 max-md:gap-x-5"
+            >
               <img
                 src="../public/assets/images/light-bulb (64).png"
                 alt="Light bulb image - logo"
@@ -78,12 +81,16 @@
           </ul>
           <!-- Sign in and Register buttons -->
           <div class="flex gap-x-5">
-            <button type="button" class="btn-transparent" id="register-btn">
+            <a
+              class="btn-transparent"
+              id="registerBtn"
+              href="./pages/register.html"
+            >
               Register
-            </button>
-            <button type="button" class="btn-fill" id="signIn-btn">
+            </a>
+            <a class="btn-fill" id="signInBtn" href="./pages/signIn.html">
               Sign in
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -99,14 +106,14 @@
         <p class="lg:text-xl text-white text-center">
           Engage with several quizzes and surveys or Create your own in seconds.
         </p>
-        <button type="button" class="btn-fill">Sign Up</button>
+        <a class="btn-fill" href="./pages/register.html">Register Now!</a>
       </section>
     </header>
 
     <!--* Main Content -->
     <main>
       <div class="container mx-auto">
-        <!--? About Us: Replace images -->
+        <!--? About Us -->
         <!--! Center text in about details section -->
         <section
           id="about"
