@@ -11,8 +11,10 @@
   "author": "Abdulrahman Ismael",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@babel/cli": "^7.27.2",
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@tailwindcss/postcss": "^4.1.5",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^10.0.0",

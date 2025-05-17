@@ -3,7 +3,232 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=htmlWebpackPlugin.options.title%></title>
+    <title>IQuiz - Register</title>
+    <link
+      rel="shortcut icon"
+      href="../../public/assets/images/light-bulb icon.png"
+      type="image/png"
+    />
   </head>
-  <body></body>
+  <body>
+    <!--* Header & Navigation Bar -->
+    <header>
+      <!--? Navbar -->
+      <nav
+        class="navbar-style flexbox-column gap-y-3 justify-stretch items-baseline"
+      >
+        <!-- Respnsiveness menu -->
+        <button
+          id="menuBtn"
+          class="navbar-menu-btn"
+          type="button"
+          title="Menu Button"
+        >
+          <div
+            class="flex gap-y-1 flex-col justify-between items-stretch translate-x-5"
+          >
+            <div class="h-1 w-7 bg-purple-400"></div>
+            <div class="h-1 w-7 bg-purple-400"></div>
+            <div class="h-1 w-7 bg-purple-400"></div>
+          </div>
+        </button>
+
+        <!-- large Screen: looking alone / Responsive: menu with collapse button -->
+        <div
+          class="w-full flex max-md:flex-col max-md:!hidden max-md:gap-y-5 justify-between items-center flex-nowrap transition-all duration-200 ease-linear"
+          id="responsiveMenu"
+        >
+          <!-- Logo -->
+          <div
+            class="text-purple-700 max-md:pb-5 max-md:text-xl max-lg:text-2xl lg:text-3xl"
+          >
+            <a
+              href="/index.html"
+              class="flex items-center gap-x-2 max-md:gap-x-5"
+            >
+              <img
+                src="../../public/assets/images/light-bulb (64).png"
+                alt="Light bulb image - logo"
+                class="w-9 max-md:w-12"
+              />
+              <strong>iQuiz</strong></a
+            >
+          </div>
+          <!--! Navbar links: href -->
+          <ul
+            class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
+          >
+            <li
+              class="cursor-pointer navlink-style active-navlink transition duration-100 ease-in-out"
+            >
+              <a>Home</a>
+            </li>
+            <li
+              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+            >
+              <a href="./../index.html/#about">About</a>
+            </li>
+            <li
+              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+            >
+              <a href="./../index.html/#features">Features</a>
+            </li>
+            <li
+              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+            >
+              <a>Contact</a>
+            </li>
+          </ul>
+          <!-- Sign in and Register buttons -->
+          <div class="flex gap-x-5">
+            <a class="btn-transparent" id="registerBtn" href="./register.html">
+              Register
+            </a>
+            <a class="btn-fill" id="signInBtn" href="./signIn.html">
+              Sign in
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--* Main Content -->
+    <main class="min-h-screen py-20 bg-gray-50">
+      <div class="container mx-auto">
+        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+          <h2 class="text-2xl font-bold text-center text-purple-700 mb-6">
+            Create Account
+          </h2>
+
+          <form class="flexbox-column gap-y-4">
+            <!-- Username -->
+            <div class="flexbox-column gap-y-1">
+              <label for="username" class="text-sm font-medium text-gray-700"
+                >Username</label
+              >
+              <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                placeholder="Enter your username"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="flexbox-column gap-y-1">
+              <label for="email" class="text-sm font-medium text-gray-700"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="flexbox-column gap-y-1">
+              <label for="password" class="text-sm font-medium text-gray-700"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                placeholder="Enter your password"
+              />
+            </div>
+
+            <!-- Show Password Checkbox -->
+            <div class="flex items-center gap-x-2">
+              <input
+                type="checkbox"
+                id="showPassword"
+                class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+              />
+              <label for="showPassword" class="text-sm text-gray-600"
+                >Show password</label
+              >
+            </div>
+
+            <!-- Register Button -->
+            <button type="submit" class="btn-fill w-full mt-2">Register</button>
+
+            <!-- Sign In Link -->
+            <p class="text-center text-sm text-gray-600">
+              Already have an account?
+              <a
+                href="./signin.html"
+                class="text-purple-600 hover:text-purple-700 font-medium"
+                >Sign in</a
+              >
+            </p>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!--* Footer -->
+    <footer class="py-8 px-6 bg-purple-950 text-white flexbox-column gap-y-5">
+      <!--? Links -->
+      <div class="flex justify-between items-center max-md:justify-center">
+        <!-- Logo -->
+        <div class="max-md:text-xl max-lg:text-2xl lg:text-3xl max-md:hidden">
+          <a href="./" class="flex items-center gap-x-2 max-md:gap-x-5">
+            <img
+              src="../../public/assets/images/light-bulb icon.png"
+              alt="Light bulb image - logo"
+              class="w-9 max-md:w-12"
+            />
+            <strong>iQuiz</strong></a
+          >
+        </div>
+        <ul class="flex gap-x-15 max-lg:gap-x-8 max-sm:text-lg">
+          <li><a href="./../index.html/#about">About us</a></li>
+          <li><a href="./../index.html/#features">Features</a></li>
+          <li><a>Help Center</a></li>
+          <li><a>Contact us</a></li>
+          <li><a>FAQs</a></li>
+        </ul>
+      </div>
+      <hr />
+      <!--? Copyright & Social media -->
+      <div class="flex justify-between items-center">
+        <p>&copy; 2025 Brand, Inc. &comma; Privacy &comma; Terms</p>
+        <ul class="flex gap-x-5 items-center">
+          <li>
+            <a href="https://www.facebook.com"
+              ><img
+                src="../../public/assets/images/facebook.svg"
+                alt="facebook icon"
+                class="w-4"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com"
+              ><img
+                src="../../public/assets/images/linkedin.svg"
+                alt="linkedin icon"
+                class="w-5"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com"
+              ><img
+                src="../../public/assets/images/youtube.svg"
+                alt="youtube icon"
+                class="w-5"
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
 </html>
