@@ -10,9 +10,8 @@ const { env } = require("process");
 module.exports = {
   mode: env.prod ? "production" : "development",
   entry: {
-    main: path.resolve(__dirname, "src", "scripts", "main.ts"),
-    register: path.resolve(__dirname, "src", "scripts", "register.ts"),
-    signIn: path.resolve(__dirname, "src", "scripts", "signIn.ts"),
+    main: path.resolve(__dirname, "src", "main.ts"),
+    homepage: path.resolve(__dirname, "src", "styles", "pages", "homepage.css"),
   },
   output: {
     filename: "scripts/[name]_[contenthash].js",
@@ -35,7 +34,7 @@ module.exports = {
       }),
     ],
   },
-  devtool: "source-map",
+  devtool: "eval-source-map",
   // Setting up dev server
   devServer: {
     static: {
@@ -105,7 +104,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["main"],
+      chunks: ["main", "homepage"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -128,7 +127,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["register", "main"],
+      chunks: ["main"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -151,7 +150,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["signIn", "main"],
+      chunks: ["main"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -161,10 +160,9 @@ module.exports = {
       },
     }),
     new MiniCSSExtractPlugin({
-      filename: "styles/style_[contenthash].css",
+      filename: "styles/[name]_[contenthash].css",
       chunkFilename: "chunks/[id]_[contenthash].css",
       insert: "head",
-      ignoreOrder: true,
       runtime: true,
     }),
     new CompressionPlugin({

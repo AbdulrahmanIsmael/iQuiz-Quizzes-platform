@@ -1,0 +1,17 @@
+@import "../layouts/grid.css";
+
+.cards {
+  @apply grid grid-responsive;
+}
+
+@layer utilities {
+  .card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+    border: 1px solid oklch(92.8% 0.006 264.531);
+    padding: 2.5em 1.2em;
+    box-shadow: 0px 0px 3px oklch(87.2% 0.01 258.338);
+  }
+}

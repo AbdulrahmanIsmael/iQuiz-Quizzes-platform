@@ -1,6 +1,4 @@
-import "../styles/style.css";
-
-class Events {
+export default class MenuBtn {
   private static menuBtn = document.getElementById(
     "menuBtn"
   ) as HTMLButtonElement;
@@ -18,5 +16,3 @@ class Events {
     });
   }
 }
-
-Events.setResponsiveMenu();
