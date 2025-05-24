@@ -1,0 +1,25 @@
+@import "../components/card.css";
+@import "../components/overlay.css";
+@reference '../tailwind.css';
+
+.section-title {
+  @apply max-sm:text-4xl max-md:text-5xl md:text-6xl font-semibold tracking-tighter text-purple-800;
+}
+
+.subsection-border {
+  @apply border-b-2 border-gray-200 pb-6;
+}
+.subsection-title {
+  @apply text-purple-800 max-lg:text-lg text-xl font-semibold;
+}
+
+.subsection-paragraph {
+  @apply text-lg text-gray-500;
+}
+
+@layer utilities {
+  .bg-full-gray {
+    box-shadow: 0 0 0 100vmax var(--color-gray-50);
+    clip-path: inset(0 -100vmax);
+  }
+}

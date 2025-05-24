@@ -1,0 +1,10 @@
+/* Custom Fonts */
+@font-face {
+  font-family: "inter";
+  src: url("../../public/assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype");
+}
+
+@theme {
+  --font-inter: "inter";
+}

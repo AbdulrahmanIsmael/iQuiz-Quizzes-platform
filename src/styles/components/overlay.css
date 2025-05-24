@@ -1,0 +1,10 @@
+.overlay {
+  position: relative;
+}
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.4);
+  z-index: -10;
+}

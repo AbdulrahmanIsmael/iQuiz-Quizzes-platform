@@ -14,16 +14,9 @@
     <!--* Header & Navigation Bar -->
     <header>
       <!--? Navbar -->
-      <nav
-        class="navbar-style flexbox-column gap-y-3 justify-stretch items-baseline"
-      >
+      <nav class="navbar flexbox-column gap-y-3 justify-stretch items-baseline">
         <!-- Respnsiveness menu -->
-        <button
-          id="menuBtn"
-          class="navbar-menu-btn"
-          type="button"
-          title="Menu Button"
-        >
+        <button id="menuBtn" class="menu-btn" type="button" title="Menu Button">
           <div
             class="flex gap-y-1 flex-col justify-between items-stretch translate-x-5"
           >
@@ -59,32 +52,32 @@
             class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
           >
             <li
-              class="cursor-pointer navlink-style active-navlink transition duration-100 ease-in-out"
+              class="cursor-pointer navlink navlink-active transition duration-100 ease-in-out"
             >
               <a>Home</a>
             </li>
             <li
-              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
             >
               <a href="./../index.html/#about">About</a>
             </li>
             <li
-              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
             >
               <a href="./../index.html/#features">Features</a>
             </li>
             <li
-              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
             >
               <a>Contact</a>
             </li>
           </ul>
           <!-- Sign in and Register buttons -->
           <div class="flex gap-x-5">
-            <a class="btn-transparent" id="registerBtn" href="./register.html">
+            <a class="transparent-btn" id="registerBtn" href="./register.html">
               Register
             </a>
-            <a class="btn-fill" id="signInBtn" href="./signIn.html">
+            <a class="filled-btn" id="signInBtn" href="./signIn.html">
               Sign in
             </a>
           </div>
@@ -159,7 +152,9 @@
             </div>
 
             <!-- Register Button -->
-            <button type="submit" class="btn-fill w-full mt-2">Register</button>
+            <button type="submit" class="filled-btn w-full mt-2">
+              Register
+            </button>
 
             <!-- Sign In Link -->
             <p class="text-center text-sm text-gray-600">
@@ -191,8 +186,8 @@
           >
         </div>
         <ul class="flex gap-x-15 max-lg:gap-x-8 max-sm:text-lg">
-          <li><a href="./../index.html/#about">About us</a></li>
-          <li><a href="./../index.html/#features">Features</a></li>
+          <li><a href="./#about">About us</a></li>
+          <li><a href="./#features">Features</a></li>
           <li><a>Help Center</a></li>
           <li><a>Contact us</a></li>
           <li><a>FAQs</a></li>
@@ -206,7 +201,7 @@
           <li>
             <a href="https://www.facebook.com"
               ><img
-                src="../../public/assets/images/facebook.svg"
+                src="../../public/assets/icons/facebook.svg"
                 alt="facebook icon"
                 class="w-4"
             /></a>
@@ -214,7 +209,7 @@
           <li>
             <a href="https://www.linkedin.com"
               ><img
-                src="../../public/assets/images/linkedin.svg"
+                src="../../public/assets/icons/linkedin.svg"
                 alt="linkedin icon"
                 class="w-5"
             /></a>
@@ -222,7 +217,7 @@
           <li>
             <a href="https://www.youtube.com"
               ><img
-                src="../../public/assets/images/youtube.svg"
+                src="../../public/assets/icons/youtube.svg"
                 alt="youtube icon"
                 class="w-5"
             /></a>

@@ -4,7 +4,6 @@
   "description": "IQuiz is your a professional place to create and manage your quizzes and surveys, or solve them.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack serve"
   },

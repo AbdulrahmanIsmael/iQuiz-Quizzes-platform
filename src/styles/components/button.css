@@ -1,0 +1,15 @@
+.filled-btn {
+  @apply cursor-pointer border-2 border-solid border-purple-500 bg-purple-500 text-white px-8 py-1.5 rounded-lg text-sm font-bold hover:bg-white hover:text-purple-500 hover:brightness-125 transition duration-150 ease-linear;
+}
+
+.transparent-btn {
+  @apply bg-white cursor-pointer border-2 border-solid border-purple-500 text-purple-500 px-8 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-500 hover:text-white transition duration-150 ease-linear;
+}
+
+.menu-btn {
+  @apply bg-transparent border-0 hidden cursor-pointer w-full h-8 max-md:flex justify-end items-center;
+}
+
+button:active {
+  transform: scale(95%);
+}

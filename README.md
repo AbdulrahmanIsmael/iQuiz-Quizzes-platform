@@ -11,7 +11,7 @@
 ## Current Status
 
 - This Project is split into **3** stages, each stage has its own work and tasks.
-- I am currently working on initializing the Project Environment to start work on the Main page, Sign-in and Register pages and functionalities to make users able to have their own account.
+- I am working on the Authentication system of the website using Firebase
 
 ---
 
@@ -19,6 +19,10 @@
 
 - I am going to concentrate on working with **Firebase** alot, including _Authentication_ and _Real-time Database_ to store Users Data (Register details, Quizzes, ...), or fetch necessary Data.
 - I plan to add show Results as a future features and make a list of the best solvers as a competition between users on who is the best in solving Quizzes.
+
+---
+
+## Feature-based Architecture (Modularization)
 
 ---
 

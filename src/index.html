@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IQuiz - A dedicated space for your quizzes</title>
+    <title>iQuiz - A dedicated space for your quizzes</title>
     <link
       rel="shortcut icon"
       href="../public/assets/images/light-bulb icon.png"
@@ -14,16 +14,9 @@
     <!--* Header & Navigation Bar -->
     <header>
       <!--? Navbar -->
-      <nav
-        class="navbar-style flexbox-column gap-y-3 justify-stretch items-baseline"
-      >
+      <nav class="navbar flexbox-column gap-y-3 justify-stretch items-baseline">
         <!-- Respnsiveness menu -->
-        <button
-          id="menuBtn"
-          class="navbar-menu-btn"
-          type="button"
-          title="Menu Button"
-        >
+        <button id="menuBtn" class="menu-btn" type="button" title="Menu Button">
           <div
             class="flex gap-y-1 flex-col justify-between items-stretch translate-x-5"
           >
@@ -54,27 +47,26 @@
               <strong>iQuiz</strong></a
             >
           </div>
-          <!--! Navbar links: href -->
           <ul
             class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
           >
             <li
-              class="cursor-pointer navlink-style active-navlink transition duration-100 ease-in-out"
+              class="cursor-pointer navlink navlink-active transition duration-100 ease-in-out"
             >
               <a>Home</a>
             </li>
             <li
-              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
             >
               <a href="./#about">About</a>
             </li>
             <li
-              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
             >
               <a href="./#features">Features</a>
             </li>
             <li
-              class="cursor-pointer navlink-style transition duration-100 ease-in-out"
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
             >
               <a>Contact</a>
             </li>
@@ -82,13 +74,13 @@
           <!-- Sign in and Register buttons -->
           <div class="flex gap-x-5">
             <a
-              class="btn-transparent"
+              class="transparent-btn"
               id="registerBtn"
               href="./pages/register.html"
             >
               Register
             </a>
-            <a class="btn-fill" id="signInBtn" href="./pages/signIn.html">
+            <a class="filled-btn" id="signInBtn" href="./pages/signIn.html">
               Sign in
             </a>
           </div>
@@ -96,9 +88,8 @@
       </nav>
 
       <!--? Showcase -->
-      <!--! Replace Image -->
       <section
-        class="h-[90vh] md:pb-30 md:pl-30 relative isolate overlay bg-[url('../../public/assets/images/iQuiz_showcase.png')] bg-image-clean !bg-contain flexbox-column justify-center items-center md:justify-end md:items-start gap-y-5"
+        class="h-[90vh] md:!pb-30 md:!pl-15 relative isolate overlay bg-[url('../../public/assets/images/iQuiz_showcase.png')] bg-image-clean !bg-contain flexbox-column justify-center items-center md:justify-end md:items-start gap-y-5"
       >
         <h2 class="text-3xl lg:text-5xl text-center font-bold text-white">
           Create & Discover Quizzes
@@ -106,7 +97,7 @@
         <p class="lg:text-xl text-white text-center">
           Engage with several quizzes and surveys or Create your own in seconds.
         </p>
-        <a class="btn-fill" href="./pages/register.html">Register Now!</a>
+        <a class="filled-btn" href="./pages/register.html">Register Now!</a>
       </section>
     </header>
 
@@ -114,7 +105,6 @@
     <main>
       <div class="container mx-auto">
         <!--? About Us -->
-        <!--! Center text in about details section -->
         <section
           id="about"
           class="min-h-screen flex lg:gap-x-25 max-lg:flex-col max-lg:gap-y-25 lg:items-stretch"
@@ -129,35 +119,35 @@
             </p>
             <!-- Charactaristics of IQuiz -->
             <div
-              class="flexbox-column gap-y-6 max-lg:gap-y-3 w-5/6 max-lg:w-11/12 about-char-children-style"
+              class="flexbox-column gap-y-6 max-lg:gap-y-3 w-5/6 max-lg:w-11/12"
             >
-              <div>
-                <h3 class="about-char-title">Innovation</h3>
-                <p class="about-char-paragraph">
+              <div class="subsection-border flexbox-column gap-y-6">
+                <h3 class="subsection-title">Innovation</h3>
+                <p class="subsection-paragraph">
                   We leverage cutting-edge technology and creative design to
                   deliver an engaging and seamless quiz experience, redefining
                   how people learn and test their knowledge.
                 </p>
               </div>
-              <div>
-                <h3 class="about-char-title">Customer Centric</h3>
-                <p class="about-char-paragraph">
+              <div class="subsection-border flexbox-column gap-y-6">
+                <h3 class="subsection-title">Customer Centric</h3>
+                <p class="subsection-paragraph">
                   Our commitment is to you, the user. We strive to create a
                   platform that is intuitive, enjoyable, and constantly evolving
                   to meet your needs.
                 </p>
               </div>
-              <div>
-                <h3 class="about-char-title">Expertise</h3>
-                <p class="about-char-paragraph">
+              <div class="subsection-border flexbox-column gap-y-6">
+                <h3 class="subsection-title">Expertise</h3>
+                <p class="subsection-paragraph">
                   Our team is composed of experts in education, design, and
                   technology, bringing years of experience and passion to create
                   a world-class quiz platform.
                 </p>
               </div>
-              <div>
-                <h3 class="about-char-title">Integrity</h3>
-                <p class="about-char-paragraph">
+              <div class="flexbox-column gap-y-6">
+                <h3 class="subsection-title">Integrity</h3>
+                <p class="subsection-paragraph">
                   At IQuiz, we value transparency, honesty, and a user-first
                   approach, ensuring you always feel confident in our platform
                   and its purpose.
@@ -182,8 +172,8 @@
         >
           <h2 class="section-title">Features</h2>
           <!-- Features Cards -->
-          <div class="grid grid-responsive gap-8 card-blocks">
-            <div>
+          <div class="cards gap-8">
+            <div class="card">
               <div class="[&:hover>img]:scale-125 overflow-hidden">
                 <img
                   src="../public/assets/images/custom_quizzes.png"
@@ -198,7 +188,7 @@
                 knowledge.
               </p>
             </div>
-            <div>
+            <div class="card">
               <div class="[&:hover>img]:scale-125 overflow-hidden">
                 <img
                   src="../public/assets/images/iQuiz_competition.png"
@@ -212,7 +202,7 @@
               <small class="text-sm text-gray-500">Real-Time Play</small>
               <p>Compete with friends or players globally in quizzes.</p>
             </div>
-            <div>
+            <div class="card">
               <div
                 class="border border-solid border-gray-500 [&:hover>img]:scale-125 overflow-hidden"
               >
@@ -232,7 +222,9 @@
             </div>
           </div>
           <!-- register button -->
-          <button type="button" class="btn-fill">Start Your Journey Now</button>
+          <button type="button" class="filled-btn">
+            Start Your Journey Now
+          </button>
         </section>
 
         <!--? Join -->
@@ -255,7 +247,7 @@
               </p>
               <button
                 type="button"
-                class="btn-transparent hover:!bg-white hover:!text-purple-500"
+                class="transparent-btn hover:!bg-white hover:!text-purple-500"
               >
                 Join for free
               </button>
@@ -304,7 +296,7 @@
           <li>
             <a href="https://www.facebook.com"
               ><img
-                src="../public/assets/images/facebook.svg"
+                src="../public/assets/icons/facebook.svg"
                 alt="facebook icon"
                 class="w-4"
             /></a>
@@ -312,7 +304,7 @@
           <li>
             <a href="https://www.linkedin.com"
               ><img
-                src="../public/assets/images/linkedin.svg"
+                src="../public/assets/icons/linkedin.svg"
                 alt="linkedin icon"
                 class="w-5"
             /></a>
@@ -320,7 +312,7 @@
           <li>
             <a href="https://www.youtube.com"
               ><img
-                src="../public/assets/images/youtube.svg"
+                src="../public/assets/icons/youtube.svg"
                 alt="youtube icon"
                 class="w-5"
             /></a>

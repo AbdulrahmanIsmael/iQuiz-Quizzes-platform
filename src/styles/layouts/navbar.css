@@ -1,0 +1,11 @@
+.navbar {
+  @apply bg-white w-full px-10 pt-6 pb-2 border-b-2 border-solid md:border-transparent max-md:border-purple-500 shadow-md;
+}
+
+.navlink {
+  @apply sm:px-3 lg:px-6 pb-2.5 text-sm border-solid border-b-4 max-md:border-b-0 border-white hover:text-purple-500 hover:border-purple-500;
+}
+
+.navlink-active {
+  @apply transition-none border-b-4 max-md:border-b-2 border-solid border-purple-500 text-purple-500 font-bold;
+}
