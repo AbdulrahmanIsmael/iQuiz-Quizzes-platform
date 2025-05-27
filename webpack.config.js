@@ -137,8 +137,8 @@ module.exports = {
       },
     }),
     new HTMLPlugin({
-      template: path.resolve(__dirname, "src", "pages", "signIn.html"),
-      filename: "pages/signIn.html",
+      template: path.resolve(__dirname, "src", "pages", "sign-in.html"),
+      filename: "pages/sign-in.html",
       meta: {
         description: "Sign In and start making or solving Quizzes Now!",
         keywords:

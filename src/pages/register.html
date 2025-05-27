@@ -77,7 +77,7 @@
             <a class="transparent-btn" id="registerBtn" href="./register.html">
               Register
             </a>
-            <a class="filled-btn" id="signInBtn" href="./signIn.html">
+            <a class="filled-btn" id="signInBtn" href="./sign-in.html">
               Sign in
             </a>
           </div>
@@ -139,10 +139,28 @@
               />
             </div>
 
+            <!-- Confirm_Password -->
+            <div class="flexbox-column gap-y-1">
+              <label
+                for="confirm-password"
+                class="text-sm font-medium text-gray-700"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
+                placeholder="Enter your password again"
+              />
+            </div>
+
             <!-- Show Password Checkbox -->
             <div class="flex items-center gap-x-2">
               <input
                 type="checkbox"
+                name="showPassword"
                 id="showPassword"
                 class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
               />
@@ -160,7 +178,7 @@
             <p class="text-center text-sm text-gray-600">
               Already have an account?
               <a
-                href="./signin.html"
+                href="./sign-in.html"
                 class="text-purple-600 hover:text-purple-700 font-medium"
                 >Sign in</a
               >
