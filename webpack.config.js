@@ -1,17 +1,34 @@
 // Requiring Plugins
+const { env } = require("process");
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CSSMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
-const { env } = require("process");
+const IgnoreEmitPlugin = require("ignore-emit-webpack-plugin");
 
 module.exports = {
   mode: env.prod ? "production" : "development",
   entry: {
     main: path.resolve(__dirname, "src", "main.ts"),
     homepage: path.resolve(__dirname, "src", "styles", "pages", "homepage.css"),
+    register: path.resolve(
+      __dirname,
+      "src",
+      "features",
+      "authentication",
+      "register",
+      "register.ts"
+    ),
+    signIn: path.resolve(
+      __dirname,
+      "src",
+      "features",
+      "authentication",
+      "sign-in",
+      "sign-in.ts"
+    ),
   },
   output: {
     filename: "scripts/[name]_[contenthash].js",
@@ -127,7 +144,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["main"],
+      chunks: ["main", "register"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -150,7 +167,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["main"],
+      chunks: ["main", "signIn"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -171,5 +188,7 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8,
     }),
+    new IgnoreEmitPlugin(/^scripts\/homepage_?.*\.js$/),
+    ,
   ],
 };
