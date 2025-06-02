@@ -10,6 +10,6 @@
   @apply bg-transparent border-0 hidden cursor-pointer w-full h-8 max-md:flex justify-end items-center;
 }
 
-button:active {
+button:active:not(:first-of-type) {
   transform: scale(95%);
 }

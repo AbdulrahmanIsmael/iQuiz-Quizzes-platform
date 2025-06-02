@@ -1,4 +1,4 @@
-import ShowPassword from "../../../components/ShowPassword/showPassword";
+import { SignInShowPassword } from "../modules/showPassword";
 
 // Immediately invoked function expression (IIFE) to initialize the sign in form password visibility toggle
 (function showSignInPassword(): void {
@@ -7,7 +7,7 @@ import ShowPassword from "../../../components/ShowPassword/showPassword";
     "showPassword"
   ) as HTMLInputElement;
 
-  const signInInstance: ShowPassword = ShowPassword.getInstance(
+  const signInInstance: SignInShowPassword = SignInShowPassword.getInstance(
     passwordInput,
     toggleCheckbox
   );
