@@ -1,4 +1,4 @@
-import { I_strategy } from "../types/validation_types";
+import { I_strategy } from "../../types/validation_types";
 
 export default class Input {
   private strategy: I_strategy;
@@ -18,7 +18,7 @@ export default class Input {
 // Username Strategy
 export class UsernameStrategy implements I_strategy {
   public validate(username: HTMLInputElement): boolean {
-    const usernameRegex = /^[^\d_][a-zA-Z\d_]{7,20}$/;
+    const usernameRegex = /^[^\d_][a-zA-Z\d_]{7,25}$/;
     return usernameRegex.test(username.value);
   }
 }
@@ -35,7 +35,7 @@ export class EmailStrategy implements I_strategy {
 // Password Strategy
 export class PasswordStrategy implements I_strategy {
   public validate(password: HTMLInputElement): boolean {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[a-zA-Z\d\W_]{8,15}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[a-zA-Z\d\W_]{8,30}$/;
     return passwordRegex.test(password.value);
   }
 }

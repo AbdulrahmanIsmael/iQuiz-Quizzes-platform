@@ -39,10 +39,6 @@ export class RegisterShowPassword {
   public init(): void {
     this.showPasswordCheckbox.addEventListener("change", this.boundHandler);
   }
-
-  public destroy(): void {
-    this.showPasswordCheckbox.removeEventListener("change", this.boundHandler);
-  }
 }
 
 //* Sign In Show Password Module
@@ -80,9 +76,5 @@ export class SignInShowPassword {
 
   public init(): void {
     this.showPasswordCheckbox.addEventListener("change", this.boundHandler);
-  }
-
-  public destroy(): void {
-    this.showPasswordCheckbox.removeEventListener("change", this.boundHandler);
   }
 }

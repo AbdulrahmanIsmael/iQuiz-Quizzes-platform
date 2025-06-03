@@ -47,12 +47,11 @@
               <strong>iQuiz</strong></a
             >
           </div>
-          <!--! Navbar links: href -->
           <ul
             class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
           >
             <li
-              class="cursor-pointer navlink navlink-active transition duration-100 ease-in-out"
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
             >
               <a>Home</a>
             </li>
@@ -107,16 +106,16 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
                 placeholder="Enter your username"
               />
-              <div
+              <p
                 id="error-username-msg"
                 class="text-xs text-red-500 font-semibold hidden"
               >
                 ⓧ
                 <span id="msg" span
-                  >Username is not valid. It must be between 7 and 20 character
+                  >Username is not valid. It must be between 7 and 25 character
                   long and not start with number or special characters.</span
                 >
-              </div>
+              </p>
             </div>
 
             <!-- Email -->
@@ -132,7 +131,7 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
                 placeholder="Enter your email"
               />
-              <div
+              <p
                 id="error-email-msg"
                 class="text-xs text-red-500 font-semibold hidden"
               >
@@ -141,7 +140,7 @@
                   >Email address is not valid. Please try again with a valid
                   email
                 </span>
-              </div>
+              </p>
             </div>
 
             <!-- Password -->
@@ -157,17 +156,17 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
                 placeholder="Enter your password"
               />
-              <div
+              <p
                 id="error-password-msg"
                 class="text-xs text-red-500 font-semibold hidden"
               >
                 ⓧ
                 <span id="msg" span
-                  >password is not valid. It must be between 8 and 15 characters
+                  >password is not valid. It must be between 8 and 30 characters
                   long, contain at least one uppercase letter, one digit, and
                   one special character.
                 </span>
-              </div>
+              </p>
             </div>
 
             <!-- Confirm_Password -->
@@ -185,7 +184,7 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
                 placeholder="Enter your password again"
               />
-              <div
+              <p
                 id="error-confirmation-msg"
                 class="text-xs text-red-500 font-semibold hidden"
               >
@@ -193,7 +192,7 @@
                 <span id="msg" span
                   >Passwords do not match. Please try again.</span
                 </span>
-              </div>
+              </p>
             </div>
 
             <!-- Show Password Checkbox -->
@@ -213,6 +212,16 @@
             <button type="submit" class="filled-btn w-full mt-2">
               Register
             </button>
+
+            <!-- Error Message -->
+            <p
+              id="error-msg"
+              class="text-xs text-red-500 font-semibold hidden text-center">
+              ⓧ
+              <span id="msg" span
+                >There was an error creating your account. Please try again
+                later.</span
+            </p>
 
             <!-- Sign In Link -->
             <p class="text-center text-sm text-gray-600">
