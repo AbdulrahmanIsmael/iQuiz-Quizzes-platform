@@ -22,7 +22,7 @@
 
 ---
 
-## Feature-based Architecture (Modularization)
+## Feature-based Architecture (Modularization) - Project Structure
 
 ---
 
