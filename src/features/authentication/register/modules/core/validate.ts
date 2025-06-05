@@ -34,7 +34,8 @@ export default class Validation {
       const isValid: boolean = this.input.validate(input);
       toggleErrorMsg(errorMsg, !isValid);
       // Update the validation check object
-      this.validationCheck[input.name as keyof I_validationCheck] = isValid;
+      this.validationCheck[input.name as "username" | "email" | "password"] =
+        isValid ? (input.value as string) : false;
     });
   }
 
