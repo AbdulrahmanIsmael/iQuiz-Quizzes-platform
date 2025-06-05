@@ -1,3 +1,5 @@
+type falsyOrInputValue = false | string;
+
 export interface I_strategy {
   validate: (input: HTMLInputElement) => boolean;
 }
@@ -10,8 +12,8 @@ export interface I_validation {
 }
 
 export interface I_validationCheck {
-  username: boolean;
-  email: boolean;
-  password: boolean;
+  username: falsyOrInputValue;
+  email: falsyOrInputValue;
+  password: falsyOrInputValue;
   confirmPassword: boolean;
 }

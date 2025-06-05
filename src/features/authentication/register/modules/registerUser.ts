@@ -1,5 +1,6 @@
 import toggleErrorMsg from "../../modules/toggleErrorMsg";
 import { I_validationCheck } from "../types/validation_types";
+import { createUser } from "./core/createUser";
 import Validation from "./core/validate";
 import {
   EmailStrategy,
@@ -55,10 +56,16 @@ function sendUserData(
       validationResults.confirmPassword
     ) {
       toggleErrorMsg(errorMsg, false);
+      createUser({
+        username: validationResults.username,
+        email: validationResults.email,
+        password: validationResults.password,
+      });
+      //! showing success message and redirecting to the main page of the user
       console.log("User data is valid. Proceeding with registration...");
     } else {
       toggleErrorMsg(errorMsg, true);
-      console.log("User data is invalid. Please check the form.");
+      console.error("User data is invalid. Please check the form.");
     }
   });
 }
