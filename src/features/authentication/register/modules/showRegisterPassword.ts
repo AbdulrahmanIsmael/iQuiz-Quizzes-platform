@@ -1,13 +1,16 @@
 import { RegisterShowPassword } from "../../modules/showPassword";
 
 export default function showRegisterPassword(): void {
-  const passwordInput = document.getElementById("password") as HTMLInputElement;
-  const toggleCheckbox = document.getElementById(
-    "showPassword"
-  ) as HTMLInputElement;
-  const confirmPasswordInput = document.getElementById(
-    "confirm-password"
-  ) as HTMLInputElement;
+  const passwordInput = <HTMLInputElement>document.getElementById("password");
+  const toggleCheckbox = <HTMLInputElement>(
+    document.getElementById("showPassword")
+  );
+  const confirmPasswordInput = <HTMLInputElement>(
+    document.getElementById("confirm-password")
+  );
+
+  if (!passwordInput || !toggleCheckbox || !confirmPasswordInput)
+    console.error("Required inputs not found!");
 
   const registerInstance: RegisterShowPassword =
     RegisterShowPassword.getInstance(

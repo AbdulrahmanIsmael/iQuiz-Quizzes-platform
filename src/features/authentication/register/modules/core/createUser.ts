@@ -13,7 +13,12 @@ export async function createUser(user: I_userProfile): Promise<void> {
     await updateProfile(userCredentials.user, {
       displayName: user.username,
     });
-  } catch (error) {
-    console.error(error);
+  } catch (error: any) {
+    /*const errorMsg: HTMLParagraphElement = document.querySelector(
+      ".error-msg"
+    ) as HTMLParagraphElement;*/
+    if (error.code === "auth/email-already-in-use") {
+      console.error(error.message);
+    }
   }
 }

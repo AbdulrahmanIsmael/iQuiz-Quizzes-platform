@@ -1,8 +1,14 @@
 import registerUser from "./modules/registerUser";
 import showRegisterPassword from "./modules/showRegisterPassword";
+import validateUserData from "./modules/validateUserData";
 
-// toggle password visibility
-showRegisterPassword();
+document.addEventListener("DOMContentLoaded", () => {
+  // toggle password visibility
+  showRegisterPassword();
 
-// validate and register the user
-registerUser();
+  // validate user data entered in the form
+  validateUserData();
+
+  // register the user on form submission
+  registerUser();
+});
