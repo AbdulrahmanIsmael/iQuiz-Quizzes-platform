@@ -1,4 +1,4 @@
-import { I_strategy } from "../../types/validation_types";
+import { I_strategy } from "../../types/validation-types";
 
 export default class Input {
   private strategy: I_strategy;

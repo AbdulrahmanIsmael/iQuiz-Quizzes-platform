@@ -93,7 +93,7 @@
             Sign In
           </h2>
 
-          <form class="flexbox-column gap-y-4">
+          <form id="sign-in-form" class="flexbox-column gap-y-4">
             <!-- Email -->
             <div class="flexbox-column gap-y-1">
               <label for="email" class="text-sm font-medium text-gray-700"
@@ -107,6 +107,16 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
                 placeholder="Enter your email"
               />
+              <p
+                id="error-email-msg"
+                class="text-xs text-red-500 font-semibold hidden"
+              >
+                ⓧ
+                <span id="msg" span
+                  >Email address is not valid. Please make sure to enter the
+                  correct email address!
+                </span>
+              </p>
             </div>
 
             <!-- Password -->
@@ -122,6 +132,16 @@
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-purple-500"
                 placeholder="Enter your password"
               />
+              <p
+                id="error-password-msg"
+                class="text-xs text-red-500 font-semibold hidden"
+              >
+                ⓧ
+                <span id="msg" span
+                  >password is not valid. please make sure to enter the correct
+                  password!
+                </span>
+              </p>
             </div>
 
             <!-- Show Password Checkbox -->
@@ -140,6 +160,15 @@
             <button type="submit" class="filled-btn w-full mt-2">
               Sign In
             </button>
+
+            <!-- Error Message -->
+            <p
+              id="error-msg"
+              class="text-xs text-red-500 font-semibold hidden text-center">
+              ⓧ
+              <span? id="msg" span
+                >Email or password is incorrect, please try again!</span>
+            </p>
 
             <!-- Register Link -->
             <p class="text-center text-sm text-gray-600">

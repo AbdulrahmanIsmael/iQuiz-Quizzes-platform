@@ -1,5 +1,5 @@
+import Validation from "../../modules/core/validate";
 import processRegistration from "./core/processRegistration";
-import Validation from "./core/validate";
 
 // validate the register form inputs
 export default function registerUser(): void {
@@ -8,8 +8,11 @@ export default function registerUser(): void {
   );
   const errorMsg = <HTMLParagraphElement>document.getElementById("error-msg");
 
-  !registerForm && console.error("Register Form not found!");
-  !errorMsg && console.error("Error message element not found!");
+  if (!registerForm || !errorMsg) {
+    !registerForm && console.error("Register Form not found!");
+    !errorMsg && console.error("Error message element not found!");
+    return;
+  }
 
   processRegistration(registerForm, Validation.validationCheck, errorMsg);
 }

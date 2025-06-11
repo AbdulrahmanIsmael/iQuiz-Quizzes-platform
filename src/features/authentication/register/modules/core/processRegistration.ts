@@ -1,5 +1,5 @@
 import toggleErrorMsg from "../../../modules/toggleErrorMsg";
-import { I_validationCheck } from "../../types/validation_types";
+import { I_validationCheck } from "../../../types/validation-types";
 import { createUser } from "./createUser";
 
 export default function processRegistration(

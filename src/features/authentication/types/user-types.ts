@@ -1,5 +1,5 @@
 export interface I_userProfile {
-  username: string;
+  username?: string;
   email: string;
   password: string;
 }

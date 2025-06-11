@@ -1,5 +1,5 @@
-import toggleErrorMsg from "../../../modules/toggleErrorMsg";
-import { I_strategy, I_validationCheck } from "../../types/validation_types";
+import { I_strategy, I_validationCheck } from "../../types/validation-types";
+import toggleErrorMsg from "../toggleErrorMsg";
 import Input, {
   PasswordStrategy,
   UsernameStrategy,
