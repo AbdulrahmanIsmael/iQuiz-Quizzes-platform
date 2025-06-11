@@ -1,16 +1,15 @@
-import { SignInShowPassword } from "../modules/showPassword";
+import validateUserData from "../modules/validateUserData";
+import showSignInPassword from "./modules/showSignInPassword";
+import signInUser from "./modules/signInUser";
+document.addEventListener("DOMContentLoaded", () => {
+  const signInForm = <HTMLFormElement>document.getElementById("sign-in-form");
 
-// Immediately invoked function expression (IIFE) to initialize the sign in form password visibility toggle
-(function showSignInPassword(): void {
-  const passwordInput = document.getElementById("password") as HTMLInputElement;
-  const toggleCheckbox = document.getElementById(
-    "showPassword"
-  ) as HTMLInputElement;
+  // Toggle password visibility
+  showSignInPassword();
 
-  const signInInstance: SignInShowPassword = SignInShowPassword.getInstance(
-    passwordInput,
-    toggleCheckbox
-  );
+  // validate user data entered in the form
+  validateUserData(signInForm);
 
-  signInInstance.init();
-})();
+  // Sign in form submission
+  signInUser();
+});

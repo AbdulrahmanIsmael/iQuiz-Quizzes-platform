@@ -4,7 +4,8 @@ import {
   UserCredential,
 } from "firebase/auth";
 import { auth } from "../../../firebase";
-import { I_userProfile } from "../../types/user";
+import toggleErrorMsg from "../../../modules/toggleErrorMsg";
+import { I_userProfile } from "../../../types/user-types";
 
 export async function createUser(user: I_userProfile): Promise<void> {
   try {
@@ -14,11 +15,13 @@ export async function createUser(user: I_userProfile): Promise<void> {
       displayName: user.username,
     });
   } catch (error: any) {
-    /*const errorMsg: HTMLParagraphElement = document.querySelector(
-      ".error-msg"
-    ) as HTMLParagraphElement;*/
+    const errorMsg = <HTMLParagraphElement>document.getElementById("error-msg");
     if (error.code === "auth/email-already-in-use") {
-      console.error(error.message);
+      toggleErrorMsg(errorMsg, true, "Email already in use!");
     }
+    if (error.code === "auth/user-not-fould") {
+      toggleErrorMsg(errorMsg, true, "User not found, please try again later!");
+    }
+    console.log(error.message);
   }
 }
