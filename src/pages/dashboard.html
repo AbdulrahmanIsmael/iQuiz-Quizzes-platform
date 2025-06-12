@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IQuiz - Dashboard</title>
+    <link
+      rel="shortcut icon"
+      href="../../public/assets/images/light-bulb icon.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <!--* Header & Navigation Bar -->
+    <header>
+      <!--? Navbar -->
+      <nav class="navbar flexbox-column gap-y-3 justify-stretch items-baseline">
+        <!-- Respnsiveness menu -->
+        <button id="menuBtn" class="menu-btn" type="button" title="Menu Button">
+          <div
+            class="flex gap-y-1 flex-col justify-between items-stretch translate-x-5"
+          >
+            <div class="h-1 w-7 bg-purple-400"></div>
+            <div class="h-1 w-7 bg-purple-400"></div>
+            <div class="h-1 w-7 bg-purple-400"></div>
+          </div>
+        </button>
+
+        <!-- large Screen: looking alone / Responsive: menu with collapse button -->
+        <div
+          class="w-full flex max-md:flex-col max-md:!hidden max-md:gap-y-5 justify-between items-center flex-nowrap transition-all duration-200 ease-linear"
+          id="responsiveMenu"
+        >
+          <!-- Logo -->
+          <div
+            class="text-purple-700 max-md:pb-5 max-md:text-xl max-lg:text-2xl lg:text-3xl"
+          >
+            <a
+              href="/index.html"
+              class="flex items-center gap-x-2 max-md:gap-x-5"
+            >
+              <img
+                src="../../public/assets/images/light-bulb (64).png"
+                alt="Light bulb image - logo"
+                class="w-9 max-md:w-12"
+              />
+              <strong>iQuiz</strong></a
+            >
+          </div>
+          <ul
+            class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
+          >
+            <li
+              class="cursor-pointer navlink navlink-active transition duration-100 ease-in-out"
+            >
+              <a>Home</a>
+            </li>
+            <li
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
+            >
+              <a href=".">Quizzes</a>
+            </li>
+            <li
+              class="cursor-pointer navlink transition duration-100 ease-in-out"
+            >
+              <a href=".">Create</a>
+            </li>
+          </ul>
+          <!-- User control -->
+          <div>
+            <div>
+              <!-- button to show profile menu -->
+              <button
+                class="cursor-pointer border-2 border-solid border-purple-600 rounded-4xl"
+              >
+                <img
+                  src="../../public/assets/images/user.png"
+                  alt="Profile Photo"
+                  class="w-10 h-10 object-cover rounded-4xl"
+                />
+              </button>
+              <!-- menu -->
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--* Main Content -->
+    <main class="min-h-screen py-20 bg-gray-50"></main>
+
+    <!--* Footer -->
+    <footer class="py-8 px-6 bg-purple-950 text-white flexbox-column gap-y-5">
+      <!--? Links -->
+      <div class="flex justify-between items-center max-md:justify-center">
+        <!-- Logo -->
+        <div class="max-md:text-xl max-lg:text-2xl lg:text-3xl max-md:hidden">
+          <a href="./" class="flex items-center gap-x-2 max-md:gap-x-5">
+            <img
+              src="../../public/assets/images/light-bulb icon.png"
+              alt="Light bulb image - logo"
+              class="w-9 max-md:w-12"
+            />
+            <strong>iQuiz</strong></a
+          >
+        </div>
+        <ul class="flex gap-x-15 max-lg:gap-x-8 max-sm:text-lg">
+          <li><a href="./#about">About us</a></li>
+          <li><a href="./#features">Features</a></li>
+          <li><a>Help Center</a></li>
+          <li><a>Contact us</a></li>
+          <li><a>FAQs</a></li>
+        </ul>
+      </div>
+      <hr />
+      <!--? Copyright & Social media -->
+      <div class="flex justify-between items-center">
+        <p>&copy; 2025 Brand, Inc. &comma; Privacy &comma; Terms</p>
+        <ul class="flex gap-x-5 items-center">
+          <li>
+            <a href="https://www.facebook.com"
+              ><img
+                src="../../public/assets/icons/facebook.svg"
+                alt="facebook icon"
+                class="w-4"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com"
+              ><img
+                src="../../public/assets/icons/linkedin.svg"
+                alt="linkedin icon"
+                class="w-5"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com"
+              ><img
+                src="../../public/assets/icons/youtube.svg"
+                alt="youtube icon"
+                class="w-5"
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

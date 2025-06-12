@@ -176,6 +176,29 @@ module.exports = {
         useShortDoctype: true,
       },
     }),
+    new HTMLPlugin({
+      template: path.resolve(__dirname, "src", "pages", "dashboard.html"),
+      filename: "pages/dashboard.html",
+      meta: {
+        description: "Welcome To iQuiz!",
+        keywords:
+          "quiz, creator, generator, app, survey, surveys, quizzes, create, generate, solve",
+        author: "Abdulrahman Ismael",
+        compatible: {
+          "http-equiv": "X-UA-Compatible",
+          content: "IE=7",
+        },
+      },
+      inject: "body",
+      chunks: ["main"],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
     new MiniCSSExtractPlugin({
       filename: "styles/[name]_[contenthash].css",
       chunkFilename: "chunks/[id]_[contenthash].css",
