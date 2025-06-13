@@ -35,17 +35,14 @@
           <div
             class="text-purple-700 max-md:pb-5 max-md:text-xl max-lg:text-2xl lg:text-3xl"
           >
-            <a
-              href="/index.html"
-              class="flex items-center gap-x-2 max-md:gap-x-5"
-            >
+            <div class="flex items-center gap-x-2 max-md:gap-x-5">
               <img
                 src="../../public/assets/images/light-bulb (64).png"
                 alt="Light bulb image - logo"
                 class="w-9 max-md:w-12"
               />
-              <strong>iQuiz</strong></a
-            >
+              <strong>iQuiz</strong>
+            </div>
           </div>
           <ul
             class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
@@ -53,7 +50,7 @@
             <li
               class="cursor-pointer navlink navlink-active transition duration-100 ease-in-out"
             >
-              <a>Home</a>
+              <a href="./dashboard.html">Home</a>
             </li>
             <li
               class="cursor-pointer navlink transition duration-100 ease-in-out"
@@ -67,22 +64,45 @@
             </li>
           </ul>
           <!-- User control -->
-          <div>
+          <div class="flex flex-row-reverse items-center gap-3">
             <div>
               <!-- button to show profile menu -->
-              <button
-                class="cursor-pointer border-2 border-solid border-purple-600 rounded-4xl"
-              >
+              <button class="cursor-pointer rounded-4xl">
                 <img
-                  src="../../public/assets/images/user.png"
+                  src="../../public/assets/icons/user.png"
                   alt="Profile Photo"
                   class="w-10 h-10 object-cover rounded-4xl"
                 />
               </button>
-              <!-- menu -->
+              <!--! menu -->
             </div>
-            <div></div>
-            <div></div>
+            <div>
+              <button class="cursor-pointer">
+                <img
+                  src="../../public/assets/icons/setting.png"
+                  alt="Settings"
+                  class="w-10 h-10 object-cover rounded-4xl"
+                />
+              </button>
+              <!--! menu -->
+            </div>
+            <div>
+              <button class="relative cursor-pointer">
+                <img
+                  src="../../public/assets/icons/notifications.png"
+                  alt="Notifications"
+                  class="w-10 h-10 object-cover rounded-4xl"
+                />
+                <div
+                  id="notifications-counter"
+                  class="w-5 h-5 font-bold text-white text-sm flexbox-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
+                  title="You have 0 notifications"
+                >
+                  0
+                </div>
+              </button>
+              <!--! menu -->
+            </div>
           </div>
         </div>
       </nav>
