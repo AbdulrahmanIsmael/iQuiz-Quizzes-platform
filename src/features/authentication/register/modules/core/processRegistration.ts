@@ -1,6 +1,6 @@
 import toggleErrorMsg from "../../../modules/toggleErrorMsg";
 import { I_validationCheck } from "../../../types/validation-types";
-import { createUser } from "./createUser";
+import CreateUserService from "./createUser";
 
 export default function processRegistration(
   registerForm: HTMLFormElement,
@@ -16,7 +16,7 @@ export default function processRegistration(
       validationResults.confirmPassword
     ) {
       toggleErrorMsg(errorMsg, false);
-      createUser({
+      CreateUserService.createUser({
         username: validationResults.username,
         email: validationResults.email,
         password: validationResults.password,

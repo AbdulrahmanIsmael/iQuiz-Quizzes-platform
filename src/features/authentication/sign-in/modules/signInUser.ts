@@ -1,4 +1,4 @@
-import processSignIn from "./core/processSignIn";
+import SignInUserService from "./core/processSignIn";
 
 export default function signInUser(): void {
   const signInForm = <HTMLFormElement>document.getElementById("sign-in-form");
@@ -11,13 +11,6 @@ export default function signInUser(): void {
 
   signInForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    processSignIn(e.target as HTMLFormElement, errorMsg);
-    // Show loading before redirect the user to the dashboard
-    /*
-    showLoadingAndRemoveForm(
-      <HTMLDivElement>document.getElementById("signIn-form-container")
-    );
-    redirectToPage("../../../../pages/dashboard.html", 4000);
-    */
+    SignInUserService.signIn(e.target as HTMLFormElement, errorMsg);
   });
 }
