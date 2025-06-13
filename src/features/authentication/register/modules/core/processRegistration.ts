@@ -21,8 +21,6 @@ export default function processRegistration(
         email: validationResults.email,
         password: validationResults.password,
       });
-      //! showing success message and redirecting to the main page of the user
-      console.log("User data is valid. Proceeding with registration...");
     } else {
       toggleErrorMsg(errorMsg, true);
       console.error("User data is invalid. Please check the form.");

@@ -1,5 +1,7 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, UserCredential } from "firebase/auth";
 import { auth } from "../../../firebase";
+import redirectToPage from "../../../modules/redirect";
+import loadingStatus from "../../../modules/showLoading";
 import toggleErrorMsg from "../../../modules/toggleErrorMsg";
 
 export default async function processSignIn(
@@ -14,9 +16,21 @@ export default async function processSignIn(
   }
 
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    //! Redirect to the profile page after successful sign-in
+    loadingStatus(
+      true,
+      <HTMLDivElement>document.getElementById("signIn-form-container")
+    );
+    const userCredential: UserCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    if (userCredential) redirectToPage("../../../../../pages/dashboard.html");
   } catch (error: any) {
+    loadingStatus(
+      false,
+      <HTMLDivElement>document.getElementById("signIn-form-container")
+    );
     if (
       error.code === "auth/user-not-found" ||
       error.code === "auth/invalid-credential"
