@@ -71,7 +71,7 @@
                 <img
                   src="../../public/assets/icons/user.png"
                   alt="Profile Photo"
-                  class="w-10 h-10 object-cover rounded-4xl"
+                  class="w-8 h-8 object-cover rounded-4xl"
                 />
               </button>
               <!--! menu -->
@@ -81,7 +81,7 @@
                 <img
                   src="../../public/assets/icons/setting.png"
                   alt="Settings"
-                  class="w-10 h-10 object-cover rounded-4xl"
+                  class="w-8 h-8 object-cover rounded-4xl"
                 />
               </button>
               <!--! menu -->
@@ -91,11 +91,11 @@
                 <img
                   src="../../public/assets/icons/notifications.png"
                   alt="Notifications"
-                  class="w-10 h-10 object-cover rounded-4xl"
+                  class="w-8 h-8 object-cover rounded-4xl"
                 />
                 <div
                   id="notifications-counter"
-                  class="w-5 h-5 font-bold text-white text-sm flexbox-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
+                  class="w-4 h-4 font-bold text-white text-xs flexbox-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
                   title="You have 0 notifications"
                 >
                   0
@@ -109,7 +109,28 @@
     </header>
 
     <!--* Main Content -->
-    <main class="min-h-screen py-20 bg-gray-50"></main>
+    <!--! the user details will be filled in TypeScript code  -->
+    <main class="min-h-screen py-10 px-8 bg-gray-50">
+      <h2 class="text-4xl font-semibold">
+        Welcome, <span id="username">User</span>
+      </h2>
+      <section>
+        <section
+          id="user-profile"
+          class="flexbox-column flexbox-center border-2 border-solid border-gray-400"
+        >
+          <div class="rounded-full w-30 h-30">
+            <img
+              src="../../public/assets/icons/user.png"
+              alt="user photo"
+              class="object-cover max-w-full rounded-full w-30 h-30"
+            />
+          </div>
+          <h3>Abdulrahman Ismael</h3>
+          <p>abdulrahmanismael2023@gmail.com</p>
+        </section>
+      </section>
+    </main>
 
     <!--* Footer -->
     <footer class="py-8 px-6 bg-purple-950 text-white flexbox-column gap-y-5">
