@@ -111,13 +111,13 @@
     <!--* Main Content -->
     <!--! the user details will be filled in TypeScript code  -->
     <main class="min-h-screen py-10 px-8 bg-gray-50">
-      <h2 class="text-4xl font-semibold">
-        Welcome, <span id="user">User</span>
+      <h2 class="text-4xl font-semibold text-gray-800">
+        Welcome <span id="user">User</span>
       </h2>
-      <section class="grid grid-cols-4 grid-rows-7">
+      <section class="grid grid-responsive grid-rows-7 gap-x-6 gap-y-3">
         <section
           id="user-profile"
-          class="col-span-1 row-span-2 flexbox-column flexbox-center gap-y-2 border-2 border-solid border-gray-300 shadow shadow-gray-400"
+          class="border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !py-5 col-span-1 row-span-2 flexbox-column flexbox-center gap-y-2"
         >
           <div class="rounded-full w-30 h-30">
             <img
@@ -127,7 +127,10 @@
               class="object-cover max-w-full rounded-full w-30 h-30"
             />
           </div>
-          <h3 id="username" class="font-semibold text-3xl text-center">
+          <h3
+            id="username"
+            class="font-semibold text-2xl text-center text-gray-800"
+          >
             Abdulrahman Ismael
           </h3>
           <p id="user-email" class="pb-3 text-gray-500 text-sm">
@@ -136,18 +139,65 @@
           <div class="h-0.5 w-3/5 bg-gray-300"></div>
           <div class="pt-3 flex gap-x-10 flexbox-center">
             <div class="flexbox-column flexbox-center gap-y-1">
-              <div id="created" class="text-4xl font-semibold text-purple-500">
+              <div id="created" class="text-3xl font-semibold text-purple-500">
                 15
               </div>
               <p class="text-2xl font-light">Created</p>
             </div>
             <div class="flexbox-column flexbox-center gap-y-1">
-              <div id="solved" class="text-4xl font-semibold text-purple-500">
+              <div id="solved" class="text-3xl font-semibold text-purple-500">
                 20
               </div>
               <p class="text-2xl font-light">Solved</p>
             </div>
           </div>
+        </section>
+        <!-- 2 boxes for the solved and created quizzes -->
+        <section
+          class="border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !py-5 flexbox-column justify-center gap-y-5"
+        >
+          <figure class="flex items-baseline gap-3">
+            <img
+              src="../../public/assets/icons/solve.png"
+              alt="Total Quizzes Solved"
+              class="max-w-full w-9 h-9"
+            />
+            <figcaption class="font-semibold text-gray-500">
+              Total Quizzes Solved
+            </figcaption>
+          </figure>
+          <div id="user-solved" class="text-4xl font-semibold text-gray-800">
+            15
+          </div>
+          <p class="text-sm text-gray-500 font-semibold">
+            Your knowledge of journey so far
+          </p>
+        </section>
+        <section
+          class="border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !py-5 flexbox-column justify-center gap-y-5"
+        >
+          <figure class="flex items-baseline gap-3">
+            <img
+              src="../../public/assets/icons/create.png"
+              alt="Total Quizzes Solved"
+              class="max-w-full w-9 h-9"
+            />
+            <figcaption class="font-semibold text-gray-500">
+              Total Quizzes created
+            </figcaption>
+          </figure>
+          <div id="user-solved" class="text-4xl font-semibold text-gray-800">
+            20
+          </div>
+          <p class="text-sm text-gray-500 font-semibold">
+            Your contributions to the community
+          </p>
+        </section>
+        <section
+          class="border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !py-5 flexbox-column gap-y-3"
+        >
+          <h3 class="text-2xl font-semibold text-gray-800">Recent Activity</h3>
+          <div class="flexbox-column items-center gap-y-2"></div>
         </section>
       </section>
     </main>
