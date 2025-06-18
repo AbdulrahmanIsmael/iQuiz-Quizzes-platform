@@ -114,7 +114,7 @@
       <h2 class="text-4xl font-semibold text-gray-800">
         Welcome <span id="user">User</span>
       </h2>
-      <section class="grid grid-responsive grid-rows-7 gap-x-6 gap-y-3">
+      <section class="grid grid-responsive grid-rows-3 gap-x-6 gap-y-3">
         <section
           id="user-profile"
           class="border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !py-5 col-span-1 row-span-2 flexbox-column flexbox-center gap-y-2"
@@ -193,12 +193,83 @@
             Your contributions to the community
           </p>
         </section>
-        <section
-          class="border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !py-5 flexbox-column gap-y-3"
+        <!-- Recent activity of the user -->
+        <aside
+          class="row-span-3 overflow-hidden border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !pt-5 flexbox-column gap-y-5"
         >
           <h3 class="text-2xl font-semibold text-gray-800">Recent Activity</h3>
-          <div class="flexbox-column items-center gap-y-2"></div>
-        </section>
+          <div class="hidden mt-10 text-center text-3xl text-gray-600">
+            No Recent Activity
+          </div>
+          <div
+            id="user-updates"
+            class="w-full flexbox-column items-center gap-y-6 [&>div:not(:last-of-type)]:border-b [&>div]:border-b-solid [&>div]:border-b-gray-400"
+          >
+            <div class="w-full flex gap-x-2 items-start pb-3">
+              <img
+                src="../../public/assets/icons/create.png"
+                alt="Created Quiz icon"
+                class="w-6 h-6"
+                id="user-update-icon"
+              />
+              <div class="flexbox-column">
+                <p class="text-sm font-semibold flex overflow-hidden">
+                  <span id="user-update-status" class="text-purple-800"
+                    >Created</span
+                  >&colon;&MediumSpace;
+                  <span id="user-update-description" class="break-all"
+                    >Front-end development Quiz</span
+                  >
+                </p>
+                <small class="text-gray-500" id="user-update-date"
+                  >2 hours ago</small
+                >
+              </div>
+            </div>
+            <div class="w-full flex gap-x-2 items-start pb-3">
+              <img
+                src="../../public/assets/icons/solve.png"
+                alt="Solved Quiz icon"
+                class="w-6 h-6"
+                id="user-update-icon"
+              />
+              <div class="flexbox-column">
+                <p class="text-sm font-semibold flex overflow-hidden">
+                  <span id="user-update-status" class="text-purple-800"
+                    >Solved</span
+                  >&colon;&MediumSpace;
+                  <span id="user-update-description" class="break-all"
+                    >Back-end development Quiz</span
+                  >
+                </p>
+                <small class="text-gray-500" id="user-update-date"
+                  >5 days ago</small
+                >
+              </div>
+            </div>
+            <div class="w-full flex gap-x-2 items-start pb-3">
+              <img
+                src="../../public/assets/icons/solve.png"
+                alt="Solved Quiz icon"
+                class="w-6 h-6"
+                id="user-update-icon"
+              />
+              <div class="flexbox-column">
+                <p class="text-sm font-semibold flex overflow-hidden">
+                  <span id="user-update-status" class="text-purple-800"
+                    >Solved</span
+                  >&colon;&MediumSpace;
+                  <span id="user-update-description" class="break-all"
+                    >Back-end development Quiz</span
+                  >
+                </p>
+                <small class="text-gray-500" id="user-update-date"
+                  >5 days ago</small
+                >
+              </div>
+            </div>
+          </div>
+        </aside>
       </section>
     </main>
 
