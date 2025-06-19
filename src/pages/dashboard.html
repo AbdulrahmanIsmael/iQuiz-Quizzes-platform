@@ -12,7 +12,7 @@
   </head>
   <body>
     <!--* Header & Navigation Bar -->
-    <header>
+    <header class="relative z-10">
       <!--? Navbar -->
       <nav class="navbar flexbox-column gap-y-3 justify-stretch items-baseline">
         <!-- Respnsiveness menu -->
@@ -74,16 +74,49 @@
                   class="w-8 h-8 object-cover rounded-4xl"
                 />
               </button>
-              <!--! menu -->
-            </div>
-            <div>
-              <button class="cursor-pointer">
-                <img
-                  src="../../public/assets/icons/setting.png"
-                  alt="Settings"
-                  class="w-8 h-8 object-cover rounded-4xl"
-                />
-              </button>
+              <!--! Links empty -->
+              <ul
+                class="flexbox-column absolute w-45 bg-white shadow shadow-gray-600 -bottom-[110px] right-12 -z-10"
+              >
+                <li
+                  class="px-5 py-2 border-b border-solid border-b-gray-500 text-sm font-semibold"
+                >
+                  <a href="" class="flex items-center gap-x-7"
+                    ><img
+                      src="../../public/assets/icons/briefcase.png"
+                      alt="User's Work icon - briefcase icon"
+                      class="w-5 h-5"
+                    />
+                    Your Work</a
+                  >
+                </li>
+                <li
+                  class="px-5 py-2 border-b border-solid border-b-gray-500 text-sm font-semibold"
+                >
+                  <a href="" class="flex items-center gap-x-7"
+                    ><img
+                      src="../../public/assets/icons/setting.png"
+                      alt="settings icon"
+                      class="w-5 h-5"
+                    />
+                    Settings</a
+                  >
+                </li>
+                <li class="px-5 py-2 text-sm font-semibold">
+                  <button
+                    id="signOut"
+                    type="button"
+                    class="flex items-center gap-x-7"
+                  >
+                    <img
+                      src="../../public/assets/icons/signOut.png"
+                      alt="Sign out icon"
+                      class="w-5 h-5"
+                    />
+                    Sign Out
+                  </button>
+                </li>
+              </ul>
               <!--! menu -->
             </div>
             <div>
@@ -291,10 +324,10 @@
           </div>
         </aside>
       </section>
-      <!-- Recommended Quizzes -->
+      <!-- User's Recent Quizzes -->
       <section class="flexbox-column gap-y-5">
         <h3 class="text-2xl font-semibold text-gray-800">
-          Recommended Quizzes for You
+          Your Recent Quizzes
         </h3>
         <article class="cards gap-10">
           <article class="card !p-0">
