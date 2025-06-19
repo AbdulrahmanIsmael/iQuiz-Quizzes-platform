@@ -114,7 +114,8 @@
       <h2 class="text-4xl font-semibold text-gray-800">
         Welcome <span id="user">User</span>
       </h2>
-      <section class="grid grid-responsive grid-rows-3 gap-x-6 gap-y-3">
+      <section class="grid grid-responsive grid-rows-2 gap-x-6 gap-y-3 !pb-0">
+        <!-- User Details -->
         <section
           id="user-profile"
           class="border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !py-5 col-span-1 row-span-2 flexbox-column flexbox-center gap-y-2"
@@ -150,6 +151,25 @@
               </div>
               <p class="text-2xl font-light">Solved</p>
             </div>
+          </div>
+          <!--! Href links empty -->
+          <div class="flexbox-column flexbox-center gap-y-3 pt-6">
+            <a href="" class="filled-btn w-full flexbox-center gap-x-2"
+              ><img
+                src="../../public/assets/icons/choose quiz.png"
+                alt="Solve Quiz icon"
+                class="w-5 h-5"
+              />
+              Go to Quizzes</a
+            >
+            <a href="" class="transparent-btn w-full flexbox-center gap-x-2"
+              ><img
+                src="../../public/assets/icons/new quiz.png"
+                alt="Create new Quiz icon"
+                class="w-5 h-5"
+              />
+              Create New Quiz</a
+            >
           </div>
         </section>
         <!-- 2 boxes for the solved and created quizzes -->
@@ -193,9 +213,9 @@
             Your contributions to the community
           </p>
         </section>
-        <!-- Recent activity of the user -->
+        <!-- Recent activity of the user (limited to 3) -->
         <aside
-          class="row-span-3 overflow-hidden border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !pt-5 flexbox-column gap-y-5"
+          class="sm:col-span-2 xl:col-span-1 row-span-1 overflow-hidden border-2 border-solid border-gray-300 shadow shadow-gray-400 !px-5 !pt-5 flexbox-column gap-y-5"
         >
           <h3 class="text-2xl font-semibold text-gray-800">Recent Activity</h3>
           <div class="hidden mt-10 text-center text-3xl text-gray-600">
@@ -203,7 +223,7 @@
           </div>
           <div
             id="user-updates"
-            class="w-full flexbox-column items-center gap-y-6 [&>div:not(:last-of-type)]:border-b [&>div]:border-b-solid [&>div]:border-b-gray-400"
+            class="w-full flexbox-column items-center gap-y-5 [&>div:not(:last-of-type)]:border-b [&>div]:border-b-solid [&>div]:border-b-gray-400"
           >
             <div class="w-full flex gap-x-2 items-start pb-3">
               <img
@@ -270,6 +290,124 @@
             </div>
           </div>
         </aside>
+      </section>
+      <!-- Recommended Quizzes -->
+      <section class="flexbox-column gap-y-5">
+        <h3 class="text-2xl font-semibold text-gray-800">
+          Recommended Quizzes for You
+        </h3>
+        <article class="cards gap-10">
+          <article class="card !p-0">
+            <div class="[&:hover>img]:scale-125 overflow-hidden">
+              <img
+                src="../../public/assets/images/custom_quizzes.png"
+                alt="Custom Quizzes showcasing feature image"
+                class="transition-transform ease-in duration-200"
+              />
+            </div>
+            <div class="flexbox-column gap-y-1 p-3 pt-0">
+              <h3 class="text-purple-800 text-xl font-bold">
+                Front-end developer Quiz
+              </h3>
+              <small class="text-sm text-gray-500">Web development</small>
+              <p class="text-gray-800 leading-6 text-justify -tracking-tight">
+                Test your knowledge in web development with this medium to high
+                level quiz about HTML/CSS/JS in Web developement.
+              </p>
+              <button type="button" class="transparent-btn !mt-3">
+                Start Quiz
+              </button>
+            </div>
+          </article>
+          <article class="card !p-0">
+            <div class="[&:hover>img]:scale-125 overflow-hidden">
+              <img
+                src="../../public/assets/images/custom_quizzes.png"
+                alt="Custom Quizzes showcasing feature image"
+                class="transition-transform ease-in duration-200"
+              />
+            </div>
+            <div class="flexbox-column gap-y-1 p-3 pt-0">
+              <h3 class="text-purple-800 text-xl font-bold">
+                Front-end developer Quiz
+              </h3>
+              <small class="text-sm text-gray-500">Web development</small>
+              <p class="text-gray-800 leading-6 text-justify -tracking-tight">
+                Test your knowledge in web development with this medium to high
+                level quiz about HTML/CSS/JS in Web developement.
+              </p>
+              <button type="button" class="transparent-btn !mt-3">
+                Start Quiz
+              </button>
+            </div>
+          </article>
+          <article class="card !p-0">
+            <div class="[&:hover>img]:scale-125 overflow-hidden">
+              <img
+                src="../../public/assets/images/custom_quizzes.png"
+                alt="Custom Quizzes showcasing feature image"
+                class="transition-transform ease-in duration-200"
+              />
+            </div>
+            <div class="flexbox-column gap-y-1 p-3 pt-0">
+              <h3 class="text-purple-800 text-xl font-bold">
+                Front-end developer Quiz
+              </h3>
+              <small class="text-sm text-gray-500">Web development</small>
+              <p class="text-gray-800 leading-6 text-justify -tracking-tight">
+                Test your knowledge in web development with this medium to high
+                level quiz about HTML/CSS/JS in Web developement.
+              </p>
+              <button type="button" class="transparent-btn !mt-3">
+                Start Quiz
+              </button>
+            </div>
+          </article>
+          <article class="card !p-0">
+            <div class="[&:hover>img]:scale-125 overflow-hidden">
+              <img
+                src="../../public/assets/images/custom_quizzes.png"
+                alt="Custom Quizzes showcasing feature image"
+                class="transition-transform ease-in duration-200"
+              />
+            </div>
+            <div class="flexbox-column gap-y-1 p-3 pt-0">
+              <h3 class="text-purple-800 text-xl font-bold">
+                Front-end developer Quiz
+              </h3>
+              <small class="text-sm text-gray-500">Web development</small>
+              <p class="text-gray-800 leading-6 text-justify -tracking-tight">
+                Test your knowledge in web development with this medium to high
+                level quiz about HTML/CSS/JS in Web developement.
+              </p>
+              <button type="button" class="transparent-btn !mt-3">
+                Start Quiz
+              </button>
+            </div>
+          </article>
+          <article class="card !p-0">
+            <div class="[&:hover>img]:scale-125 overflow-hidden">
+              <img
+                src="../../public/assets/images/custom_quizzes.png"
+                alt="Custom Quizzes showcasing feature image"
+                class="transition-transform ease-in duration-200"
+              />
+            </div>
+            <div class="flexbox-column gap-y-1 p-3 pt-0">
+              <h3 class="text-purple-800 text-xl font-bold">
+                Front-end developer Quiz
+              </h3>
+              <small class="text-sm text-gray-500">Web Development</small>
+              <p class="text-gray-800 leading-6 text-justify -tracking-tight">
+                Test your knowledge in web development with this medium to high
+                level quiz about HTML/CSS/JS in Web developement.
+              </p>
+              <button type="button" class="transparent-btn !mt-3">
+                Start Quiz
+              </button>
+            </div>
+          </article>
+        </article>
       </section>
     </main>
 

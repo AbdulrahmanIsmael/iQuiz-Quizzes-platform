@@ -13,6 +13,13 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, "src", "main.ts"),
     homepage: path.resolve(__dirname, "src", "styles", "pages", "homepage.css"),
+    dashboard: path.resolve(
+      __dirname,
+      "src",
+      "styles",
+      "pages",
+      "dashboard.css"
+    ),
     register: path.resolve(
       __dirname,
       "src",
@@ -190,7 +197,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["main"],
+      chunks: ["main", "dashboard"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,
