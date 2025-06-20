@@ -76,7 +76,7 @@
               </button>
               <!--! Links empty -->
               <ul
-                class="flexbox-column absolute w-45 bg-white shadow shadow-gray-600 -bottom-[110px] right-12 -z-10"
+                class="flexbox-column absolute w-45 bg-white shadow shadow-gray-600 -bottom-[111px] right-12 -z-10 closed"
               >
                 <li
                   class="px-5 py-2 border-b border-solid border-b-gray-500 text-sm font-semibold"
@@ -117,7 +117,6 @@
                   </button>
                 </li>
               </ul>
-              <!--! menu -->
             </div>
             <div>
               <button class="relative cursor-pointer">
@@ -134,7 +133,33 @@
                   0
                 </div>
               </button>
-              <!--! menu -->
+              <!-- Notification menu -->
+              <div
+                class="flexbox-column fixed w-100 h-screen p-2 pt-1 bg-white shadow shadow-gray-600 top-0 right-0 collapsed"
+              >
+                <div class="text-right">
+                  <button type="button" class="cursor-pointer">
+                    <img
+                      src="../../public/assets/icons/collapse.png"
+                      alt="collapse icon"
+                      class="w-7 h-7"
+                    />
+                  </button>
+                </div>
+                <h3
+                  class="text-lg font-semibold border-b border-solid border-b-gray-700 pb-2"
+                >
+                  Notification
+                </h3>
+                <ul>
+                  <li
+                    id="no-notifications"
+                    class="text-center text-2xl font-light py-6"
+                  >
+                    No Notifications
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
