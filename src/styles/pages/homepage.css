@@ -3,7 +3,7 @@
 @reference '../tailwind.css';
 
 .section-title {
-  @apply max-sm:text-4xl max-md:text-5xl md:text-6xl font-semibold tracking-tighter text-purple-800;
+  @apply text-4xl font-extrabold text-purple-800 mb-2 tracking-tighter;
 }
 
 .subsection-border {

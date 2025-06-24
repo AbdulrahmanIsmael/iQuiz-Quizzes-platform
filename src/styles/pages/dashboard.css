@@ -3,10 +3,8 @@
 
 .closed {
   display: none !important;
-  bottom: 0px !important;
 }
 
 .collapsed {
-  display: none !important;
-  right: -50% !important;
+  right: -100% !important;
 }

@@ -1,5 +1,5 @@
 // Requiring Plugins
-const { env } = require("process");
+const { env, features } = require("process");
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
@@ -13,12 +13,19 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, "src", "main.ts"),
     homepage: path.resolve(__dirname, "src", "styles", "pages", "homepage.css"),
-    dashboard: path.resolve(
+    dashboardCSS: path.resolve(
       __dirname,
       "src",
       "styles",
       "pages",
       "dashboard.css"
+    ),
+    dashboardTS: path.resolve(
+      __dirname,
+      "src",
+      "features",
+      "dashboard",
+      "dashboard.ts"
     ),
     register: path.resolve(
       __dirname,
@@ -197,7 +204,7 @@ module.exports = {
         },
       },
       inject: "body",
-      chunks: ["main", "dashboard"],
+      chunks: ["dashboardCSS", "dashboardTS"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,

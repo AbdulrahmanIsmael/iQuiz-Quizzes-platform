@@ -14,83 +14,116 @@
     <!--* Header & Navigation Bar -->
     <header>
       <!--? Navbar -->
-      <nav class="navbar flexbox-column gap-y-3 justify-stretch items-baseline">
-        <!-- Respnsiveness menu -->
-        <button id="menuBtn" class="menu-btn" type="button" title="Menu Button">
-          <div
-            class="flex gap-y-1 flex-col justify-between items-stretch translate-x-5"
-          >
-            <div class="h-1 w-7 bg-purple-400"></div>
-            <div class="h-1 w-7 bg-purple-400"></div>
-            <div class="h-1 w-7 bg-purple-400"></div>
-          </div>
-        </button>
-
-        <!-- large Screen: looking alone / Responsive: menu with collapse button -->
-        <div
-          class="w-full flex max-md:flex-col max-md:!hidden max-md:gap-y-5 justify-between items-center flex-nowrap transition-all duration-200 ease-linear"
-          id="responsiveMenu"
-        >
-          <!-- Logo -->
-          <div
-            class="text-purple-700 max-md:pb-5 max-md:text-xl max-lg:text-2xl lg:text-3xl"
-          >
-            <a
-              href="/index.html"
-              class="flex items-center gap-x-2 max-md:gap-x-5"
+      <nav class="navbar flex items-center justify-between py-4 px-8">
+        <!-- Logo -->
+        <div class="flex items-center gap-x-3">
+          <a href="/index.html" class="flex items-center gap-x-2">
+            <img
+              src="../../public/assets/images/light-bulb (64).png"
+              alt="Light bulb image - logo"
+              class="w-10 h-10"
+            />
+            <span class="text-2xl font-bold text-purple-700 tracking-wide"
+              >iQuiz</span
             >
-              <img
-                src="../../public/assets/images/light-bulb (64).png"
-                alt="Light bulb image - logo"
-                class="w-9 max-md:w-12"
-              />
-              <strong>iQuiz</strong></a
-            >
-          </div>
-          <ul
-            class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
-          >
-            <li
-              class="cursor-pointer navlink transition duration-100 ease-in-out"
-            >
-              <a>Home</a>
-            </li>
-            <li
-              class="cursor-pointer navlink transition duration-100 ease-in-out"
-            >
-              <a href="./../index.html/#about">About</a>
-            </li>
-            <li
-              class="cursor-pointer navlink transition duration-100 ease-in-out"
-            >
-              <a href="./../index.html/#features">Features</a>
-            </li>
-            <li
-              class="cursor-pointer navlink transition duration-100 ease-in-out"
-            >
-              <a>Contact</a>
-            </li>
-          </ul>
-          <!-- Sign in and Register buttons -->
-          <div class="flex gap-x-5">
-            <a class="transparent-btn" id="registerBtn" href="./register.html">
-              Register
-            </a>
-            <a class="filled-btn" id="signInBtn" href="./sign-in.html">
-              Sign in
-            </a>
-          </div>
+          </a>
         </div>
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center gap-x-8 text-lg font-medium">
+          <li>
+            <a class="navlink navlink-active" href="/index.html">Home</a>
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="/index.html/#about"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              class="navlink hover:text-purple-700"
+              href="/index.html/#features"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="#">Contact</a>
+          </li>
+        </ul>
+        <!-- Auth Buttons -->
+        <div class="hidden md:flex gap-x-4">
+          <a class="transparent-btn" id="registerBtn" href="."> Register </a>
+          <a class="filled-btn" id="signInBtn" href="./sign-in.html">
+            Sign in
+          </a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button
+          id="menuBtn"
+          class="cursor-pointer md:hidden flexbox-column gap-y-1 p-2 rounded hover:bg-purple-50 transition"
+          type="button"
+          title="Menu Button"
+        >
+          <span class="block h-1 w-7 bg-purple-400 rounded"></span>
+          <span class="block h-1 w-7 bg-purple-400 rounded"></span>
+          <span class="block h-1 w-7 bg-purple-400 rounded"></span>
+        </button>
       </nav>
+      <!-- Mobile Menu -->
+      <div
+        id="responsiveMenu"
+        class="flexbox-column flexbox-center bg-white shadow-lg px-8 py-6 hidden gap-y-4"
+      >
+        <ul class="flexbox-column flexbox-center gap-y-4 text-lg font-medium">
+          <li>
+            <a class="navlink navlink-active" href="#">Home</a>
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="/index.html/#about"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              class="navlink hover:text-purple-700"
+              href="/index.html/#features"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="flex gap-x-4 mt-4">
+          <a
+            class="transparent-btn border border-purple-700 text-purple-700 px-5 py-2 rounded-full font-semibold hover:bg-purple-50 transition"
+            href="."
+          >
+            Register
+          </a>
+          <a
+            class="filled-btn bg-purple-700 text-white px-5 py-2 rounded-full font-semibold shadow hover:bg-purple-800 transition"
+            href="./sign-in.html"
+          >
+            Sign in
+          </a>
+        </div>
+      </div>
     </header>
 
     <!--* Main Content -->
     <main class="min-h-screen py-20 bg-gray-50">
       <div class="container mx-auto">
         <div id="loading" class="max-w-full flexbox-center hidden">
-          <img src="../../public/assets/icons/loading.gif" alt="Loading..." class="max-w-full w-30">
+          <img
+            src="../../public/assets/icons/loading.gif"
+            alt="Loading..."
+            class="max-w-full w-30"
+          />
         </div>
-        <div id="register-form-container" class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+        <div
+          id="register-form-container"
+          class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md"
+        >
           <h2 class="text-2xl font-bold text-center text-purple-700 mb-6">
             Create Account
           </h2>
@@ -192,9 +225,7 @@
                 class="text-xs text-red-500 font-semibold hidden"
               >
                 ⓧ
-                <span id="msg" span
-                  >Passwords do not match. Please try again.</span
-                </span>
+                <span id="msg">Passwords do not match. Please try again. </span>
               </p>
             </div>
 
@@ -219,10 +250,13 @@
             <!-- Error Message -->
             <p
               id="error-msg"
-              class="text-xs text-red-500 font-semibold hidden text-center">
+              class="text-xs text-red-500 font-semibold hidden text-center"
+            >
               ⓧ
-              <span? id="msg" span
-                >There was an error creating your account. Please try again!</span>
+              <span id="msg" span
+                >There was an error creating your account. Please try
+                again!</span
+              >
             </p>
 
             <!-- Sign In Link -->
@@ -240,56 +274,102 @@
     </main>
 
     <!--* Footer -->
-    <footer class="py-8 px-6 bg-purple-950 text-white flexbox-column gap-y-5">
+    <footer
+      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flexbox-column gap-y-8 shadow-inner"
+    >
       <!--? Links -->
-      <div class="flex justify-between items-center max-md:justify-center">
+      <div
+        class="flex flex-wrap justify-between items-center max-md:flex-col max-md:gap-y-6"
+      >
         <!-- Logo -->
-        <div class="max-md:text-xl max-lg:text-2xl lg:text-3xl max-md:hidden">
-          <a href="./" class="flex items-center gap-x-2 max-md:gap-x-5">
+        <div
+          class="flex items-center gap-x-3 text-3xl font-bold text-purple-200 max-md:mb-4"
+        >
+          <a href="./" class="flex items-center gap-x-2">
             <img
               src="../../public/assets/images/light-bulb icon.png"
               alt="Light bulb image - logo"
-              class="w-9 max-md:w-12"
+              class="w-10"
             />
-            <strong>iQuiz</strong></a
-          >
+            <span>iQuiz</span>
+          </a>
         </div>
-        <ul class="flex gap-x-15 max-lg:gap-x-8 max-sm:text-lg">
-          <li><a href="./#about">About us</a></li>
-          <li><a href="./#features">Features</a></li>
-          <li><a>Help Center</a></li>
-          <li><a>Contact us</a></li>
-          <li><a>FAQs</a></li>
+        <ul
+          class="flex flex-wrap gap-x-12 gap-y-2 text-lg font-medium max-md:justify-center"
+        >
+          <li>
+            <a
+              href="/index.html/#about"
+              class="hover:text-purple-300 transition"
+              >About us</a
+            >
+          </li>
+          <li>
+            <a
+              href="/index.html/#features"
+              class="hover:text-purple-300 transition"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-300 transition">Help Center</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-300 transition">Contact us</a>
+          </li>
+          <li><a href="#" class="hover:text-purple-300 transition">FAQs</a></li>
         </ul>
       </div>
-      <hr />
+      <hr class="border-purple-700 opacity-40" />
       <!--? Copyright & Social media -->
-      <div class="flex justify-between items-center">
-        <p>&copy; 2025 Brand, Inc. &comma; Privacy &comma; Terms</p>
-        <ul class="flex gap-x-5 items-center">
+      <div
+        class="flex flex-wrap justify-between items-center max-md:flex-col max-md:gap-y-4"
+      >
+        <p class="text-sm text-purple-200">
+          &copy; 2025 iQuiz, Inc. &nbsp;|&nbsp;
+          <a href="#" class="underline hover:text-purple-300">Privacy</a>
+          &nbsp;|&nbsp;
+          <a href="#" class="underline hover:text-purple-300">Terms</a>
+        </p>
+        <ul class="flex gap-x-6 items-center">
           <li>
-            <a href="https://www.facebook.com"
-              ><img
+            <a
+              href="https://www.facebook.com"
+              aria-label="Facebook"
+              class="hover:scale-110 transition-transform"
+            >
+              <img
                 src="../../public/assets/icons/facebook.svg"
                 alt="facebook icon"
-                class="w-4"
-            /></a>
+                class="w-5 opacity-80 hover:opacity-100"
+              />
+            </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com"
-              ><img
+            <a
+              href="https://www.linkedin.com"
+              aria-label="LinkedIn"
+              class="hover:scale-110 transition-transform"
+            >
+              <img
                 src="../../public/assets/icons/linkedin.svg"
                 alt="linkedin icon"
-                class="w-5"
-            /></a>
+                class="w-6 opacity-80 hover:opacity-100"
+              />
+            </a>
           </li>
           <li>
-            <a href="https://www.youtube.com"
-              ><img
+            <a
+              href="https://www.youtube.com"
+              aria-label="YouTube"
+              class="hover:scale-110 transition-transform"
+            >
+              <img
                 src="../../public/assets/icons/youtube.svg"
                 alt="youtube icon"
-                class="w-5"
-            /></a>
+                class="w-6 opacity-80 hover:opacity-100"
+              />
+            </a>
           </li>
         </ul>
       </div>
