@@ -6,5 +6,5 @@
 }
 
 .collapsed {
-  right: -100% !important;
+  transform: translateX(120%) !important;
 }

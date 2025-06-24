@@ -1,4 +1,4 @@
-import ToggleMenu from "./components/Buttons/toggleMenu";
+import ToggleMenu, { ToggleStrategy } from "./components/Buttons/toggleMenu";
 import "./styles/main.css";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const responsiveMenu = <HTMLDivElement>(
     document.getElementById("responsiveMenu")
   );
-  const navbarResponsiveMenu = new ToggleMenu(menuBtn, responsiveMenu);
-  navbarResponsiveMenu.toggleMenu("hidden");
+  const navbarResponsiveMenu = new ToggleMenu(
+    new ToggleStrategy(),
+    menuBtn,
+    responsiveMenu,
+    "hidden"
+  );
+
+  navbarResponsiveMenu.setMenu();
 });

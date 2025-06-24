@@ -103,7 +103,7 @@
             </ul>
           </div>
           <div>
-            <button class="relative cursor-pointer">
+            <button id="notifications-btn" class="relative cursor-pointer">
               <img
                 src="../../public/assets/icons/notifications.png"
                 alt="Notifications"
@@ -119,10 +119,15 @@
             </button>
             <!-- Notification menu -->
             <div
-              class="flexbox-column fixed w-100 h-screen p-2 pt-1 bg-white shadow shadow-gray-600 top-0 right-0 collapsed"
+              id="notifications-menu"
+              class="flexbox-column fixed min-w-80 w-90 max-w-full h-screen p-4 bg-white shadow-2xl shadow-purple-300 top-0 right-0 z-50 rounded-l-2xl border-l-4 border-purple-400 transition-transform duration-200 collapsed"
             >
-              <div class="text-right">
-                <button type="button" class="cursor-pointer">
+              <div class="flex justify-end mb-2">
+                <button
+                  type="button"
+                  id="notifications-collapse"
+                  class="cursor-pointer hover:bg-purple-50 rounded-full p-1 transition"
+                >
                   <img
                     src="../../public/assets/icons/collapse.png"
                     alt="collapse icon"
@@ -131,14 +136,14 @@
                 </button>
               </div>
               <h3
-                class="text-lg font-semibold border-b border-solid border-b-gray-700 pb-2"
+                class="text-xl font-bold text-purple-800 border-b border-purple-200 pb-3 mb-3"
               >
-                Notification
+                Notifications
               </h3>
-              <ul>
+              <ul class="flex-1 overflow-y-auto">
                 <li
                   id="no-notifications"
-                  class="text-center text-2xl font-light py-6"
+                  class="text-center text-lg font-light py-10 text-gray-400"
                 >
                   No Notifications
                 </li>
