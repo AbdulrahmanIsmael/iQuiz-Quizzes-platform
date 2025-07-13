@@ -8,6 +8,32 @@ import "../../styles/main.css";
 import { setElementContent } from "../../utils/setElementContent";
 import { auth } from "../authentication/firebase";
 
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    location.href = "../../pages/sign-in.html";
+  } else {
+    const userElement = <HTMLSpanElement>document.getElementById("user-name");
+    const usernameElement = <HTMLSpanElement>(
+      document.getElementById("username")
+    );
+    const emailElement = <HTMLSpanElement>document.getElementById("user-email");
+    const userMenuBtnImg = <HTMLImageElement>(
+      document.querySelector("#user-menu-btn > img")
+    );
+    const profilePhotoElement = <HTMLImageElement>(
+      document.getElementById("user-photo")
+    );
+
+    setElementContent(userElement, user.displayName || "User");
+    setElementContent(usernameElement, user.displayName || "User");
+    setElementContent(emailElement, user.email || "No email");
+    if (user.photoURL && typeof user.photoURL === "string") {
+      profilePhotoElement.src = user.photoURL;
+      userMenuBtnImg.src = user.photoURL;
+    }
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const userMenuBtn = <HTMLButtonElement>(
     document.getElementById("user-menu-btn")
@@ -22,36 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const notificationsCollapseBtn = <HTMLButtonElement>(
     document.getElementById("notifications-collapse")
   );
-
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      location.href = "../../pages/sign-in.html";
-    } else {
-      const userElement = <HTMLSpanElement>document.getElementById("user-name");
-      const usernameElement = <HTMLSpanElement>(
-        document.getElementById("username")
-      );
-      const emailElement = <HTMLSpanElement>(
-        document.getElementById("user-email")
-      );
-      const userMenuBtnImg = <HTMLImageElement>(
-        document.querySelector("#user-menu-btn > img")
-      );
-      const profilePhotoElement = <HTMLImageElement>(
-        document.getElementById("user-photo")
-      );
-
-      setElementContent(userElement, user.displayName || "User");
-      setElementContent(usernameElement, user.displayName || "User");
-      setElementContent(emailElement, user.email || "No email");
-      if (user.photoURL && typeof user.photoURL === "string") {
-        profilePhotoElement.src = user.photoURL;
-        userMenuBtnImg.src = user.photoURL;
-      }
-
-      //! Fetch the data from the database
-    }
-  });
 
   const uesrMenuToggle = new ToggleMenu(
     new ToggleStrategy(),
