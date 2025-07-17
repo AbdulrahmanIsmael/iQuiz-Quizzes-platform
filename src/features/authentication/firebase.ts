@@ -9,5 +9,5 @@ const app: FirebaseApp = initializeApp(firebaseConfig);
 // Getting Firebase Authentication service
 export const auth: Auth = getAuth(app);
 
-// Get access to the firebase firesotre database
+// Get access to the firebase firestore database
 export const db: Firestore = getFirestore(app);

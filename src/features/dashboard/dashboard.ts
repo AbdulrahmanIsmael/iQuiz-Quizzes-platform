@@ -49,13 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("notifications-collapse")
   );
 
-  const uesrMenuToggle = new ToggleMenu(
+  const userMenuToggle = new ToggleMenu(
     new ToggleStrategy(),
     userMenuBtn,
     userMenuElement,
     "closed"
   );
-  uesrMenuToggle.setMenu();
+  userMenuToggle.setMenu();
 
   const notificationMenuToggle = new ToggleMenu(
     new RemoveStrategy(),
