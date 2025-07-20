@@ -1,0 +1,7 @@
+.closed {
+  display: none !important;
+}
+
+.collapsed {
+  transform: translateX(120%) !important;
+}

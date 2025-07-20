@@ -12,6 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
     responsiveMenu,
     "hidden"
   );
-
   navbarResponsiveMenu.setMenu();
 });
