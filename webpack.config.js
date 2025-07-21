@@ -30,6 +30,8 @@ module.exports = {
     ),
     createTS: path.resolve(__dirname, "src", "features", "create", "create.ts"),
     createCSS: path.resolve(__dirname, "src", "styles", "pages", "create.css"),
+    solveTS: path.resolve(__dirname, "src", "features", "solve", "solve.ts"),
+    solveCSS: path.resolve(__dirname, "src", "styles", "pages", "solve.css"),
     register: path.resolve(
       __dirname,
       "src",
@@ -230,6 +232,29 @@ module.exports = {
       },
       inject: "body",
       chunks: ["createTS", "createCSS"],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HTMLPlugin({
+      template: path.resolve(__dirname, "src", "pages", "solve.html"),
+      filename: "pages/solve.html",
+      meta: {
+        description: "Solve Quiz",
+        keywords:
+          "quiz, solve, quiz, survey, surveys, quizzes, solve, result, fail, success",
+        author: "Abdulrahman Ismael",
+        compatible: {
+          "http-equiv": "X-UA-Compatible",
+          content: "IE=7",
+        },
+      },
+      inject: "body",
+      chunks: ["solveTS", "solveCSS"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,

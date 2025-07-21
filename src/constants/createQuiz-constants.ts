@@ -1,18 +1,18 @@
-let counter = 2;
-export const QUESTION_CARD = `
-            <div
-              class="question-card relative border-2 border-purple-100 rounded-xl p-6 bg-white/80 shadow-md flexbox-column gap-y-4"
-            >
-              <button class="remove-card absolute -top-3 -right-3" onclick="this.closest('.question-card').remove();">
+export function getQuestionCard(counter: number) {
+  return `
+  <div
+  class="question-card relative border-2 border-purple-100 rounded-xl p-6 bg-white/80 shadow-md flexbox-column gap-y-4"
+  >
+  <button class="remove-card absolute -top-3 -right-3" onclick="this.closest('.question-card').remove();">
                 <img
-                  src="../assets/close.png"
+                src="../assets/close.png"
                   alt="remove quiz icon"
                   class="remove-card-image w-8 h-8 cursor-pointer"
                 />
               </button>
               <div class="flex items-center gap-x-3">
                 <span class="text-xl font-bold text-purple-700"
-                  >Question <span class="question-number">${counter++}</span></span
+                  >Question <span class="question-number">${counter}</span></span
                 >
                 <select
                   class="question-type ml-auto border border-purple-300 rounded px-2 py-1 text-sm text-purple-700 bg-white focus:outline-none focus:ring-2 focus:ring-purple-200 focus:border-purple-400 transition"
@@ -25,8 +25,8 @@ export const QUESTION_CARD = `
               </div>
               <input
                 type="text"
-                name="question-text-${counter++}"
-                id="question-text-${counter++}"
+                name="question-text-${counter}"
+                id="question-text-${counter}"
                 required
                 maxlength="120"
                 placeholder="Enter your question"
@@ -113,8 +113,8 @@ export const QUESTION_CARD = `
                 </label>
                 <input
                   type="text"
-                  name="open-answer-${counter++}"
-                  id="open-answer-${counter++}"
+                  name="open-answer-${counter}"
+                  id="open-answer-${counter}"
                   maxlength="120"
                   placeholder="Sample answer for reference"
                   class="input border border-purple-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
@@ -122,3 +122,4 @@ export const QUESTION_CARD = `
               </div>
             </div>
 `;
+}

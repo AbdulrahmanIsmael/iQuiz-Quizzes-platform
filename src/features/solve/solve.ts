@@ -4,7 +4,6 @@ import ToggleMenu, {
   ToggleStrategy,
 } from "../../components/Buttons/toggleMenu";
 import "../../styles/main.css";
-import AddQuestion from "../../components/questions/addQuestion";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userMenuBtn = <HTMLButtonElement>(
@@ -20,9 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const notificationsCollapseBtn = <HTMLButtonElement>(
     document.getElementById("notifications-collapse")
   );
-
-  // Add question
-  AddQuestion.addQuestion();
 
   // toggle user menu
   const userMenuToggle = new ToggleMenu(
