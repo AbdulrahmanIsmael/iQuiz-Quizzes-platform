@@ -1,13 +1,13 @@
 import toggleErrorMsg from "../../../modules/toggleErrorMsg";
 import { I_validationCheck } from "../../../types/validation-types";
-import { createUser } from "./createUser";
+import CreateUserService from "./createUser";
 
 export default function processRegistration(
   registerForm: HTMLFormElement,
   validationResults: I_validationCheck,
   errorMsg: HTMLParagraphElement
 ) {
-  registerForm.addEventListener("submit", (e: Event) => {
+  registerForm.addEventListener("submit", async (e: Event) => {
     e.preventDefault();
     if (
       validationResults.username &&
@@ -16,13 +16,20 @@ export default function processRegistration(
       validationResults.confirmPassword
     ) {
       toggleErrorMsg(errorMsg, false);
-      createUser({
-        username: validationResults.username,
-        email: validationResults.email,
-        password: validationResults.password,
-      });
-      //! showing success message and redirecting to the main page of the user
-      console.log("User data is valid. Proceeding with registration...");
+      try {
+        await CreateUserService.createUser({
+          username: validationResults.username,
+          email: validationResults.email,
+          password: validationResults.password,
+        });
+      } catch (error) {
+        console.error("Error during registration: ", error);
+        toggleErrorMsg(
+          errorMsg,
+          true,
+          "Registration failed. Please try again."
+        );
+      }
     } else {
       toggleErrorMsg(errorMsg, true);
       console.error("User data is invalid. Please check the form.");

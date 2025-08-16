@@ -7,3 +7,7 @@
 @import "./layouts/flex.css";
 @import "./layouts/grid.css";
 @import "./layouts/navbar.css";
+
+.transition-natural {
+  @apply transition-all duration-150 ease-linear;
+}

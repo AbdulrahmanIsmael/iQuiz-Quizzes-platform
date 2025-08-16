@@ -1,9 +1,9 @@
-.filled-btn {
-  @apply cursor-pointer border-2 border-solid border-purple-500 bg-purple-500 text-white px-8 py-1.5 rounded-lg text-sm font-bold hover:bg-white hover:text-purple-500 hover:brightness-125 transition duration-150 ease-linear;
+.transparent-btn {
+  @apply cursor-pointer border border-purple-700 text-purple-700 px-5 py-2 rounded-full font-semibold hover:bg-purple-50 transition duration-150 ease-linear;
 }
 
-.transparent-btn {
-  @apply bg-white cursor-pointer border-2 border-solid border-purple-500 text-purple-500 px-8 py-1.5 rounded-lg text-sm font-medium hover:bg-purple-500 hover:text-white transition duration-150 ease-linear;
+.filled-btn {
+  @apply cursor-pointer bg-purple-700 border border-purple-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-purple-50 hover:text-purple-700 transition duration-150 ease-linear;
 }
 
 .menu-btn {

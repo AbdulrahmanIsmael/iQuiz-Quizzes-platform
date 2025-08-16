@@ -14,90 +14,129 @@
     <!--* Header & Navigation Bar -->
     <header>
       <!--? Navbar -->
-      <nav class="navbar flexbox-column gap-y-3 justify-stretch items-baseline">
-        <!-- Respnsiveness menu -->
-        <button id="menuBtn" class="menu-btn" type="button" title="Menu Button">
-          <div
-            class="flex gap-y-1 flex-col justify-between items-stretch translate-x-5"
+      <nav class="navbar flex items-center justify-between py-4 px-8">
+        <!-- Logo -->
+        <div class="flex items-center gap-x-3">
+          <a href="/index.html" class="flex items-center gap-x-2">
+            <img
+              src="../public/assets/images/light-bulb (64).png"
+              alt="Light bulb image - logo"
+              class="w-10 h-10"
+            />
+            <span class="text-2xl font-bold text-purple-700 tracking-wide"
+              >iQuiz</span
+            >
+          </a>
+        </div>
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center gap-x-8 text-lg font-medium">
+          <li>
+            <a class="navlink navlink-active" href="/index.html">Home</a>
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="./#about">About</a>
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="./#features"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="#">Contact</a>
+          </li>
+        </ul>
+        <!-- Auth Buttons -->
+        <div class="hidden md:flex gap-x-4">
+          <a
+            class="transparent-btn"
+            id="registerBtn"
+            href="./pages/register.html"
           >
-            <div class="h-1 w-7 bg-purple-400"></div>
-            <div class="h-1 w-7 bg-purple-400"></div>
-            <div class="h-1 w-7 bg-purple-400"></div>
-          </div>
-        </button>
-
-        <!-- large Screen: looking alone / Responsive: menu with collapse button -->
-        <div
-          class="w-full flex max-md:flex-col max-md:!hidden max-md:gap-y-5 justify-between items-center flex-nowrap transition-all duration-200 ease-linear"
-          id="responsiveMenu"
+            Register
+          </a>
+          <a class="filled-btn" id="signInBtn" href="./pages/sign-in.html">
+            Sign in
+          </a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button
+          id="menuBtn"
+          class="cursor-pointer md:hidden flexbox-column gap-y-1 p-2 rounded hover:bg-purple-50 transition"
+          type="button"
+          title="Menu Button"
         >
-          <!-- Logo -->
-          <div
-            class="text-purple-700 max-md:pb-5 max-md:text-xl max-lg:text-2xl lg:text-3xl"
-          >
+          <span class="block h-1 w-7 bg-purple-400 rounded"></span>
+          <span class="block h-1 w-7 bg-purple-400 rounded"></span>
+          <span class="block h-1 w-7 bg-purple-400 rounded"></span>
+        </button>
+      </nav>
+      <!-- Mobile Menu -->
+      <div
+        id="responsiveMenu"
+        class="flexbox-column flexbox-center bg-white shadow-lg px-8 py-6 hidden gap-y-4"
+      >
+        <ul class="flexbox-column flexbox-center gap-y-4 text-lg font-medium">
+          <li>
+            <a class="navlink navlink-active" href="#">Home</a>
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="/index.html/#about"
+              >About</a
+            >
+          </li>
+          <li>
             <a
-              href="/index.html"
-              class="flex items-center gap-x-2 max-md:gap-x-5"
+              class="navlink hover:text-purple-700"
+              href="/index.html/#features"
+              >Features</a
             >
-              <img
-                src="../public/assets/images/light-bulb (64).png"
-                alt="Light bulb image - logo"
-                class="w-9 max-md:w-12"
-              />
-              <strong>iQuiz</strong></a
-            >
-          </div>
-          <ul
-            class="max-md:w-2/3 text-center flex max-md:flex-col gap-x-3 max-md:gap-y-5 xl:basis-2/3"
+          </li>
+          <li>
+            <a class="navlink hover:text-purple-700" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="flex gap-x-4 mt-4">
+          <a
+            class="transparent-btn border border-purple-700 text-purple-700 px-5 py-2 rounded-full font-semibold hover:bg-purple-50 transition"
+            href="./pages/register.html"
           >
-            <li
-              class="cursor-pointer navlink navlink-active transition duration-100 ease-in-out"
-            >
-              <a>Home</a>
-            </li>
-            <li
-              class="cursor-pointer navlink transition duration-100 ease-in-out"
-            >
-              <a href="./#about">About</a>
-            </li>
-            <li
-              class="cursor-pointer navlink transition duration-100 ease-in-out"
-            >
-              <a href="./#features">Features</a>
-            </li>
-            <li
-              class="cursor-pointer navlink transition duration-100 ease-in-out"
-            >
-              <a>Contact</a>
-            </li>
-          </ul>
-          <!-- Sign in and Register buttons -->
-          <div class="flex gap-x-5">
+            Register
+          </a>
+          <a
+            class="filled-btn bg-purple-700 text-white px-5 py-2 rounded-full font-semibold shadow hover:bg-purple-800 transition"
+            href="./pages/sign-in.html"
+          >
+            Sign in
+          </a>
+        </div>
+      </div>
+      <!--? Showcase -->
+      <section
+        class="relative h-[90vh] isolate overlay bg-[url('../../public/assets/images/iQuiz_showcase.png')] bg-image-clean !bg-contain flexbox-column flexbox-center md:items-start md:justify-end px-8 py-12 bg-gradient-to-br from-purple-700/80 to-purple-400/80"
+      >
+        <div
+          class="backdrop-blur-sm bg-white/10 rounded-xl p-8 md:p-12 shadow-lg max-w-2xl w-full"
+        >
+          <h2
+            class="text-4xl md:text-5xl font-extrabold text-white mb-4 text-center md:text-left drop-shadow-lg"
+          >
+            Create & Discover Quizzes
+          </h2>
+          <p
+            class="text-lg md:text-xl text-white mb-8 text-center md:text-left drop-shadow"
+          >
+            Engage with several quizzes and surveys or create your own in
+            seconds
+          </p>
+          <div class="flex justify-center md:justify-start">
             <a
-              class="transparent-btn"
-              id="registerBtn"
+              class="filled-btn bg-white text-purple-700 font-bold px-8 py-3 rounded-full shadow-lg hover:bg-purple-700 hover:text-white transition"
               href="./pages/register.html"
             >
-              Register
-            </a>
-            <a class="filled-btn" id="signInBtn" href="./pages/sign-in.html">
-              Sign in
+              Register Now!
             </a>
           </div>
         </div>
-      </nav>
-
-      <!--? Showcase -->
-      <section
-        class="h-[90vh] md:!pb-30 md:!pl-15 relative isolate overlay bg-[url('../../public/assets/images/iQuiz_showcase.png')] bg-image-clean !bg-contain flexbox-column justify-center items-center md:justify-end md:items-start gap-y-5"
-      >
-        <h2 class="text-3xl lg:text-5xl text-center font-bold text-white">
-          Create & Discover Quizzes
-        </h2>
-        <p class="lg:text-xl text-white text-center">
-          Engage with several quizzes and surveys or Create your own in seconds.
-        </p>
-        <a class="filled-btn" href="./pages/register.html">Register Now!</a>
       </section>
     </header>
 
@@ -107,47 +146,71 @@
         <!--? About Us -->
         <section
           id="about"
-          class="min-h-screen flex lg:gap-x-25 max-lg:flex-col max-lg:gap-y-25 lg:items-stretch"
+          class="min-h-screen flex lg:gap-x-24 max-lg:flex-col max-lg:gap-y-16 lg:items-center"
         >
           <!-- Details about us -->
-          <div class="h-full flexbox-column gap-y-5 max-lg:gap-y-3">
+          <div
+            class="flex-1 flexbox-column gap-y-7 max-lg:gap-y-4 justify-center"
+          >
             <h2 class="section-title">About us</h2>
-            <p class="text-xl/normal text-gray-500 w-11/12">
+            <p class="text-xl text-gray-600 mb-4">
               iQuiz is your ultimate platform for fun, interactive and
               educational quizzes designed to challenge and engage users of all
               ages.
             </p>
-            <!-- Charactaristics of IQuiz -->
-            <div
-              class="flexbox-column gap-y-6 max-lg:gap-y-3 w-5/6 max-lg:w-11/12"
-            >
-              <div class="subsection-border flexbox-column gap-y-6">
-                <h3 class="subsection-title">Innovation</h3>
-                <p class="subsection-paragraph">
+            <!-- characteristics of IQuiz -->
+            <div class="flexbox-column gap-y-6 w-5/6 max-lg:w-full">
+              <div
+                class="subsection-border bg-white/80 rounded-lg p-6 shadow flexbox-column gap-y-2 hover:shadow-lg transition"
+              >
+                <h3
+                  class="subsection-title text-purple-700 text-xl font-semibold"
+                >
+                  Innovation
+                </h3>
+                <p class="subsection-paragraph text-gray-500">
                   We leverage cutting-edge technology and creative design to
                   deliver an engaging and seamless quiz experience, redefining
                   how people learn and test their knowledge.
                 </p>
               </div>
-              <div class="subsection-border flexbox-column gap-y-6">
-                <h3 class="subsection-title">Customer Centric</h3>
-                <p class="subsection-paragraph">
+              <div
+                class="subsection-border bg-white/80 rounded-lg p-6 shadow flexbox-column gap-y-2 hover:shadow-lg transition"
+              >
+                <h3
+                  class="subsection-title text-purple-700 text-xl font-semibold"
+                >
+                  Customer Centric
+                </h3>
+                <p class="subsection-paragraph text-gray-500">
                   Our commitment is to you, the user. We strive to create a
                   platform that is intuitive, enjoyable, and constantly evolving
                   to meet your needs.
                 </p>
               </div>
-              <div class="subsection-border flexbox-column gap-y-6">
-                <h3 class="subsection-title">Expertise</h3>
-                <p class="subsection-paragraph">
+              <div
+                class="subsection-border bg-white/80 rounded-lg p-6 shadow flexbox-column gap-y-2 hover:shadow-lg transition"
+              >
+                <h3
+                  class="subsection-title text-purple-700 text-xl font-semibold"
+                >
+                  Expertise
+                </h3>
+                <p class="subsection-paragraph text-gray-500">
                   Our team is composed of experts in education, design, and
                   technology, bringing years of experience and passion to create
                   a world-class quiz platform.
                 </p>
               </div>
-              <div class="flexbox-column gap-y-6">
-                <h3 class="subsection-title">Integrity</h3>
-                <p class="subsection-paragraph">
+              <div
+                class="subsection-border bg-white/80 rounded-lg p-6 shadow flexbox-column gap-y-2 hover:shadow-lg transition"
+              >
+                <h3
+                  class="subsection-title text-purple-700 text-xl font-semibold"
+                >
+                  Integrity
+                </h3>
+                <p class="subsection-paragraph text-gray-500">
                   At IQuiz, we value transparency, honesty, and a user-first
                   approach, ensuring you always feel confident in our platform
                   and its purpose.
@@ -156,11 +219,11 @@
             </div>
           </div>
           <!-- Image -->
-          <div class="max-h-full w-11/12">
+          <div class="flex-1 flex items-center justify-center max-lg:mt-10">
             <img
               src="../public/assets/images/iQuiz_about.png"
               alt="IQuiz workplace image"
-              class="h-full object-cover rounded-md"
+              class="w-full object-cover rounded-2xl shadow-lg border-4 border-purple-100"
             />
           </div>
         </section>
@@ -168,61 +231,73 @@
         <!--? Features -->
         <section
           id="features"
-          class="bg-full-gray bg-gray-50 min-h-screen flexbox-column justify-center items-center gap-y-10 max-md:gap-y-6"
+          class="bg-gradient-to-br from-purple-50 via-white to-purple-100 min-h-screen w-screen relative left-1/2 right-1/2 -mx-[50vw] px-[50vw] flexbox-column flexbox-center gap-y-14 py-16"
         >
           <h2 class="section-title">Features</h2>
           <!-- Features Cards -->
-          <div class="cards gap-8">
+          <div class="cards max-w-6xl w-full mx-auto">
             <div class="card">
-              <div class="[&:hover>img]:scale-125 overflow-hidden">
+              <div
+                class="overflow-hidden rounded-lg mb-4 w-full h-40 flex items-center justify-center bg-purple-50"
+              >
                 <img
                   src="../public/assets/images/custom_quizzes.png"
                   alt="Custom Quizzes showcasing feature image"
-                  class="transition-transform ease-in duration-200"
+                  class="transition-transform duration-200 hover:scale-110 object-cover"
                 />
               </div>
-              <h3 class="text-purple-800 text-xl font-bold">Custom Quizzes</h3>
-              <small class="text-sm text-gray-500">Personalization</small>
-              <p>
-                Create tailored quizzes match your interests and challenge your
-                knowledge.
+              <h3 class="text-purple-800 text-xl font-bold mb-1">
+                Custom Quizzes
+              </h3>
+              <small class="text-sm text-gray-500 mb-2">Personalization</small>
+              <p class="text-gray-600 text-center">
+                Create tailored quizzes to match your interests and challenge
+                your knowledge.
               </p>
             </div>
             <div class="card">
-              <div class="[&:hover>img]:scale-125 overflow-hidden">
+              <div
+                class="overflow-hidden rounded-lg mb-4 w-full h-40 flex items-center justify-center bg-purple-50"
+              >
                 <img
                   src="../public/assets/images/iQuiz_competition.png"
                   alt="Multiplayer Competition showcasing feature image"
-                  class="transition-transform ease-in duration-200"
+                  class="transition-transform duration-200 hover:scale-110 object-cover"
                 />
               </div>
-              <h3 class="text-purple-800 text-xl font-bold">
+              <h3 class="text-purple-800 text-xl font-bold mb-1">
                 Multiplayer Competition
               </h3>
-              <small class="text-sm text-gray-500">Real-Time Play</small>
-              <p>Compete with friends or players globally in quizzes.</p>
+              <small class="text-sm text-gray-500 mb-2">Real-Time Play</small>
+              <p class="text-gray-600 text-center">
+                Compete with friends or players globally in quizzes.
+              </p>
             </div>
             <div class="card">
               <div
-                class="border border-solid border-gray-500 [&:hover>img]:scale-125 overflow-hidden"
+                class="overflow-hidden rounded-lg mb-4 w-full h-40 flex items-center justify-center bg-purple-50 border border-gray-200"
               >
                 <img
                   src="../public/assets/images/iQuiz_analytics.png"
                   alt="Detailed Analytics showcasing feature image"
-                  class="transition-transform ease-in duration-200"
+                  class="transition-transform duration-200 hover:scale-110 object-cover"
                 />
               </div>
-              <h3 class="text-purple-800 text-xl font-bold">
+              <h3 class="text-purple-800 text-xl font-bold mb-1">
                 Detailed Analytics
               </h3>
-              <small class="text-sm text-gray-500">Insights</small>
-              <p>
+              <small class="text-sm text-gray-500 mb-2">Insights</small>
+              <p class="text-gray-600 text-center">
                 Track your progress with in-depth performance reports and stats.
               </p>
             </div>
           </div>
           <!-- register button -->
-          <a href="./pages/register.html" type="button" class="filled-btn">
+          <a
+            href="./pages/register.html"
+            type="button"
+            class="filled-btn mt-6 px-8 py-3 text-lg rounded-full shadow-lg bg-purple-700 text-white font-bold hover:bg-purple-800 transition"
+          >
             Start Your Journey Now
           </a>
         </section>
@@ -235,10 +310,10 @@
             class="h-full flex max-lg:flex-col items-stretch rounded-2xl overflow-hidden"
           >
             <!-- Left Content -->
-            <div
-              class="h-full max-lg:h-1/2 w-1/2 max-lg:w-full px-12 bg-purple-600 flex flex-col justify-evenly items-start"
+            <article
+              class="h-full max-lg:h-1/2 w-1/2 max-lg:w-full px-12 bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500 flexbox-column justify-evenly items-start"
             >
-              <h3 class="text-3xl md:text-4xl lg:text-5xl font-semibold">
+              <h3 class="text-2xl md:text-3xl lg:text-4xl font-semibold">
                 Join IQuiz Now!
               </h3>
               <p class="w-11/12 text-lg">
@@ -248,11 +323,11 @@
               <a
                 href="./pages/register.html"
                 type="button"
-                class="transparent-btn hover:!bg-white hover:!text-purple-500"
+                class="transparent-btn !bg-white"
               >
                 Join for free
               </a>
-            </div>
+            </article>
             <!-- Right Image -->
             <div class="h-full max-lg:h-1/2 max-lg:w-full">
               <img
@@ -267,56 +342,98 @@
     </main>
 
     <!--* Footer -->
-    <footer class="py-8 px-6 bg-purple-950 text-white flexbox-column gap-y-5">
+    <footer
+      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flexbox-column gap-y-8 shadow-inner"
+    >
       <!--? Links -->
-      <div class="flex justify-between items-center max-md:justify-center">
+      <div
+        class="flex flex-wrap justify-between items-center max-md:flex-col max-md:gap-y-6"
+      >
         <!-- Logo -->
-        <div class="max-md:text-xl max-lg:text-2xl lg:text-3xl max-md:hidden">
-          <a href="./" class="flex items-center gap-x-2 max-md:gap-x-5">
+        <div
+          class="flex items-center gap-x-3 text-3xl font-bold text-purple-200 max-md:mb-4"
+        >
+          <a href="./" class="flex items-center gap-x-2">
             <img
               src="../public/assets/images/light-bulb icon.png"
               alt="Light bulb image - logo"
-              class="w-9 max-md:w-12"
+              class="w-10"
             />
-            <strong>iQuiz</strong></a
-          >
+            <span>iQuiz</span>
+          </a>
         </div>
-        <ul class="flex gap-x-15 max-lg:gap-x-8 max-sm:text-lg">
-          <li><a href="./#about">About us</a></li>
-          <li><a href="./#features">Features</a></li>
-          <li><a>Help Center</a></li>
-          <li><a>Contact us</a></li>
-          <li><a>FAQs</a></li>
+        <ul
+          class="flex flex-wrap gap-x-12 gap-y-2 text-lg font-medium max-md:justify-center"
+        >
+          <li>
+            <a href="./#about" class="hover:text-purple-300 transition"
+              >About us</a
+            >
+          </li>
+          <li>
+            <a href="./#features" class="hover:text-purple-300 transition"
+              >Features</a
+            >
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-300 transition">Help Center</a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-purple-300 transition">Contact us</a>
+          </li>
+          <li><a href="#" class="hover:text-purple-300 transition">FAQs</a></li>
         </ul>
       </div>
-      <hr />
+      <hr class="border-purple-700 opacity-40" />
       <!--? Copyright & Social media -->
-      <div class="flex justify-between items-center">
-        <p>&copy; 2025 Brand, Inc. &comma; Privacy &comma; Terms</p>
-        <ul class="flex gap-x-5 items-center">
+      <div
+        class="flex flex-wrap justify-between items-center max-md:flex-col max-md:gap-y-4"
+      >
+        <p class="text-sm text-purple-200">
+          &copy; 2025 iQuiz, Inc. &nbsp;|&nbsp;
+          <a href="#" class="underline hover:text-purple-300">Privacy</a>
+          &nbsp;|&nbsp;
+          <a href="#" class="underline hover:text-purple-300">Terms</a>
+        </p>
+        <ul class="flex gap-x-6 items-center">
           <li>
-            <a href="https://www.facebook.com"
-              ><img
+            <a
+              href="https://www.facebook.com"
+              aria-label="Facebook"
+              class="hover:scale-110 transition-transform"
+            >
+              <img
                 src="../public/assets/icons/facebook.svg"
                 alt="facebook icon"
-                class="w-4"
-            /></a>
+                class="w-5 opacity-80 hover:opacity-100"
+              />
+            </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com"
-              ><img
+            <a
+              href="https://www.linkedin.com"
+              aria-label="LinkedIn"
+              class="hover:scale-110 transition-transform"
+            >
+              <img
                 src="../public/assets/icons/linkedin.svg"
                 alt="linkedin icon"
-                class="w-5"
-            /></a>
+                class="w-6 opacity-80 hover:opacity-100"
+              />
+            </a>
           </li>
           <li>
-            <a href="https://www.youtube.com"
-              ><img
+            <a
+              href="https://www.youtube.com"
+              aria-label="YouTube"
+              class="hover:scale-110 transition-transform"
+            >
+              <img
                 src="../public/assets/icons/youtube.svg"
                 alt="youtube icon"
-                class="w-5"
-            /></a>
+                class="w-6 opacity-80 hover:opacity-100"
+              />
+            </a>
           </li>
         </ul>
       </div>

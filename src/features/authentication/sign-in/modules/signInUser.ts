@@ -1,4 +1,4 @@
-import processSignIn from "./core/processSignIn";
+import SignInUserService from "./core/processSignIn";
 
 export default function signInUser(): void {
   const signInForm = <HTMLFormElement>document.getElementById("sign-in-form");
@@ -11,6 +11,6 @@ export default function signInUser(): void {
 
   signInForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    processSignIn(e.target as HTMLFormElement, errorMsg);
+    SignInUserService.signIn(e.target as HTMLFormElement, errorMsg);
   });
 }
