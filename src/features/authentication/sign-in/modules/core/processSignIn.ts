@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword, UserCredential } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { auth } from "../../../../firebase";
 import redirectToPage from "../../../modules/redirect";
 import loadingStatus from "../../../modules/showLoading";
 import toggleErrorMsg from "../../../modules/toggleErrorMsg";

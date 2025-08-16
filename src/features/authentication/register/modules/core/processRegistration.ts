@@ -7,7 +7,7 @@ export default function processRegistration(
   validationResults: I_validationCheck,
   errorMsg: HTMLParagraphElement
 ) {
-  registerForm.addEventListener("submit", (e: Event) => {
+  registerForm.addEventListener("submit", async (e: Event) => {
     e.preventDefault();
     if (
       validationResults.username &&
@@ -16,11 +16,20 @@ export default function processRegistration(
       validationResults.confirmPassword
     ) {
       toggleErrorMsg(errorMsg, false);
-      CreateUserService.createUser({
-        username: validationResults.username,
-        email: validationResults.email,
-        password: validationResults.password,
-      });
+      try {
+        await CreateUserService.createUser({
+          username: validationResults.username,
+          email: validationResults.email,
+          password: validationResults.password,
+        });
+      } catch (error) {
+        console.error("Error during registration: ", error);
+        toggleErrorMsg(
+          errorMsg,
+          true,
+          "Registration failed. Please try again."
+        );
+      }
     } else {
       toggleErrorMsg(errorMsg, true);
       console.error("User data is invalid. Please check the form.");

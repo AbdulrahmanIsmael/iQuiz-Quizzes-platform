@@ -263,6 +263,28 @@ module.exports = {
         useShortDoctype: true,
       },
     }),
+    new HTMLPlugin({
+      template: path.resolve(__dirname, "src", "pages", "soon.html"),
+      filename: "pages/soon.html",
+      meta: {
+        description: "Page will be ready soon",
+        keywords: "quiz, survey, soon",
+        author: "Abdulrahman Ismael",
+        compatible: {
+          "http-equiv": "X-UA-Compatible",
+          content: "IE=7",
+        },
+      },
+      inject: "body",
+      chunks: ["dashboardCSS", "dashboardTS"],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
     new MiniCSSExtractPlugin({
       filename: "styles/[name]_[contenthash].css",
       chunkFilename: "chunks/[id]_[contenthash].css",

@@ -2,7 +2,7 @@ import Validation from "../../modules/core/validate";
 import processRegistration from "./core/processRegistration";
 
 // validate the register form inputs
-export default function registerUser(): void {
+export default function registerUser() {
   const registerForm = <HTMLFormElement>(
     document.getElementById("register-form")
   );

@@ -4,7 +4,8 @@ import ToggleMenu, {
   ToggleStrategy,
 } from "../../components/Buttons/toggleMenu";
 import "../../styles/main.css";
-import AddQuestion from "../../components/questions/addQuestion";
+import QuestionsControl from "../../components/questions/QuestionsControl";
+import CreateQuiz from "./modules/core/createQuiz";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userMenuBtn = <HTMLButtonElement>(
@@ -22,7 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   // Add question
-  AddQuestion.addQuestion();
+  QuestionsControl.addQuestion();
+
+  // enable submit quiz
+  CreateQuiz.submitQuiz();
 
   // toggle user menu
   const userMenuToggle = new ToggleMenu(
