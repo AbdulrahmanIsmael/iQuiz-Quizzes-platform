@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IQuiz - Soon</title>
+    <title>IQuiz - Explore Quizzes</title>
     <link
       rel="shortcut icon"
       href="../../public/assets/images/light-bulb icon.png"
@@ -36,7 +36,7 @@
             <a class="navlink" href="./create.html">Create</a>
           </li>
           <li>
-            <a class="navlink" href="./soon.html">Search</a>
+            <a class="navlink navlink-active" href="./explore.html">Explore</a>
           </li>
         </ul>
         <!-- User control -->
@@ -154,32 +154,90 @@
       </nav>
       <!--? Navbar -->
     </header>
+
     <!--* Main Content -->
-    <main
-      class="min-h-screen py-24 px-6 flex flex-col justify-center items-center gap-y-10 bg-gradient-to-br from-purple-50 via-white to-purple-100"
-    >
-      <div class="rounded-b-lg p-10 flex flex-col items-center gap-y-6 w-full">
-        <img
-          src="../../public/assets/icons/construction.png"
-          alt="Under Construction Illustration"
-          class="w-36 md:w-40 mb-2"
-        />
-        <h1
-          class="text-5xl md:text-6xl font-extrabold text-purple-800 text-center drop-shadow-lg"
+    <main>
+      <section class="user-quizzes-container flex flex-col gap-y-6 !pt-10">
+        <h3 class="text-2xl font-semibold text-purple-800 mb-2">
+          User Quizzes
+        </h3>
+        <div
+          id="user-quizzes-container-loading"
+          class="flex items-center justify-center"
         >
-          Coming Soon!
-        </h1>
-        <p class="text-sm md:text-2xl text-gray-700 text-center max-w-2xl">
-          We're crafting something awesome for you.<br />
-          This page is under construction and will be available soon. Stay
-          tuned!
-        </p>
-        <a
-          href="./dashboard.html"
-          class="mt-4 px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-xl shadow hover:scale-105 hover:bg-purple-800 transition-all duration-150"
+          <img
+            src="../../public/assets/icons/loading.gif"
+            alt="loading the content"
+            class="w-32"
+          />
+        </div>
+        <div id="user-quizzes-container-content" class="hidden">
+          <div class="cards auto-rows-fr items-stretch gap-4">
+            <div
+              id="no-quizzes"
+              class="flex flex-col items-center justify-center py-10 text-purple-400 bg-purple-50 rounded-xl shadow-sm w-full"
+            >
+              <img
+                src="../../public/assets/icons/new quiz.png"
+                alt="No quizzes icon"
+                class="w-16 mb-4 opacity-70"
+              />
+              <p class="text-lg font-medium">
+                No quizzes found. Create your first quiz!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="recent-quizzes-container flex flex-col gap-y-6 !pt-10 !pb-32"
+      >
+        <h3 class="text-2xl font-semibold text-purple-800 mb-2">
+          Recent Quizzes
+        </h3>
+        <div
+          id="recent-quizzes-container-loading"
+          class="flex items-center justify-center"
         >
-          Return to Home
-        </a>
+          <img
+            src="../../public/assets/icons/loading.gif"
+            alt="loading the content"
+            class="w-32"
+          />
+        </div>
+        <div id="recent-quizzes-container-content" class="hidden">
+          <div class="cards auto-rows-fr items-stretch gap-4">
+            <div
+              id="no-quizzes"
+              class="flex flex-col items-center justify-center py-10 text-purple-400 bg-purple-50 rounded-xl shadow-sm w-full"
+            >
+              <img
+                src="../../public/assets/icons/new quiz.png"
+                alt="No quizzes icon"
+                class="w-16 mb-4 opacity-70"
+              />
+              <p class="text-lg font-medium">
+                No quizzes found. Create your first quiz!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        id="error-message"
+        class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-100 border border-red-400 text-red-700 px-8 py-3 rounded-lg shadow-lg z-50 hidden"
+      >
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.707 6.707a1 1 0 011.414 0L10 8.586l1.879-1.879a1 1 0 111.414 1.414L11.414 10l1.879 1.879a1 1 0 11-1.414 1.414L10 11.414l-1.879 1.879a1 1 0 11-1.414-1.414L8.586 10 6.707 8.121a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <p class="font-medium">Something Went Wrong!</p>
+        </div>
       </div>
     </main>
 

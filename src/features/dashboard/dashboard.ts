@@ -16,6 +16,7 @@ import "../../styles/main.css";
 import { setElementContent } from "../../utils/setElementContent";
 import { auth, db } from "../firebase";
 import redirectToPage from "../authentication/modules/redirect";
+import signUserOut from "../authentication/sign-out/signOut";
 
 onAuthStateChanged(auth, async (user) => {
   try {
@@ -48,13 +49,9 @@ onAuthStateChanged(auth, async (user) => {
         user.displayName as string
       );
       const dataSnapshot: DocumentSnapshot = await getDoc(userDoc);
-      console.log(dataSnapshot.exists());
-      console.log(dataSnapshot?.data()?.numberOfCreatedQuizzes);
-      console.log(dataSnapshot?.data()?.numberOfSolvedQuizzes);
 
       if (dataSnapshot.exists()) {
         const data = dataSnapshot.data();
-        console.log(data);
         setElementContent(
           solvedQuizzes,
           data?.numberOfSolvedQuizzes.toString()
@@ -101,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const notificationsCollapseBtn = <HTMLButtonElement>(
     document.getElementById("notifications-collapse")
   );
-  const signOutBtn = <HTMLButtonElement>document.getElementById("signOut");
 
   const userMenuToggle = new ToggleMenu(
     new ToggleStrategy(),
@@ -127,14 +123,5 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   notificationMenuToggleCollapse.setMenu();
 
-  signOutBtn.addEventListener("click", async (e: Event) => {
-    e.preventDefault();
-    try {
-      await signOut(auth);
-      console.log("successful sign out, we will be waiting for you again!");
-    } catch (error) {
-      console.error("Error during signing out: ", error);
-    }
-    redirectToPage("../../pages/sign-in.html");
-  });
+  signUserOut();
 });

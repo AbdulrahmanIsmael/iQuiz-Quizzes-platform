@@ -4,7 +4,6 @@
 @import "./base/typography.css";
 @import "./base/color.css";
 @import "./components/button.css";
-@import "./layouts/flex.css";
 @import "./layouts/grid.css";
 @import "./layouts/navbar.css";
 

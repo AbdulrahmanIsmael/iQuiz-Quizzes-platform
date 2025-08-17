@@ -1,15 +1,15 @@
+import "../../styles/main.css";
 import ToggleMenu, {
   AddStrategy,
   RemoveStrategy,
   ToggleStrategy,
 } from "../../components/Buttons/toggleMenu";
-import "../../styles/main.css";
-import QuestionsControl from "../../components/questions/QuestionsControl";
-import CreateQuiz from "./modules/core/createQuiz";
 import signUserOut from "../authentication/sign-out/signOut";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { showMsg } from "../../components/message/showMessage";
+import { GetQuizzes } from "./modules/getQuizzes";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { insertQuizzes } from "./modules/insertQuizzes";
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -19,7 +19,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const userMenuBtn = <HTMLButtonElement>(
     document.getElementById("user-menu-btn")
   );
@@ -34,11 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("notifications-collapse")
   );
 
-  // Add question
-  QuestionsControl.addQuestion();
-
-  // enable submit quiz
-  CreateQuiz.submitQuiz();
+  localStorage.clear();
 
   // toggle user menu
   const userMenuToggle = new ToggleMenu(
@@ -66,6 +62,44 @@ document.addEventListener("DOMContentLoaded", () => {
     "collapsed"
   );
   notificationsMenuCollapse.setMenu();
+
+  try {
+    const userQuizzes = await GetQuizzes.getUserQuizzes();
+    const recentQuizzes = await GetQuizzes.getRecentQuizzes();
+    const userQuizzesLoading = document.getElementById(
+      "user-quizzes-container-loading"
+    );
+    const userQuizzesContainer = document.querySelector(
+      "#user-quizzes-container-content .cards"
+    );
+    const recentQuizzesLoading = document.getElementById(
+      "recent-quizzes-container-loading"
+    );
+    const recentQuizzesContainer = document.querySelector(
+      "#recent-quizzes-container-content .cards"
+    );
+
+    if (recentQuizzesContainer && recentQuizzesLoading) {
+      await insertQuizzes(
+        recentQuizzesContainer as HTMLElement,
+        recentQuizzesLoading as HTMLElement,
+        recentQuizzes
+      );
+    }
+
+    if (userQuizzesContainer && userQuizzesLoading) {
+      await insertQuizzes(
+        userQuizzesContainer as HTMLElement,
+        userQuizzesLoading as HTMLElement,
+        userQuizzes
+      );
+    }
+  } catch (error) {
+    console.error("Unexpected Error:", error);
+    await signOut(auth);
+    const errorMsg = document.getElementById("error-message");
+    showMsg(errorMsg as HTMLDivElement, "../../pages/sign-in.html");
+  }
 
   signUserOut();
 });

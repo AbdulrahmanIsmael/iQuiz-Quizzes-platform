@@ -4,6 +4,7 @@ import ToggleMenu, {
   ToggleStrategy,
 } from "../../components/Buttons/toggleMenu";
 import "../../styles/main.css";
+import signUserOut from "../authentication/sign-out/signOut";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userMenuBtn = <HTMLButtonElement>(
@@ -46,4 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "collapsed"
   );
   notificationsMenuCollapse.setMenu();
+
+  signUserOut();
 });
