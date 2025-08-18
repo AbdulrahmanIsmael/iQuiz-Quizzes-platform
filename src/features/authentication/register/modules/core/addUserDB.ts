@@ -1,21 +1,24 @@
-import { db } from "../../../../firebase";
-import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
+import { FirestoreControl } from "../../../../../utils/firestoreControl";
 
 export async function addUserToDB(username: string, email: string) {
+  const addUserOperation = new FirestoreControl("users", username);
   try {
-    const usersCollection = collection(db, "users");
-    const userDoc = doc(usersCollection, username);
-    await setDoc(userDoc, {
-      username: username,
-      email: email,
-      createdAt: serverTimestamp(),
-      quizzes: [],
-      numberOfCreatedQuizzes: 0,
-      solved: [],
-      numberOfSolvedQuizzes: 0,
-      activity: [],
-    });
+    await addUserOperation.setDocument(
+      {
+        username: username,
+        email: email,
+        createdAt: serverTimestamp(),
+        quizzes: [],
+        numberOfCreatedQuizzes: 0,
+        solved: [],
+        numberOfSolvedQuizzes: 0,
+        activity: [],
+      },
+      true
+    );
   } catch (error: any) {
+    console.error("Something went wrong: ", error);
     throw new Error(error);
   }
 }

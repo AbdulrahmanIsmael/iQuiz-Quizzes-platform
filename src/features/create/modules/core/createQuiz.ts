@@ -1,19 +1,10 @@
-import {
-  arrayUnion,
-  collection,
-  CollectionReference,
-  doc,
-  DocumentReference,
-  increment,
-  serverTimestamp,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { arrayUnion, increment, serverTimestamp } from "firebase/firestore";
 import toggleErrorMsg from "../../../authentication/modules/toggleErrorMsg";
-import { auth, db } from "../../../firebase";
+import { auth } from "../../../firebase";
 import { T_question } from "../../types/createQuiz-types";
 import { showMsg } from "../../../../components/message/showMessage";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { FirestoreControl } from "../../../../utils/firestoreControl";
 
 export default class CreateQuiz {
   private static submitBtn = <HTMLButtonElement>(
@@ -167,34 +158,27 @@ export default class CreateQuiz {
         if (user) {
           // adding the quiz to the DB and update the user details in DB for the added quiz
           const userDocID = user?.displayName;
-          const userDocRef: DocumentReference = doc(
-            db,
+          const userOperation = new FirestoreControl(
             "users",
             userDocID as string
           );
-
-          const quizzesCollection: CollectionReference = collection(
-            db,
-            "quizzes"
-          );
-          const quizDocRef: DocumentReference = doc(quizzesCollection, title);
-
+          const quizOperation = new FirestoreControl("quizzes", title);
           try {
-            await setDoc(
-              quizDocRef,
+            await quizOperation.setDocument(
               {
-                owner: userDocRef,
+                owner: userOperation.documentRef,
                 createdAt: serverTimestamp(),
                 title,
                 description,
                 questions: arrayUnion(...questions),
               },
-              { merge: true }
+              true,
+              true
             );
-            await updateDoc(userDocRef, {
+            await userOperation.updateDocument({
               numberOfCreatedQuizzes: increment(1),
-              quizzes: arrayUnion(quizDocRef),
-              activity: arrayUnion(quizDocRef),
+              quizzes: arrayUnion(quizOperation.collectionRef),
+              activity: arrayUnion(quizOperation.collectionRef),
             });
 
             // Show success message

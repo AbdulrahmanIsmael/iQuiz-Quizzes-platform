@@ -9,13 +9,11 @@ import CreateQuiz from "./modules/core/createQuiz";
 import signUserOut from "../authentication/sign-out/signOut";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import { showMsg } from "../../components/message/showMessage";
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     console.error("Something Went Wrong! Please Sign In.");
-    const errorMsg = document.getElementById("error-message");
-    showMsg(errorMsg as HTMLDivElement, "../../pages/sign-in.html");
+    window.location.href = "../../pages/sign-in.html";
   }
 });
 

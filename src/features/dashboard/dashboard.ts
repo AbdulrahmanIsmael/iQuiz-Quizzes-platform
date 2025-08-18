@@ -1,12 +1,5 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import {
-  collection,
-  CollectionReference,
-  doc,
-  DocumentReference,
-  getDoc,
-  DocumentSnapshot,
-} from "firebase/firestore";
+import { DocumentData } from "firebase/firestore";
 import ToggleMenu, {
   AddStrategy,
   RemoveStrategy,
@@ -14,9 +7,10 @@ import ToggleMenu, {
 } from "../../components/Buttons/toggleMenu";
 import "../../styles/main.css";
 import { setElementContent } from "../../utils/setElementContent";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 import redirectToPage from "../authentication/modules/redirect";
 import signUserOut from "../authentication/sign-out/signOut";
+import { FirestoreControl } from "../../utils/firestoreControl";
 
 onAuthStateChanged(auth, async (user) => {
   try {
@@ -43,25 +37,30 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById("user-created")
       );
 
-      const usersCollection: CollectionReference = collection(db, "users");
-      const userDoc: DocumentReference = doc(
-        usersCollection,
+      const userDataOperation = new FirestoreControl(
+        "users",
         user.displayName as string
       );
-      const dataSnapshot: DocumentSnapshot = await getDoc(userDoc);
+      const userData: DocumentData | null =
+        await userDataOperation.getDocument();
 
-      if (dataSnapshot.exists()) {
-        const data = dataSnapshot.data();
+      if (userData) {
         setElementContent(
           solvedQuizzes,
-          data?.numberOfSolvedQuizzes.toString()
+          userData?.numberOfSolvedQuizzes.toString()
         );
-        setElementContent(userSolved, data?.numberOfSolvedQuizzes.toString());
+        setElementContent(
+          userSolved,
+          userData?.numberOfSolvedQuizzes.toString()
+        );
         setElementContent(
           createdQuizzes,
-          data?.numberOfCreatedQuizzes.toString()
+          userData?.numberOfCreatedQuizzes.toString()
         );
-        setElementContent(userCreated, data?.numberOfCreatedQuizzes.toString());
+        setElementContent(
+          userCreated,
+          userData?.numberOfCreatedQuizzes.toString()
+        );
       } else {
         setElementContent(solvedQuizzes, "N/A");
         setElementContent(userSolved, "N/A");

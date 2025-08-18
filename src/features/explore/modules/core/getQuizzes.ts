@@ -11,10 +11,10 @@ import {
   Query,
   QuerySnapshot,
 } from "firebase/firestore";
-import { auth, db } from "../../firebase";
+import { auth, db } from "../../../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { T_quiz } from "../../../types/exploreQuiz-types";
-import { showMsg } from "../../../components/message/showMessage";
+import { T_quiz } from "../../../../types/exploreQuiz-types";
+import { showMsg } from "../../../../components/message/showMessage";
 //import { showMsg } from "../../../components/message/showMessage";
 
 export class GetQuizzes {

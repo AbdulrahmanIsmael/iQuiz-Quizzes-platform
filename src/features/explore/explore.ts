@@ -7,15 +7,15 @@ import ToggleMenu, {
 import signUserOut from "../authentication/sign-out/signOut";
 import { auth } from "../firebase";
 import { showMsg } from "../../components/message/showMessage";
-import { GetQuizzes } from "./modules/getQuizzes";
+import { GetQuizzes } from "./modules/core/getQuizzes";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { insertQuizzes } from "./modules/insertQuizzes";
+import { enableStartQuizEvent } from "./modules/startQuiz";
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
     console.error("Something Went Wrong! Please Sign In.");
-    const errorMsg = document.getElementById("error-message");
-    showMsg(errorMsg as HTMLDivElement, "../../pages/sign-in.html");
+    window.location.href = "../../pages/sign-in.html";
   }
 });
 
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         userQuizzes
       );
     }
+    enableStartQuizEvent();
   } catch (error) {
     console.error("Unexpected Error:", error);
     await signOut(auth);

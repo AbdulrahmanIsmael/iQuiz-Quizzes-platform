@@ -17,9 +17,9 @@ export async function getQuiz(quiz: T_quiz, owner: string) {
         </p>
       </div>
       <button
+        id="start-quiz-btn"
         type="button"
         class="filled-btn !mt-3 border border-purple-400 transition-natural"
-        onclick="localStorage.setItem("quizToSolve", ${quiz})"
       >
         Start Quiz
       </button>

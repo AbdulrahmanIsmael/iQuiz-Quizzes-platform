@@ -1,6 +1,6 @@
-import { getDoc } from "firebase/firestore";
 import { getQuiz } from "../../../constants/exploreQuizzes-constants";
 import { T_quiz } from "../../../types/exploreQuiz-types";
+import { FirestoreControl } from "../../../utils/firestoreControl";
 
 export async function insertQuizzes(
   parent: HTMLElement,
@@ -8,7 +8,6 @@ export async function insertQuizzes(
   quizzes: T_quiz[]
 ) {
   const noQuizzes = parent.firstElementChild;
-  console.log(quizzes);
   if (!quizzes || quizzes.length === 0) {
     loading.classList.add("hidden");
     (parent.parentElement as HTMLElement).classList.remove("hidden");
@@ -19,9 +18,9 @@ export async function insertQuizzes(
   }
   const quizzesCards = await Promise.all(
     quizzes.map(async (quiz: T_quiz) => {
-      const ownerDoc = await getDoc(quiz.owner);
-      if (ownerDoc.exists()) {
-        return getQuiz(quiz, ownerDoc.data().username);
+      const owner = await FirestoreControl.getDocumentFast(quiz.owner);
+      if (owner) {
+        return getQuiz(quiz, owner.username);
       } else {
         return getQuiz(quiz, "Unknown");
       }
