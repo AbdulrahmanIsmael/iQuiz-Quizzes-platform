@@ -11,7 +11,7 @@ export async function getQuiz(quiz: T_quiz, owner: string) {
         </h3>
         <small class="text-sm text-purple-500">${owner}</small>
         <p
-          class="text-gray-700 leading-6 text-justify -tracking-normal xl:-tracking-wide"
+          class="text-gray-700 leading-6 text-justify tracking-normal xl:tracking-wide space-x-1"
         >
           ${quiz.description}
         </p>

@@ -37,6 +37,8 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById("user-created")
       );
 
+      localStorage.clear();
+
       const userDataOperation = new FirestoreControl(
         "users",
         user.displayName as string
@@ -47,30 +49,62 @@ onAuthStateChanged(auth, async (user) => {
       if (userData) {
         setElementContent(
           solvedQuizzes,
-          userData?.numberOfSolvedQuizzes.toString()
+          userData?.numberOfSolvedQuizzes.toString(),
+          document.getElementById("loading-solved") as HTMLImageElement
         );
         setElementContent(
           userSolved,
-          userData?.numberOfSolvedQuizzes.toString()
+          userData?.numberOfSolvedQuizzes.toString(),
+          document.getElementById("loading-user-solved") as HTMLImageElement
         );
         setElementContent(
           createdQuizzes,
-          userData?.numberOfCreatedQuizzes.toString()
+          userData?.numberOfCreatedQuizzes.toString(),
+          document.getElementById("loading-created") as HTMLImageElement
         );
         setElementContent(
           userCreated,
-          userData?.numberOfCreatedQuizzes.toString()
+          userData?.numberOfCreatedQuizzes.toString(),
+          document.getElementById("loading-user-created") as HTMLImageElement
         );
       } else {
-        setElementContent(solvedQuizzes, "N/A");
-        setElementContent(userSolved, "N/A");
-        setElementContent(createdQuizzes, "N/A");
-        setElementContent(userCreated, "N/A");
+        setElementContent(
+          solvedQuizzes,
+          "",
+          document.getElementById("loading-solved") as HTMLImageElement
+        );
+        setElementContent(
+          userSolved,
+          "",
+          document.getElementById("loading-user-solved") as HTMLImageElement
+        );
+        setElementContent(
+          createdQuizzes,
+          "",
+          document.getElementById("loading-created") as HTMLImageElement
+        );
+        setElementContent(
+          userCreated,
+          "",
+          document.getElementById("loading-user-created") as HTMLImageElement
+        );
       }
 
-      setElementContent(userElement, user.displayName || "User");
-      setElementContent(usernameElement, user.displayName || "User");
-      setElementContent(emailElement, user.email || "No email");
+      setElementContent(
+        userElement,
+        user.displayName || "User",
+        document.getElementById("loading-username") as HTMLImageElement
+      );
+      setElementContent(
+        usernameElement,
+        user.displayName || "User",
+        document.getElementById("loading-user") as HTMLImageElement
+      );
+      setElementContent(
+        emailElement,
+        user.email || "No email",
+        document.getElementById("loading-email") as HTMLImageElement
+      );
       if (user.photoURL && typeof user.photoURL === "string") {
         profilePhotoElement.src = user.photoURL;
         userMenuBtnImg.src = user.photoURL;

@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("notifications-collapse")
   );
 
+  localStorage.clear();
+
   // Add question
   QuestionsControl.addQuestion();
 

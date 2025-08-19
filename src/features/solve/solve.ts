@@ -5,6 +5,12 @@ import ToggleMenu, {
 } from "../../components/Buttons/toggleMenu";
 import "../../styles/main.css";
 import signUserOut from "../authentication/sign-out/signOut";
+import { insertPagination } from "./modules/addPagination";
+import { setQuestion } from "./modules/setQuestion";
+import { enableQuestionsNav } from "./modules/enableQuestionsNav";
+import { saveAnswers } from "./modules/saveAnswers";
+import { getScrollY } from "./modules/getScrollY";
+import { submitQuiz } from "./modules/core/submitQuiz";
 
 document.addEventListener("DOMContentLoaded", () => {
   const userMenuBtn = <HTMLButtonElement>(
@@ -49,4 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
   notificationsMenuCollapse.setMenu();
 
   signUserOut();
+
+  getScrollY();
+
+  // add pagination buttons
+  insertPagination();
+
+  // add question
+  setQuestion();
+
+  // add questions navigation event
+  enableQuestionsNav();
+
+  // save answers
+  saveAnswers();
+
+  // submit quiz to DB
+  submitQuiz();
 });

@@ -30,7 +30,7 @@
         <!-- Desktop Menu -->
         <ul class="hidden md:flex items-center gap-x-8 text-lg font-medium">
           <li>
-            <a class="navlink" href="/index.html">Home</a>
+            <a class="navlink" href="./dashboard.html">Home</a>
           </li>
           <li>
             <a class="navlink" href="./create.html">Create</a>
@@ -172,132 +172,61 @@
         <div id="question-card" class="flex flex-col gap-y-6">
           <!-- Example question, replace with dynamic JS later -->
           <div class="question-content">
-            <div class="flex items-center gap-x-3 mb-2">
-              <span class="text-xl font-bold text-purple-700">Question 1</span>
-            </div>
-            <p class="text-lg font-medium text-gray-800 mb-4">
-              What is the capital of France?
-            </p>
-            <!-- Multiple Choice Example -->
-            <div class="choices-section flex flex-col gap-y-3">
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="A"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Berlin</span>
-              </label>
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="B"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Madrid</span>
-              </label>
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="C"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Paris</span>
-              </label>
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="D"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Rome</span>
-              </label>
-            </div>
-            <!-- Open-ended Example (hidden if not needed) -->
-            <!--
-        <div class="open-ended-section flex flex-col gap-y-2">
-          <label class="text-purple-700 font-medium" for="open-answer-1">
-            Your Answer
-          </label>
-          <input
-            type="text"
-            name="open-answer-1"
-            id="open-answer-1"
-            maxlength="120"
-            placeholder="Type your answer"
-            class="input border border-purple-200 rounded px-3 py-1"
-          />
-        </div>
-        -->
+            <img
+              src="../../public/assets/icons/loading.gif"
+              alt="loading content"
+              class="mx-auto mt-10 w-32"
+            />
           </div>
+        </div>
+        <div id="save-answer-btn-container" class="flex justify-start mt-5">
+          <button type="button" class="transparent-btn !text-sm">
+            Save Answer
+          </button>
         </div>
         <!-- Pagination Controls -->
         <div class="flex flex-col items-center gap-y-4 mt-6">
-          <div class="flex gap-x-2">
-            <!-- Example: 5 questions -->
-            <button
-              class="w-9 h-9 rounded-full bg-purple-600 text-white font-bold flex justify-center items-center shadow hover:bg-purple-700 transition"
-              aria-label="Go to question 1"
-            >
-              1
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex justify-center items-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 2"
-            >
-              2
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex justify-center items-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 3"
-            >
-              3
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex justify-center items-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 4"
-            >
-              4
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex justify-center items-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 5"
-            >
-              5
-            </button>
-          </div>
-          <div class="flex justify-between w-full max-w-xs gap-x-4">
-            <button
-              type="button"
-              id="prev-question"
-              class="transparent-btn border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural px-6 py-2 rounded-lg font-semibold disabled:opacity-50"
-              disabled
-            >
-              &larr; Previous
-            </button>
-            <button
-              type="button"
-              id="next-question"
-              class="transparent-btn border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural px-6 py-2 rounded-lg font-semibold"
-            >
-              Next &rarr;
-            </button>
-          </div>
+          <div id="pagination-container" class="flex gap-x-2"></div>
         </div>
         <!-- Submit Button -->
         <div class="flex justify-center mt-8">
-          <button
-            type="submit"
-            class="filled-btn bg-gradient-to-r from-purple-700 to-purple-500 text-white px-10 py-3 rounded-xl text-lg font-bold shadow-lg hover:scale-105 transition-transform"
-          >
-            Submit Answers
+          <button id="submit-quiz-btn" type="submit" class="filled-btn">
+            Finish Quiz
           </button>
         </div>
       </section>
+      <div
+        id="success-message"
+        class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-8 py-3 rounded-lg shadow-lg z-50 hidden"
+      >
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <p class="font-medium"></p>
+        </div>
+      </div>
+      <div
+        id="error-message"
+        class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-100 border border-red-400 text-red-700 px-8 py-3 rounded-lg shadow-lg z-50 hidden"
+      >
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <p class="font-medium">
+            Please make sure to answer all the questions
+          </p>
+        </div>
+      </div>
     </main>
 
     <!--* Footer -->

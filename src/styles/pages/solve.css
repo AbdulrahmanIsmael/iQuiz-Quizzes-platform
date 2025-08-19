@@ -1,2 +1,6 @@
 @import "../components/toggleMenus.css";
 @reference "../tailwind.css";
+
+.q-active {
+  @apply !bg-purple-600 !text-white hover:!bg-purple-700;
+}

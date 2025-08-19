@@ -24,7 +24,7 @@ export function enableStartQuizEvent() {
           (quiz as DocumentData).owner
         );
 
-        localStorage.clear();
+        localStorage.removeItem("solve");
         localStorage.setItem(
           "solve",
           JSON.stringify({
@@ -32,6 +32,9 @@ export function enableStartQuizEvent() {
             owner: (ownerUsername as DocumentData).username,
           })
         );
+        window.location.href = `../../../pages/solve.html?q=${encodeURIComponent(
+          1
+        )}`;
       });
     });
   }

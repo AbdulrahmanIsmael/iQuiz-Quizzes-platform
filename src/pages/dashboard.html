@@ -158,8 +158,16 @@
     <main
       class="min-h-screen py-12 px-8 bg-gradient-to-br from-purple-50 via-gray-50 to-white"
     >
-      <h2 class="text-4xl font-bold text-purple-800 mb-8 drop-shadow-sm">
-        Welcome <span id="user-name" class="text-purple-600">...</span>
+      <h2
+        class="flex items-center gap-2 text-4xl font-bold text-purple-800 mb-8 drop-shadow-sm"
+      >
+        Welcome
+        <img
+          src="../../public/assets/icons/loading-text.gif"
+          alt="loading username"
+          class="w-10"
+          id="loading-username"
+        /><span id="user-name" class="text-purple-600"></span>
       </h2>
       <section class="grid grid-responsive grid-rows-2 gap-x-8 gap-y-6 !pb-0">
         <!-- User Details -->
@@ -175,25 +183,46 @@
               class="object-cover rounded-full w-32 h-32"
             />
           </div>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading username"
+            class="w-10"
+            id="loading-user"
+          />
           <h3
             id="username"
             class="font-semibold text-2xl text-center text-gray-800"
-          >
-            ...
-          </h3>
-          <p id="user-email" class="pb-3 text-gray-500 text-sm">...</p>
+          ></h3>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading email"
+            class="w-10"
+            id="loading-email"
+          />
+          <p id="user-email" class="pb-3 text-gray-500 text-sm"></p>
           <div class="h-0.5 w-3/5 bg-purple-100"></div>
           <div class="pt-3 flex gap-x-12 justify-center items-center">
             <div class="flex flex-col justify-center items-center gap-y-1">
-              <div id="created" class="text-3xl font-bold text-purple-500">
-                N/A
-              </div>
+              <img
+                src="../../public/assets/icons/loading-text.gif"
+                alt="loading created quizzes"
+                class="w-10"
+                id="loading-created"
+              />
+              <div
+                id="created"
+                class="text-3xl font-bold text-purple-500"
+              ></div>
               <p class="text-lg font-light text-gray-700">Created</p>
             </div>
             <div class="flex flex-col justify-center items-center gap-y-1">
-              <div id="solved" class="text-3xl font-bold text-purple-500">
-                N/A
-              </div>
+              <img
+                src="../../public/assets/icons/loading-text.gif"
+                alt="loading solved quizzes"
+                class="w-10"
+                id="loading-solved"
+              />
+              <div id="solved" class="text-3xl font-bold text-purple-500"></div>
               <p class="text-lg font-light text-gray-700">Solved</p>
             </div>
           </div>
@@ -236,9 +265,16 @@
               Total Quizzes Solved
             </figcaption>
           </figure>
-          <div id="user-solved" class="text-4xl font-bold text-purple-800">
-            N/A
-          </div>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading solved quizzes"
+            class="w-10"
+            id="loading-user-solved"
+          />
+          <div
+            id="user-solved"
+            class="text-4xl font-bold text-purple-800"
+          ></div>
           <p class="text-sm text-gray-500 font-semibold">
             Your knowledge journey so far
           </p>
@@ -256,9 +292,16 @@
               Total Quizzes Created
             </figcaption>
           </figure>
-          <div id="user-created" class="text-4xl font-bold text-purple-800">
-            N/A
-          </div>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading created quizzes"
+            class="w-10"
+            id="loading-user-created"
+          />
+          <div
+            id="user-created"
+            class="text-4xl font-bold text-purple-800"
+          ></div>
           <p class="text-sm text-gray-500 font-semibold">
             Your contributions to the community
           </p>

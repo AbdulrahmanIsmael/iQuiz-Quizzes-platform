@@ -178,7 +178,10 @@ export default class CreateQuiz {
             await userOperation.updateDocument({
               numberOfCreatedQuizzes: increment(1),
               quizzes: arrayUnion(quizOperation.documentRef),
-              activity: arrayUnion(quizOperation.documentRef),
+              activity: arrayUnion({
+                type: "created",
+                quiz: quizOperation.documentRef,
+              }),
             });
 
             // Show success message
