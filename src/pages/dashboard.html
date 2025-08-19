@@ -36,7 +36,7 @@
             <a class="navlink" href="./create.html">Create</a>
           </li>
           <li>
-            <a class="navlink" href="./soon.html">Explore</a>
+            <a class="navlink" href="./explore.html">Explore</a>
           </li>
         </ul>
         <!-- User control -->
@@ -52,7 +52,7 @@
             </button>
             <ul
               id="user-menu"
-              class="flexbox-column absolute w-52 bg-white shadow-lg shadow-purple-200 rounded-xl -bottom-[136px] right-12 -z-10 closed transition-natural border border-gray-200 overflow-hidden"
+              class="flex flex-col absolute w-52 bg-white shadow-lg shadow-purple-200 rounded-xl -bottom-[136px] right-12 -z-10 closed transition-natural border border-gray-200 overflow-hidden"
             >
               <li
                 class="px-6 py-3 border-b border-solid border-b-gray-100 text-sm font-semibold hover:bg-purple-50 transition-natural"
@@ -111,7 +111,7 @@
               />
               <div
                 id="notifications-counter"
-                class="w-4 h-4 font-bold text-white text-xs flexbox-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
+                class="w-4 h-4 font-bold text-white text-xs justify-center items-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
                 title="You have 0 notifications"
               >
                 0
@@ -120,7 +120,7 @@
             <!-- Notification menu -->
             <div
               id="notifications-menu"
-              class="flexbox-column fixed min-w-80 w-90 max-w-full h-screen p-4 bg-white shadow-2xl shadow-purple-300 top-0 right-0 z-50 rounded-l-2xl border-l-4 border-purple-400 transition-transform duration-200 collapsed"
+              class="flex flex-col fixed min-w-80 w-90 max-w-full h-screen p-4 bg-white shadow-2xl shadow-purple-300 top-0 right-0 z-50 rounded-l-2xl border-l-4 border-purple-400 transition-transform duration-200 collapsed"
             >
               <div class="flex justify-end mb-2">
                 <button
@@ -158,14 +158,22 @@
     <main
       class="min-h-screen py-12 px-8 bg-gradient-to-br from-purple-50 via-gray-50 to-white"
     >
-      <h2 class="text-4xl font-bold text-purple-800 mb-8 drop-shadow-sm">
-        Welcome <span id="user-name" class="text-purple-600">...</span>
+      <h2
+        class="flex items-center gap-2 text-4xl font-bold text-purple-800 mb-8 drop-shadow-sm"
+      >
+        Welcome
+        <img
+          src="../../public/assets/icons/loading-text.gif"
+          alt="loading username"
+          class="w-10"
+          id="loading-username"
+        /><span id="user-name" class="text-purple-600"></span>
       </h2>
       <section class="grid grid-responsive grid-rows-2 gap-x-8 gap-y-6 !pb-0">
         <!-- User Details -->
         <section
           id="user-profile"
-          class="border-2 border-purple-200 bg-white/80 shadow-xl rounded-2xl !px-7 !py-7 col-span-1 row-span-2 flexbox-column flexbox-center gap-y-4 transition-natural"
+          class="border-2 border-purple-200 bg-white/80 shadow-xl rounded-2xl !px-7 !py-7 col-span-1 row-span-2 flex flex-col justify-center items-center gap-y-4 transition-natural"
         >
           <div class="rounded-full w-32 h-32 border-4 border-purple-200 shadow">
             <img
@@ -175,32 +183,55 @@
               class="object-cover rounded-full w-32 h-32"
             />
           </div>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading username"
+            class="w-10"
+            id="loading-user"
+          />
           <h3
             id="username"
             class="font-semibold text-2xl text-center text-gray-800"
-          >
-            ...
-          </h3>
-          <p id="user-email" class="pb-3 text-gray-500 text-sm">...</p>
+          ></h3>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading email"
+            class="w-10"
+            id="loading-email"
+          />
+          <p id="user-email" class="pb-3 text-gray-500 text-sm"></p>
           <div class="h-0.5 w-3/5 bg-purple-100"></div>
-          <div class="pt-3 flex gap-x-12 flexbox-center">
-            <div class="flexbox-column flexbox-center gap-y-1">
-              <div id="created" class="text-3xl font-bold text-purple-500">
-                N/A
-              </div>
+          <div class="pt-3 flex gap-x-12 justify-center items-center">
+            <div class="flex flex-col justify-center items-center gap-y-1">
+              <img
+                src="../../public/assets/icons/loading-text.gif"
+                alt="loading created quizzes"
+                class="w-10"
+                id="loading-created"
+              />
+              <div
+                id="created"
+                class="text-3xl font-bold text-purple-500"
+              ></div>
               <p class="text-lg font-light text-gray-700">Created</p>
             </div>
-            <div class="flexbox-column flexbox-center gap-y-1">
-              <div id="solved" class="text-3xl font-bold text-purple-500">
-                N/A
-              </div>
+            <div class="flex flex-col justify-center items-center gap-y-1">
+              <img
+                src="../../public/assets/icons/loading-text.gif"
+                alt="loading solved quizzes"
+                class="w-10"
+                id="loading-solved"
+              />
+              <div id="solved" class="text-3xl font-bold text-purple-500"></div>
               <p class="text-lg font-light text-gray-700">Solved</p>
             </div>
           </div>
-          <div class="flexbox-column flexbox-center gap-y-3 pt-8 w-full">
+          <div
+            class="flex flex-col justify-center items-center gap-y-3 pt-8 w-full"
+          >
             <a
               href="./soon.html"
-              class="filled-btn hover:!bg-purple-600 hover:!text-white w-full flexbox-center gap-x-2 transition-natural"
+              class="filled-btn hover:!bg-purple-600 hover:!text-white w-full flex justify-center items-center gap-x-2 transition-natural"
               ><img
                 src="../../public/assets/icons/choose quiz.png"
                 alt="Solve Quiz icon"
@@ -210,7 +241,7 @@
             >
             <a
               href="./create.html"
-              class="transparent-btn border border-purple-400 hover:!bg-purple-50 hover:!text-purple-700 w-full flexbox-center gap-x-2 transition-natural"
+              class="transparent-btn border border-purple-400 hover:!bg-purple-50 hover:!text-purple-700 w-full flex justify-center items-center gap-x-2 transition-natural"
               ><img
                 src="../../public/assets/icons/new quiz.png"
                 alt="Create new Quiz icon"
@@ -222,7 +253,7 @@
         </section>
         <!-- 2 boxes for the solved and created quizzes -->
         <section
-          class="border-2 border-purple-200 bg-white/80 shadow-lg rounded-xl !px-7 !py-7 flexbox-column justify-center gap-y-5 transition-natural"
+          class="border-2 border-purple-200 bg-white/80 shadow-lg rounded-xl !px-7 !py-7 flex flex-col justify-center gap-y-5 transition-natural"
         >
           <figure class="flex items-baseline gap-3">
             <img
@@ -234,15 +265,22 @@
               Total Quizzes Solved
             </figcaption>
           </figure>
-          <div id="user-solved" class="text-4xl font-bold text-purple-800">
-            N/A
-          </div>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading solved quizzes"
+            class="w-10"
+            id="loading-user-solved"
+          />
+          <div
+            id="user-solved"
+            class="text-4xl font-bold text-purple-800"
+          ></div>
           <p class="text-sm text-gray-500 font-semibold">
             Your knowledge journey so far
           </p>
         </section>
         <section
-          class="border-2 border-purple-200 bg-white/80 shadow-lg rounded-xl !px-7 !py-7 flexbox-column justify-center gap-y-5 transition-natural"
+          class="border-2 border-purple-200 bg-white/80 shadow-lg rounded-xl !px-7 !py-7 flex flex-col justify-center gap-y-5 transition-natural"
         >
           <figure class="flex items-baseline gap-3">
             <img
@@ -254,16 +292,23 @@
               Total Quizzes Created
             </figcaption>
           </figure>
-          <div id="user-created" class="text-4xl font-bold text-purple-800">
-            N/A
-          </div>
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading created quizzes"
+            class="w-10"
+            id="loading-user-created"
+          />
+          <div
+            id="user-created"
+            class="text-4xl font-bold text-purple-800"
+          ></div>
           <p class="text-sm text-gray-500 font-semibold">
             Your contributions to the community
           </p>
         </section>
         <!-- Recent activity of the user (limited to 3) -->
         <aside
-          class="sm:col-span-2 row-span-1 overflow-hidden border-2 border-purple-200 bg-white/80 shadow-lg rounded-xl !px-7 !pt-7 flexbox-column gap-y-5 transition-natural"
+          class="sm:col-span-2 row-span-1 overflow-hidden border-2 border-purple-200 bg-white/80 shadow-lg rounded-xl !px-7 !pt-7 flex flex-col gap-y-5 transition-natural"
         >
           <h3 class="text-2xl font-semibold text-purple-800 mb-2">
             Recent Activity
@@ -273,7 +318,7 @@
           </div>
           <div
             id="user-updates"
-            class="w-full flexbox-column items-center gap-y-5 [&>div:not(:last-of-type)]:border-b [&>div]:border-b-solid [&>div]:border-b-purple-100"
+            class="w-full flex flex-col items-center gap-y-5 [&>div:not(:last-of-type)]:border-b [&>div]:border-b-solid [&>div]:border-b-purple-100"
           >
             <div class="w-full flex gap-x-3 items-start pb-3">
               <img
@@ -282,7 +327,7 @@
                 class="w-7 h-7"
                 id="user-update-icon"
               />
-              <div class="flexbox-column">
+              <div class="flex flex-col">
                 <p class="text-sm font-semibold flex overflow-hidden">
                   <span id="user-update-status" class="text-purple-800"
                     >Created</span
@@ -303,7 +348,7 @@
                 class="w-7 h-7"
                 id="user-update-icon"
               />
-              <div class="flexbox-column">
+              <div class="flex flex-col">
                 <p class="text-sm font-semibold flex overflow-hidden">
                   <span id="user-update-status" class="text-purple-800"
                     >Solved</span
@@ -324,7 +369,7 @@
                 class="w-7 h-7"
                 id="user-update-icon"
               />
-              <div class="flexbox-column">
+              <div class="flex flex-col">
                 <p class="text-sm font-semibold flex overflow-hidden">
                   <span id="user-update-status" class="text-purple-800"
                     >Solved</span
@@ -342,8 +387,7 @@
         </aside>
       </section>
 
-      <!-- User's Recent Quizzes: the user can create up to 8 quizzes and not more than that, and he has to remove existed quiz to create new one -->
-      <section class="flexbox-column gap-y-6 mt-10">
+      <section class="flex flex-col gap-y-6 mt-10">
         <h3 class="text-2xl font-semibold text-purple-800 mb-2">
           Your Recent Quizzes
         </h3>
@@ -358,7 +402,7 @@
                 class="transition-transform ease-in duration-200"
               />
             </div>
-            <div class="flexbox-column gap-y-2 p-4">
+            <div class="flex flex-col gap-y-2 p-4">
               <h3 class="text-purple-800 text-xl font-bold">
                 Front-end developer Quiz
               </h3>
@@ -387,7 +431,7 @@
                 class="transition-transform ease-in duration-200"
               />
             </div>
-            <div class="flexbox-column gap-y-2 p-4">
+            <div class="flex flex-col gap-y-2 p-4">
               <h3 class="text-purple-800 text-xl font-bold">
                 Front-end developer Quiz
               </h3>
@@ -416,7 +460,7 @@
                 class="transition-transform ease-in duration-200"
               />
             </div>
-            <div class="flexbox-column gap-y-2 p-4">
+            <div class="flex flex-col gap-y-2 p-4">
               <h3 class="text-purple-800 text-xl font-bold">
                 Front-end developer Quiz
               </h3>
@@ -445,7 +489,7 @@
                 class="transition-transform ease-in duration-200"
               />
             </div>
-            <div class="flexbox-column gap-y-2 p-4">
+            <div class="flex flex-col gap-y-2 p-4">
               <h3 class="text-purple-800 text-xl font-bold">
                 Front-end developer Quiz
               </h3>
@@ -474,7 +518,7 @@
                 class="transition-transform ease-in duration-200"
               />
             </div>
-            <div class="flexbox-column gap-y-2 p-4">
+            <div class="flex flex-col gap-y-2 p-4">
               <h3 class="text-purple-800 text-xl font-bold">
                 Front-end developer Quiz
               </h3>
@@ -499,7 +543,7 @@
 
     <!--* Footer -->
     <footer
-      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flexbox-column gap-y-8 shadow-inner"
+      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flex flex-col gap-y-8 shadow-inner"
     >
       <!--? Links -->
       <div

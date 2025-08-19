@@ -1,17 +1,10 @@
-import {
-  arrayUnion,
-  collection,
-  CollectionReference,
-  doc,
-  DocumentReference,
-  increment,
-  serverTimestamp,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { arrayUnion, increment, serverTimestamp } from "firebase/firestore";
 import toggleErrorMsg from "../../../authentication/modules/toggleErrorMsg";
-import { auth, db } from "../../../firebase";
+import { auth } from "../../../firebase";
 import { T_question } from "../../types/createQuiz-types";
+import { showMsg } from "../../../../components/message/showMessage";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { FirestoreControl } from "../../../../utils/firestoreControl";
 
 export default class CreateQuiz {
   private static submitBtn = <HTMLButtonElement>(
@@ -161,55 +154,62 @@ export default class CreateQuiz {
       }
 
       toggleErrorMsg(this.errorMsg, false);
-      // adding the quiz to the DB and update the user details in DB for the added quiz
-      const userDocID = auth.currentUser?.displayName;
-      const userDocRef: DocumentReference = doc(
-        db,
-        "users",
-        userDocID as string
-      );
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          // adding the quiz to the DB and update the user details in DB for the added quiz
+          const userDocID = user?.displayName;
+          const userOperation = new FirestoreControl(
+            "users",
+            userDocID as string
+          );
+          const quizOperation = new FirestoreControl("quizzes", title);
+          try {
+            await quizOperation.setDocument(
+              {
+                owner: userOperation.documentRef,
+                createdAt: serverTimestamp(),
+                title,
+                description,
+                questions: arrayUnion(...questions),
+              },
+              true,
+              true
+            );
+            await userOperation.updateDocument({
+              numberOfCreatedQuizzes: increment(1),
+              quizzes: arrayUnion(quizOperation.documentRef),
+              activity: arrayUnion({
+                type: "created",
+                quiz: quizOperation.documentRef,
+              }),
+            });
 
-      const quizzesCollection: CollectionReference = collection(db, "quizzes");
-      const quizDocRef: DocumentReference = doc(quizzesCollection, title);
-
-      try {
-        await setDoc(
-          quizDocRef,
-          {
-            owner: userDocRef,
-            createdAt: serverTimestamp(),
-            title,
-            description,
-            questions: arrayUnion(...questions),
-          },
-          { merge: true }
-        );
-        await updateDoc(userDocRef, {
-          numberOfCreatedQuizzes: increment(1),
-          quizzes: arrayUnion(quizDocRef),
-          activity: arrayUnion(quizDocRef),
-        });
-
-        // Show success message
-        const successMessage = document.getElementById("success-message");
-        if (successMessage) {
-          successMessage.classList.remove("hidden");
-
-          setTimeout(() => {
-            window.location.href = "./dashboard.html";
-          }, 3000);
+            // Show success message
+            const successMessage = document.getElementById("success-message");
+            showMsg(
+              successMessage as HTMLElement,
+              "../../../../pages/dashboard.html"
+            );
+          } catch (error) {
+            console.error("Something went wrong: ", error);
+            toggleErrorMsg(
+              this.errorMsg,
+              true,
+              "Something went wrong! Please try again later"
+            );
+            setTimeout(() => {
+              toggleErrorMsg(this.errorMsg, false);
+            }, 3000);
+          }
+        } else {
+          const errorMessage = document.getElementById("error-message");
+          await signOut(auth);
+          showMsg(
+            errorMessage as HTMLElement,
+            "../../../../pages/sign-in.html"
+          );
         }
-      } catch (error) {
-        console.error("Something went wrong: ", error);
-        toggleErrorMsg(
-          this.errorMsg,
-          true,
-          "Something went wrong! Please try again later"
-        );
-        setTimeout(() => {
-          toggleErrorMsg(this.errorMsg, false);
-        }, 3000);
-      }
+      });
     });
   }
 }

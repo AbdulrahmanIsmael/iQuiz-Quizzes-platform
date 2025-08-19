@@ -6,6 +6,16 @@ import ToggleMenu, {
 import "../../styles/main.css";
 import QuestionsControl from "../../components/questions/QuestionsControl";
 import CreateQuiz from "./modules/core/createQuiz";
+import signUserOut from "../authentication/sign-out/signOut";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    console.error("Something Went Wrong! Please Sign In.");
+    window.location.href = "../../pages/sign-in.html";
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const userMenuBtn = <HTMLButtonElement>(
@@ -21,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const notificationsCollapseBtn = <HTMLButtonElement>(
     document.getElementById("notifications-collapse")
   );
+
+  localStorage.clear();
 
   // Add question
   QuestionsControl.addQuestion();
@@ -54,4 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "collapsed"
   );
   notificationsMenuCollapse.setMenu();
+
+  signUserOut();
 });

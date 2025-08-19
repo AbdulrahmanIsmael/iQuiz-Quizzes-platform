@@ -32,6 +32,20 @@ module.exports = {
     createCSS: path.resolve(__dirname, "src", "styles", "pages", "create.css"),
     solveTS: path.resolve(__dirname, "src", "features", "solve", "solve.ts"),
     solveCSS: path.resolve(__dirname, "src", "styles", "pages", "solve.css"),
+    exploreTS: path.resolve(
+      __dirname,
+      "src",
+      "features",
+      "explore",
+      "explore.ts"
+    ),
+    exploreCSS: path.resolve(
+      __dirname,
+      "src",
+      "styles",
+      "pages",
+      "explore.css"
+    ),
     register: path.resolve(
       __dirname,
       "src",
@@ -277,6 +291,29 @@ module.exports = {
       },
       inject: "body",
       chunks: ["dashboardCSS", "dashboardTS"],
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
+    }),
+    new HTMLPlugin({
+      template: path.resolve(__dirname, "src", "pages", "explore.html"),
+      filename: "pages/explore.html",
+      meta: {
+        description: "Explore quizzes to solve and compete others!",
+        keywords:
+          "quiz, survey, solve, search, explore, test, take, quizzes, surveys",
+        author: "Abdulrahman Ismael",
+        compatible: {
+          "http-equiv": "X-UA-Compatible",
+          content: "IE=7",
+        },
+      },
+      inject: "body",
+      chunks: ["exploreTS", "exploreCSS"],
       minify: {
         removeComments: true,
         collapseWhitespace: true,

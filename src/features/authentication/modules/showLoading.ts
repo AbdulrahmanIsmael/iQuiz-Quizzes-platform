@@ -5,10 +5,15 @@ export default function loadingStatus(
   const loading = <HTMLDivElement>document.getElementById("loading");
   if (isLoading) {
     if (!form.classList.contains("hidden")) form.classList.add("hidden");
-    if (loading.classList.contains("hidden"))
+    if (loading.classList.contains("hidden")) {
       loading.classList.remove("hidden");
+      loading.classList.add("flex");
+    }
   } else {
     if (form.classList.contains("hidden")) form.classList.remove("hidden");
-    if (!loading.classList.contains("hidden")) loading.classList.add("hidden");
+    if (!loading.classList.contains("hidden")) {
+      loading.classList.add("hidden");
+      loading.classList.remove("flex");
+    }
   }
 }

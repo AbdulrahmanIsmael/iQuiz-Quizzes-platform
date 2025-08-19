@@ -52,7 +52,7 @@
             </button>
             <ul
               id="user-menu"
-              class="flexbox-column absolute w-52 bg-white shadow-lg shadow-purple-200 rounded-xl -bottom-[136px] right-12 -z-10 closed transition-natural border border-gray-200 overflow-hidden"
+              class="flex flex-col absolute w-52 bg-white shadow-lg shadow-purple-200 rounded-xl -bottom-[136px] right-12 -z-10 closed transition-natural border border-gray-200 overflow-hidden"
             >
               <li
                 class="px-6 py-3 border-b border-solid border-b-gray-100 text-sm font-semibold hover:bg-purple-50 transition-natural"
@@ -111,7 +111,7 @@
               />
               <div
                 id="notifications-counter"
-                class="w-4 h-4 font-bold text-white text-xs flexbox-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
+                class="w-4 h-4 font-bold text-white text-xs justify-center items-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
                 title="You have 0 notifications"
               >
                 0
@@ -120,7 +120,7 @@
             <!-- Notification menu -->
             <div
               id="notifications-menu"
-              class="flexbox-column fixed min-w-80 w-90 max-w-full h-screen p-4 bg-white shadow-2xl shadow-purple-300 top-0 right-0 z-50 rounded-l-2xl border-l-4 border-purple-400 transition-transform duration-200 collapsed"
+              class="flex flex-col fixed min-w-80 w-90 max-w-full h-screen p-4 bg-white shadow-2xl shadow-purple-300 top-0 right-0 z-50 rounded-l-2xl border-l-4 border-purple-400 transition-transform duration-200 collapsed"
             >
               <div class="flex justify-end mb-2">
                 <button
@@ -156,9 +156,9 @@
     </header>
     <!--* Main Content -->
     <main
-      class="min-h-screen py-24 px-6 flexbox-column flexbox-center gap-y-10 bg-gradient-to-br from-purple-50 via-white to-purple-100"
+      class="min-h-screen py-24 px-6 flex flex-col justify-center items-center gap-y-10 bg-gradient-to-br from-purple-50 via-white to-purple-100"
     >
-      <div class="rounded-b-lg p-10 flexbox-column items-center gap-y-6 w-full">
+      <div class="rounded-b-lg p-10 flex flex-col items-center gap-y-6 w-full">
         <img
           src="../../public/assets/icons/construction.png"
           alt="Under Construction Illustration"
@@ -185,7 +185,7 @@
 
     <!--* Footer -->
     <footer
-      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flexbox-column gap-y-8 shadow-inner"
+      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flex flex-col gap-y-8 shadow-inner"
     >
       <!--? Links -->
       <div

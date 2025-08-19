@@ -57,7 +57,7 @@
         <!-- Mobile Menu Button -->
         <button
           id="menuBtn"
-          class="cursor-pointer md:hidden flexbox-column gap-y-1 p-2 rounded hover:bg-purple-50 transition"
+          class="cursor-pointer md:hidden flex flex-col gap-y-1 p-2 rounded hover:bg-purple-50 transition"
           type="button"
           title="Menu Button"
         >
@@ -69,9 +69,11 @@
       <!-- Mobile Menu -->
       <div
         id="responsiveMenu"
-        class="flexbox-column flexbox-center bg-white shadow-lg px-8 py-6 hidden gap-y-4"
+        class="flex flex-col justify-center items-center bg-white shadow-lg px-8 py-6 gap-y-4 md:hidden"
       >
-        <ul class="flexbox-column flexbox-center gap-y-4 text-lg font-medium">
+        <ul
+          class="flex flex-col justify-center items-center gap-y-4 text-lg font-medium"
+        >
           <li>
             <a class="navlink navlink-active" href="#">Home</a>
           </li>
@@ -94,7 +96,7 @@
         <div class="flex gap-x-4 mt-4">
           <a
             class="transparent-btn border border-purple-700 text-purple-700 px-5 py-2 rounded-full font-semibold hover:bg-purple-50 transition"
-            href="."
+            href="./register.html"
           >
             Register
           </a>
@@ -111,7 +113,7 @@
     <!--* Main Content -->
     <main class="min-h-screen py-20 bg-gray-50">
       <div class="container mx-auto">
-        <div id="loading" class="max-w-full flexbox-center hidden">
+        <div id="loading" class="max-w-full justify-center items-center hidden">
           <img
             src="../../public/assets/icons/loading.gif"
             alt="Loading..."
@@ -126,9 +128,9 @@
             Create Account
           </h2>
 
-          <form id="register-form" class="flexbox-column gap-y-4">
+          <form id="register-form" class="flex flex-col gap-y-4">
             <!-- Username -->
-            <div class="flexbox-column gap-y-1">
+            <div class="flex flex-col gap-y-1">
               <label for="username" class="text-sm font-medium text-gray-700"
                 >Username</label
               >
@@ -153,7 +155,7 @@
             </div>
 
             <!-- Email -->
-            <div class="flexbox-column gap-y-1">
+            <div class="flex flex-col gap-y-1">
               <label for="email" class="text-sm font-medium text-gray-700"
                 >Email</label
               >
@@ -178,7 +180,7 @@
             </div>
 
             <!-- Password -->
-            <div class="flexbox-column gap-y-1">
+            <div class="flex flex-col gap-y-1">
               <label for="password" class="text-sm font-medium text-gray-700"
                 >Password</label
               >
@@ -204,7 +206,7 @@
             </div>
 
             <!-- Confirm_Password -->
-            <div class="flexbox-column gap-y-1">
+            <div class="flex flex-col gap-y-1">
               <label
                 for="confirm-password"
                 class="text-sm font-medium text-gray-700"
@@ -273,7 +275,7 @@
 
     <!--* Footer -->
     <footer
-      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flexbox-column gap-y-8 shadow-inner"
+      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flex flex-col gap-y-8 shadow-inner"
     >
       <!--? Links -->
       <div

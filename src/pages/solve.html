@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IQuiz - Create Quiz</title>
+    <title>IQuiz - Solve</title>
     <link
       rel="shortcut icon"
       href="../../public/assets/images/light-bulb icon.png"
@@ -30,13 +30,13 @@
         <!-- Desktop Menu -->
         <ul class="hidden md:flex items-center gap-x-8 text-lg font-medium">
           <li>
-            <a class="navlink navlink-active" href="/index.html">Home</a>
+            <a class="navlink" href="./dashboard.html">Home</a>
           </li>
           <li>
-            <a class="navlink" href=".">Create</a>
+            <a class="navlink" href="./create.html">Create</a>
           </li>
           <li>
-            <a class="navlink" href=".">Search</a>
+            <a class="navlink" href="./explore.html">Explore</a>
           </li>
         </ul>
         <!-- User control -->
@@ -52,7 +52,7 @@
             </button>
             <ul
               id="user-menu"
-              class="flexbox-column absolute w-52 bg-white shadow-lg shadow-purple-200 rounded-xl -bottom-[136px] right-12 -z-10 closed transition-natural border border-gray-200 overflow-hidden"
+              class="flex flex-col absolute w-52 bg-white shadow-lg shadow-purple-200 rounded-xl -bottom-[136px] right-12 -z-10 closed transition-natural border border-gray-200 overflow-hidden"
             >
               <li
                 class="px-6 py-3 border-b border-solid border-b-gray-100 text-sm font-semibold hover:bg-purple-50 transition-natural"
@@ -111,7 +111,7 @@
               />
               <div
                 id="notifications-counter"
-                class="w-4 h-4 font-bold text-white text-xs flexbox-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
+                class="w-4 h-4 font-bold text-white text-xs justify-center items-center absolute top-0 right-0 bg-purple-600 rounded-4xl"
                 title="You have 0 notifications"
               >
                 0
@@ -120,7 +120,7 @@
             <!-- Notification menu -->
             <div
               id="notifications-menu"
-              class="flexbox-column fixed min-w-80 w-90 max-w-full h-screen p-4 bg-white shadow-2xl shadow-purple-300 top-0 right-0 z-50 rounded-l-2xl border-l-4 border-purple-400 transition-transform duration-200 collapsed"
+              class="flex flex-col fixed min-w-80 w-90 max-w-full h-screen p-4 bg-white shadow-2xl shadow-purple-300 top-0 right-0 z-50 rounded-l-2xl border-l-4 border-purple-400 transition-transform duration-200 collapsed"
             >
               <div class="flex justify-end mb-2">
                 <button
@@ -160,7 +160,7 @@
       class="min-h-screen py-12 px-8 bg-gradient-to-br from-purple-50 via-gray-50 to-white"
     >
       <section
-        class="max-w-3xl mx-auto bg-white/90 border-2 border-purple-200 shadow-xl rounded-2xl p-8 flexbox-column gap-y-8"
+        class="max-w-3xl mx-auto bg-white/90 border-2 border-purple-200 shadow-xl rounded-2xl p-8 flex flex-col gap-y-8"
       >
         <h2
           class="text-4xl font-bold text-purple-800 mb-2 drop-shadow-sm text-center"
@@ -169,140 +169,69 @@
           <span class="font-semibold">Test Your Geography</span>
         </h2>
         <!-- Question Card (paginated, only one visible at a time) -->
-        <div id="question-card" class="flexbox-column gap-y-6">
+        <div id="question-card" class="flex flex-col gap-y-6">
           <!-- Example question, replace with dynamic JS later -->
           <div class="question-content">
-            <div class="flex items-center gap-x-3 mb-2">
-              <span class="text-xl font-bold text-purple-700">Question 1</span>
-            </div>
-            <p class="text-lg font-medium text-gray-800 mb-4">
-              What is the capital of France?
-            </p>
-            <!-- Multiple Choice Example -->
-            <div class="choices-section flexbox-column gap-y-3">
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="A"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Berlin</span>
-              </label>
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="B"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Madrid</span>
-              </label>
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="C"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Paris</span>
-              </label>
-              <label class="flex items-center gap-x-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="answer-1"
-                  value="D"
-                  class="accent-purple-600"
-                />
-                <span class="text-gray-700">Rome</span>
-              </label>
-            </div>
-            <!-- Open-ended Example (hidden if not needed) -->
-            <!--
-        <div class="open-ended-section flexbox-column gap-y-2">
-          <label class="text-purple-700 font-medium" for="open-answer-1">
-            Your Answer
-          </label>
-          <input
-            type="text"
-            name="open-answer-1"
-            id="open-answer-1"
-            maxlength="120"
-            placeholder="Type your answer"
-            class="input border border-purple-200 rounded px-3 py-1"
-          />
-        </div>
-        -->
+            <img
+              src="../../public/assets/icons/loading.gif"
+              alt="loading content"
+              class="mx-auto mt-10 w-32"
+            />
           </div>
+        </div>
+        <div id="save-answer-btn-container" class="flex justify-start mt-5">
+          <button type="button" class="transparent-btn !text-sm">
+            Save Answer
+          </button>
         </div>
         <!-- Pagination Controls -->
         <div class="flex flex-col items-center gap-y-4 mt-6">
-          <div class="flex gap-x-2">
-            <!-- Example: 5 questions -->
-            <button
-              class="w-9 h-9 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center shadow hover:bg-purple-700 transition"
-              aria-label="Go to question 1"
-            >
-              1
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 2"
-            >
-              2
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 3"
-            >
-              3
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 4"
-            >
-              4
-            </button>
-            <button
-              class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center shadow hover:bg-purple-200 transition"
-              aria-label="Go to question 5"
-            >
-              5
-            </button>
-          </div>
-          <div class="flex justify-between w-full max-w-xs gap-x-4">
-            <button
-              type="button"
-              id="prev-question"
-              class="transparent-btn border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural px-6 py-2 rounded-lg font-semibold disabled:opacity-50"
-              disabled
-            >
-              &larr; Previous
-            </button>
-            <button
-              type="button"
-              id="next-question"
-              class="transparent-btn border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural px-6 py-2 rounded-lg font-semibold"
-            >
-              Next &rarr;
-            </button>
-          </div>
+          <div id="pagination-container" class="flex gap-x-2"></div>
         </div>
         <!-- Submit Button -->
         <div class="flex justify-center mt-8">
-          <button
-            type="submit"
-            class="filled-btn bg-gradient-to-r from-purple-700 to-purple-500 text-white px-10 py-3 rounded-xl text-lg font-bold shadow-lg hover:scale-105 transition-transform"
-          >
-            Submit Answers
+          <button id="submit-quiz-btn" type="submit" class="filled-btn">
+            Finish Quiz
           </button>
         </div>
       </section>
+      <div
+        id="success-message"
+        class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-8 py-3 rounded-lg shadow-lg z-50 hidden"
+      >
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <p class="font-medium"></p>
+        </div>
+      </div>
+      <div
+        id="error-message"
+        class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-100 border border-red-400 text-red-700 px-8 py-3 rounded-lg shadow-lg z-50 hidden"
+      >
+        <div class="flex items-center">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <p class="font-medium">
+            Please make sure to answer all the questions
+          </p>
+        </div>
+      </div>
     </main>
 
     <!--* Footer -->
     <footer
-      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flexbox-column gap-y-8 shadow-inner"
+      class="py-10 px-6 bg-gradient-to-tr from-purple-900 via-purple-800 to-purple-950 text-white flex flex-col gap-y-8 shadow-inner"
     >
       <!--? Links -->
       <div

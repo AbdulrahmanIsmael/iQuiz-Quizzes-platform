@@ -1,7 +1,7 @@
 export function getQuestionCard(counter: number) {
   return `
   <div
-  class="question-card relative border-2 border-purple-100 rounded-xl p-6 bg-white/80 shadow-md flexbox-column gap-y-4"
+  class="question-card relative border-2 border-purple-100 rounded-xl p-6 bg-white/80 shadow-md flex flex-col gap-y-4"
   >
   <button class="remove-card absolute -top-3 -right-3">
                 <img
@@ -17,7 +17,7 @@ export function getQuestionCard(counter: number) {
                 <select
                   class="question-type ml-auto border border-purple-300 rounded px-2 py-1 text-sm text-purple-700 bg-white focus:outline-none focus:ring-2 focus:ring-purple-200 focus:border-purple-400 transition"
                   name="question-type"
-                  onchange="const card=this.closest('.question-card');if(this.value==='multiple'){card.querySelector('.choices-section').classList.remove('hidden');card.querySelector('.open-ended-section').classList.add('hidden');}else{card.querySelector('.choices-section').classList.add('hidden');card.querySelector('.open-ended-section').classList.remove('hidden');}"
+                  onchange="const card=this.closest('.question-card');if(this.value==='multiple'){card.querySelector('.choices-section').classList.remove('hidden');card.querySelector('.open-ended-section').classList.add('hidden');}else{card.querySelector('.choices-section').classList.add('hidden');card.querySelector('.open-ended-section').classList.remove('hidden');card.querySelector('.open-ended-section').classList.add('flex');}"
                 >
                   <option value="multiple">Multiple Choice</option>
                   <option value="open">Open-ended</option>
@@ -33,7 +33,7 @@ export function getQuestionCard(counter: number) {
                 class="question-title input border border-purple-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
               />
               <!-- Multiple Choice Answer -->
-              <div class="choices-section flexbox-column gap-y-2">
+              <div class="choices-section flex flex-col gap-y-2">
                 <div class="choice flex items-center gap-x-2">
                   <input
                     type="radio"
@@ -107,7 +107,7 @@ export function getQuestionCard(counter: number) {
                 </div>
               </div>
               <!-- Open-ended Answer -->
-              <div class="open-ended-section flexbox-column gap-y-2 hidden">
+              <div class="open-ended-section flex-col gap-y-2 hidden">
                 <label class="text-purple-700 font-medium" for="open-answer-${counter}">
                   Sample Answer (optional)
                 </label>

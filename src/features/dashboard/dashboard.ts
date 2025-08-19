@@ -1,12 +1,5 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import {
-  collection,
-  CollectionReference,
-  doc,
-  DocumentReference,
-  getDoc,
-  DocumentSnapshot,
-} from "firebase/firestore";
+import { DocumentData } from "firebase/firestore";
 import ToggleMenu, {
   AddStrategy,
   RemoveStrategy,
@@ -14,8 +7,10 @@ import ToggleMenu, {
 } from "../../components/Buttons/toggleMenu";
 import "../../styles/main.css";
 import { setElementContent } from "../../utils/setElementContent";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 import redirectToPage from "../authentication/modules/redirect";
+import signUserOut from "../authentication/sign-out/signOut";
+import { FirestoreControl } from "../../utils/firestoreControl";
 
 onAuthStateChanged(auth, async (user) => {
   try {
@@ -42,39 +37,74 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById("user-created")
       );
 
-      const usersCollection: CollectionReference = collection(db, "users");
-      const userDoc: DocumentReference = doc(
-        usersCollection,
+      localStorage.clear();
+
+      const userDataOperation = new FirestoreControl(
+        "users",
         user.displayName as string
       );
-      const dataSnapshot: DocumentSnapshot = await getDoc(userDoc);
-      console.log(dataSnapshot.exists());
-      console.log(dataSnapshot?.data()?.numberOfCreatedQuizzes);
-      console.log(dataSnapshot?.data()?.numberOfSolvedQuizzes);
+      const userData: DocumentData | null =
+        await userDataOperation.getDocument();
 
-      if (dataSnapshot.exists()) {
-        const data = dataSnapshot.data();
-        console.log(data);
+      if (userData) {
         setElementContent(
           solvedQuizzes,
-          data?.numberOfSolvedQuizzes.toString()
+          userData?.numberOfSolvedQuizzes.toString(),
+          document.getElementById("loading-solved") as HTMLImageElement
         );
-        setElementContent(userSolved, data?.numberOfSolvedQuizzes.toString());
+        setElementContent(
+          userSolved,
+          userData?.numberOfSolvedQuizzes.toString(),
+          document.getElementById("loading-user-solved") as HTMLImageElement
+        );
         setElementContent(
           createdQuizzes,
-          data?.numberOfCreatedQuizzes.toString()
+          userData?.numberOfCreatedQuizzes.toString(),
+          document.getElementById("loading-created") as HTMLImageElement
         );
-        setElementContent(userCreated, data?.numberOfCreatedQuizzes.toString());
+        setElementContent(
+          userCreated,
+          userData?.numberOfCreatedQuizzes.toString(),
+          document.getElementById("loading-user-created") as HTMLImageElement
+        );
       } else {
-        setElementContent(solvedQuizzes, "N/A");
-        setElementContent(userSolved, "N/A");
-        setElementContent(createdQuizzes, "N/A");
-        setElementContent(userCreated, "N/A");
+        setElementContent(
+          solvedQuizzes,
+          "",
+          document.getElementById("loading-solved") as HTMLImageElement
+        );
+        setElementContent(
+          userSolved,
+          "",
+          document.getElementById("loading-user-solved") as HTMLImageElement
+        );
+        setElementContent(
+          createdQuizzes,
+          "",
+          document.getElementById("loading-created") as HTMLImageElement
+        );
+        setElementContent(
+          userCreated,
+          "",
+          document.getElementById("loading-user-created") as HTMLImageElement
+        );
       }
 
-      setElementContent(userElement, user.displayName || "User");
-      setElementContent(usernameElement, user.displayName || "User");
-      setElementContent(emailElement, user.email || "No email");
+      setElementContent(
+        userElement,
+        user.displayName || "User",
+        document.getElementById("loading-username") as HTMLImageElement
+      );
+      setElementContent(
+        usernameElement,
+        user.displayName || "User",
+        document.getElementById("loading-user") as HTMLImageElement
+      );
+      setElementContent(
+        emailElement,
+        user.email || "No email",
+        document.getElementById("loading-email") as HTMLImageElement
+      );
       if (user.photoURL && typeof user.photoURL === "string") {
         profilePhotoElement.src = user.photoURL;
         userMenuBtnImg.src = user.photoURL;
@@ -101,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const notificationsCollapseBtn = <HTMLButtonElement>(
     document.getElementById("notifications-collapse")
   );
-  const signOutBtn = <HTMLButtonElement>document.getElementById("signOut");
 
   const userMenuToggle = new ToggleMenu(
     new ToggleStrategy(),
@@ -127,14 +156,5 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   notificationMenuToggleCollapse.setMenu();
 
-  signOutBtn.addEventListener("click", async (e: Event) => {
-    e.preventDefault();
-    try {
-      await signOut(auth);
-      console.log("successful sign out, we will be waiting for you again!");
-    } catch (error) {
-      console.error("Error during signing out: ", error);
-    }
-    redirectToPage("../../pages/sign-in.html");
-  });
+  signUserOut();
 });
