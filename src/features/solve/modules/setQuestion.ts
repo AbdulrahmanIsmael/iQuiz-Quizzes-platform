@@ -8,8 +8,13 @@ export function setQuestion() {
   const question: T_question = JSON.parse(
     localStorage.getItem("solve") as string
   ).questions[qParam - 1];
+  const title: string = JSON.parse(
+    localStorage.getItem("solve") as string
+  ).title;
   const questionContainer: HTMLDivElement | null =
     document.querySelector(".question-content");
+  const quizTitle = <HTMLSpanElement>document.getElementById("quiz-title");
+  quizTitle.textContent = title;
   (questionContainer as HTMLDivElement).innerHTML = getQuestion(
     qParam,
     question.type,
