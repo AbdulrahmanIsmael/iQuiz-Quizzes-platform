@@ -2,7 +2,9 @@ import OpenAI from "openai";
 
 export class IsSimilar {
   private static client = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey:
+      "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",
+    dangerouslyAllowBrowser: true,
   });
   constructor(public str1: string, public str2: string) {}
 

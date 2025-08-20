@@ -7,7 +7,6 @@ const CSSMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const IgnoreEmitPlugin = require("ignore-emit-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
 
 module.exports = (env) => {
   const isProd = env.production === true;
@@ -160,7 +159,6 @@ module.exports = (env) => {
     },
     // Plugins
     plugins: [
-      new Dotenv(),
       new HTMLPlugin({
         template: path.resolve(__dirname, "src", "index.html"),
         filename: "index.html",
