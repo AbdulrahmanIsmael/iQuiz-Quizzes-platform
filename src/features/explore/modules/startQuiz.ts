@@ -20,16 +20,13 @@ export function enableStartQuizEvent() {
 
         const quiz: DocumentData | null =
           await firestoreOperation.getDocument();
-        const ownerUsername = await FirestoreControl.getDocumentFast(
-          (quiz as DocumentData).owner
-        );
 
         localStorage.removeItem("solve");
         localStorage.setItem(
           "solve",
           JSON.stringify({
             ...quiz,
-            owner: (ownerUsername as DocumentData).username,
+            owner: (quiz as DocumentData).owner.id,
           })
         );
         window.location.href = `../../../pages/solve.html?q=${encodeURIComponent(

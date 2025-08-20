@@ -313,230 +313,42 @@
           <h3 class="text-2xl font-semibold text-purple-800 mb-2">
             Recent Activity
           </h3>
-          <div class="hidden mt-10 text-center text-3xl text-gray-600">
+          <div
+            id="no-recent-activity"
+            class="hidden mt-10 text-center text-3xl text-gray-600"
+          >
             No Recent Activity
           </div>
           <div
-            id="user-updates"
+            id="user-activity-container"
             class="w-full flex flex-col items-center gap-y-5 [&>div:not(:last-of-type)]:border-b [&>div]:border-b-solid [&>div]:border-b-purple-100"
           >
-            <div class="w-full flex gap-x-3 items-start pb-3">
-              <img
-                src="../../public/assets/icons/create.png"
-                alt="Created Quiz icon"
-                class="w-7 h-7"
-                id="user-update-icon"
-              />
-              <div class="flex flex-col">
-                <p class="text-sm font-semibold flex overflow-hidden">
-                  <span id="user-update-status" class="text-purple-800"
-                    >Created</span
-                  >&colon;&MediumSpace;
-                  <span id="user-update-description" class="break-all"
-                    >Front-end development Quiz</span
-                  >
-                </p>
-                <small class="text-gray-500" id="user-update-date"
-                  >2 hours ago</small
-                >
-              </div>
-            </div>
-            <div class="w-full flex gap-x-3 items-start pb-3">
-              <img
-                src="../../public/assets/icons/solve.png"
-                alt="Solved Quiz icon"
-                class="w-7 h-7"
-                id="user-update-icon"
-              />
-              <div class="flex flex-col">
-                <p class="text-sm font-semibold flex overflow-hidden">
-                  <span id="user-update-status" class="text-purple-800"
-                    >Solved</span
-                  >&colon;&MediumSpace;
-                  <span id="user-update-description" class="break-all"
-                    >Back-end development Quiz</span
-                  >
-                </p>
-                <small class="text-gray-500" id="user-update-date"
-                  >5 days ago</small
-                >
-              </div>
-            </div>
-            <div class="w-full flex gap-x-3 items-start pb-3">
-              <img
-                src="../../public/assets/icons/solve.png"
-                alt="Solved Quiz icon"
-                class="w-7 h-7"
-                id="user-update-icon"
-              />
-              <div class="flex flex-col">
-                <p class="text-sm font-semibold flex overflow-hidden">
-                  <span id="user-update-status" class="text-purple-800"
-                    >Solved</span
-                  >&colon;&MediumSpace;
-                  <span id="user-update-description" class="break-all"
-                    >Back-end development Quiz</span
-                  >
-                </p>
-                <small class="text-gray-500" id="user-update-date"
-                  >5 days ago</small
-                >
-              </div>
-            </div>
+            <img
+              src="../../public/assets/icons/loading-text.gif"
+              alt="loading recent activity"
+              class="mx-auto mt-12 w-10"
+            />
           </div>
         </aside>
       </section>
 
+      <!-- Results section -->
       <section class="flex flex-col gap-y-6 mt-10">
         <h3 class="text-2xl font-semibold text-purple-800 mb-2">
-          Your Recent Quizzes
+          Your Results
         </h3>
-        <article class="cards gap-4">
-          <article
-            class="card !p-0 bg-white/90 border-2 border-purple-100 shadow-md rounded-xl hover:shadow-xl transition-natural"
-          >
-            <div class="[&:hover>img]:scale-110 overflow-hidden rounded-t-xl">
-              <img
-                src="../../public/assets/images/custom_quizzes.png"
-                alt="Custom Quizzes showcasing feature image"
-                class="transition-transform ease-in duration-200"
-              />
-            </div>
-            <div class="flex flex-col gap-y-2 p-4">
-              <h3 class="text-purple-800 text-xl font-bold">
-                Front-end developer Quiz
-              </h3>
-              <small class="text-sm text-purple-500">Web development</small>
-              <p
-                class="text-gray-700 leading-6 text-justify -tracking-tight xl:-tracking-wide"
-              >
-                Test your knowledge in web development with this medium to high
-                level quiz about HTML/CSS/JS in Web development.
-              </p>
-              <button
-                type="button"
-                class="transparent-btn !mt-3 border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural"
-              >
-                Start Quiz
-              </button>
-            </div>
-          </article>
-          <article
-            class="card !p-0 bg-white/90 border-2 border-purple-100 shadow-md rounded-xl hover:shadow-xl transition-natural"
-          >
-            <div class="[&:hover>img]:scale-110 overflow-hidden rounded-t-xl">
-              <img
-                src="../../public/assets/images/custom_quizzes.png"
-                alt="Custom Quizzes showcasing feature image"
-                class="transition-transform ease-in duration-200"
-              />
-            </div>
-            <div class="flex flex-col gap-y-2 p-4">
-              <h3 class="text-purple-800 text-xl font-bold">
-                Front-end developer Quiz
-              </h3>
-              <small class="text-sm text-purple-500">Web development</small>
-              <p
-                class="text-gray-700 leading-6 text-justify -tracking-tight xl:-tracking-wide"
-              >
-                Test your knowledge in web development with this medium to high
-                level quiz about HTML/CSS/JS in Web development.
-              </p>
-              <button
-                type="button"
-                class="transparent-btn !mt-3 border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural"
-              >
-                Start Quiz
-              </button>
-            </div>
-          </article>
-          <article
-            class="card !p-0 bg-white/90 border-2 border-purple-100 shadow-md rounded-xl hover:shadow-xl transition-natural"
-          >
-            <div class="[&:hover>img]:scale-110 overflow-hidden rounded-t-xl">
-              <img
-                src="../../public/assets/images/custom_quizzes.png"
-                alt="Custom Quizzes showcasing feature image"
-                class="transition-transform ease-in duration-200"
-              />
-            </div>
-            <div class="flex flex-col gap-y-2 p-4">
-              <h3 class="text-purple-800 text-xl font-bold">
-                Front-end developer Quiz
-              </h3>
-              <small class="text-sm text-purple-500">Web development</small>
-              <p
-                class="text-gray-700 leading-6 text-justify -tracking-tight xl:-tracking-wide"
-              >
-                Test your knowledge in web development with this medium to high
-                level quiz about HTML/CSS/JS in Web development.
-              </p>
-              <button
-                type="button"
-                class="transparent-btn !mt-3 border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural"
-              >
-                Start Quiz
-              </button>
-            </div>
-          </article>
-          <article
-            class="card !p-0 bg-white/90 border-2 border-purple-100 shadow-md rounded-xl hover:shadow-xl transitiontransition-natural"
-          >
-            <div class="[&:hover>img]:scale-110 overflow-hidden rounded-t-xl">
-              <img
-                src="../../public/assets/images/custom_quizzes.png"
-                alt="Custom Quizzes showcasing feature image"
-                class="transition-transform ease-in duration-200"
-              />
-            </div>
-            <div class="flex flex-col gap-y-2 p-4">
-              <h3 class="text-purple-800 text-xl font-bold">
-                Front-end developer Quiz
-              </h3>
-              <small class="text-sm text-purple-500">Web development</small>
-              <p
-                class="text-gray-700 leading-6 text-justify -tracking-tight xl:-tracking-wide"
-              >
-                Test your knowledge in web development with this medium to high
-                level quiz about HTML/CSS/JS in Web development.
-              </p>
-              <button
-                type="button"
-                class="transparent-btn !mt-3 border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural"
-              >
-                Start Quiz
-              </button>
-            </div>
-          </article>
-          <article
-            class="card !p-0 bg-white/90 border-2 border-purple-100 shadow-md rounded-xl hover:shadow-xl transition-natural"
-          >
-            <div class="[&:hover>img]:scale-110 overflow-hidden rounded-t-xl">
-              <img
-                src="../../public/assets/images/custom_quizzes.png"
-                alt="Custom Quizzes showcasing feature image"
-                class="transition-transform ease-in duration-200"
-              />
-            </div>
-            <div class="flex flex-col gap-y-2 p-4">
-              <h3 class="text-purple-800 text-xl font-bold">
-                Front-end developer Quiz
-              </h3>
-              <small class="text-sm text-purple-500">Web Development</small>
-              <p
-                class="text-gray-700 leading-6 text-justify -tracking-tight xl:-tracking-wide"
-              >
-                Test your knowledge in web development with this medium to high
-                level quiz about HTML/CSS/JS in Web development.
-              </p>
-              <button
-                type="button"
-                class="transparent-btn !mt-3 border border-purple-400 hover:bg-purple-50 hover:text-purple-700 transition-natural"
-              >
-                Start Quiz
-              </button>
-            </div>
-          </article>
+        <div
+          id="no-results"
+          class="hidden mt-10 text-center text-3xl text-gray-600"
+        >
+          No Recent Activity
+        </div>
+        <article id="results-container" class="cards gap-4">
+          <img
+            src="../../public/assets/icons/loading-text.gif"
+            alt="loading results"
+            class="mx-auto mt-12 w-10"
+          />
         </article>
       </section>
     </main>

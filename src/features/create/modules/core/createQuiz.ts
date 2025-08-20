@@ -53,7 +53,7 @@ export default class CreateQuiz {
         toggleErrorMsg(
           this.errorMsg,
           true,
-          "Please write the questions' title"
+          "Please write the Questions titles"
         );
         return null;
       }
@@ -66,6 +66,13 @@ export default class CreateQuiz {
         ).value.trim();
         if (openAnswer) {
           solution = openAnswer;
+        } else {
+          toggleErrorMsg(
+            this.errorMsg,
+            true,
+            "Please write the answers for the open Questions"
+          );
+          return null;
         }
       } else {
         // getting the options
@@ -82,7 +89,7 @@ export default class CreateQuiz {
             toggleErrorMsg(
               this.errorMsg,
               true,
-              "Please Enter at least 2 choices for each multiple-choices question!"
+              "Please Enter at least 2 choices for each multiple-choices Question!"
             );
             return null;
           }
@@ -104,7 +111,7 @@ export default class CreateQuiz {
           toggleErrorMsg(
             this.errorMsg,
             true,
-            "Please choose solution for each multiple-choices question!"
+            "Please choose solution for each multiple-choices Question!"
           );
           return null;
         }
@@ -112,20 +119,20 @@ export default class CreateQuiz {
       // pushing the question to the array of questions
       if (solution && options) {
         questions.push({
-          type: questionType,
+          type: questionType as "multiple" | "open",
           question: questionTitle,
           solution: solution,
           options: options,
         });
       } else if (solution && !options) {
         questions.push({
-          type: questionType,
+          type: questionType as "multiple" | "open",
           question: questionTitle,
           solution: solution,
         });
       } else {
         questions.push({
-          type: questionType,
+          type: questionType as "multiple" | "open",
           question: questionTitle,
         });
       }
@@ -179,7 +186,7 @@ export default class CreateQuiz {
               numberOfCreatedQuizzes: increment(1),
               quizzes: arrayUnion(quizOperation.documentRef),
               activity: arrayUnion({
-                type: "created",
+                type: "Created",
                 quiz: quizOperation.documentRef,
               }),
             });

@@ -1,5 +1,5 @@
 export interface T_question {
-  type: string;
+  type: "multiple" | "open";
   question: string;
   solution?: string;
   options?: string[] | null;

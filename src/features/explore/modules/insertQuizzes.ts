@@ -1,6 +1,5 @@
 import { getQuiz } from "../../../constants/exploreQuizzes-constants";
 import { T_quiz } from "../../../types/exploreQuiz-types";
-import { FirestoreControl } from "../../../utils/firestoreControl";
 
 export async function insertQuizzes(
   parent: HTMLElement,
@@ -18,9 +17,8 @@ export async function insertQuizzes(
   }
   const quizzesCards = await Promise.all(
     quizzes.map(async (quiz: T_quiz) => {
-      const owner = await FirestoreControl.getDocumentFast(quiz.owner);
-      if (owner) {
-        return getQuiz(quiz, owner.username);
+      if (quiz.owner) {
+        return getQuiz(quiz, quiz.owner.id);
       } else {
         return getQuiz(quiz, "Unknown");
       }

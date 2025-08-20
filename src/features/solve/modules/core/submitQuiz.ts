@@ -1,8 +1,10 @@
-import { arrayUnion, increment } from "firebase/firestore";
+import { arrayUnion, DocumentData, increment } from "firebase/firestore";
 import { showMsg } from "../../../../components/message/showMessage";
 import { T_quiz } from "../../../../types/exploreQuiz-types";
 import { FirestoreControl } from "../../../../utils/firestoreControl";
 import { auth } from "../../../firebase";
+import { T_question } from "../../../create/types/createQuiz-types";
+import { Score } from "./getScore";
 
 export async function submitQuiz() {
   const submitBtn = <HTMLButtonElement>(
@@ -25,15 +27,23 @@ export async function submitQuiz() {
         userID as string
       );
       const quizOperation = new FirestoreControl("quizzes", quiz.title);
+      const quizSnapshot: DocumentData | null =
+        await quizOperation.getDocument();
+
+      const questions: T_question[] = (quizSnapshot as DocumentData).questions;
+      const getResultOperation = new Score(questions, answers);
+      const result = await getResultOperation.getScore();
       await submitQuizOperation.updateDocument({
         activity: arrayUnion({
-          type: "solved",
+          type: "Solved",
           quiz: quizOperation.documentRef,
           answers: answers,
+          result: result,
         }),
         solved: arrayUnion({
           quiz: quizOperation.documentRef,
           answers: answers,
+          result: result,
         }),
         numberOfSolvedQuizzes: increment(1),
       });

@@ -11,6 +11,8 @@ import { auth } from "../firebase";
 import redirectToPage from "../authentication/modules/redirect";
 import signUserOut from "../authentication/sign-out/signOut";
 import { FirestoreControl } from "../../utils/firestoreControl";
+import { RecentActivity } from "./modules/insertRecentActivity";
+import { Results } from "./modules/insertResults";
 
 onAuthStateChanged(auth, async (user) => {
   try {
@@ -110,6 +112,8 @@ onAuthStateChanged(auth, async (user) => {
         userMenuBtnImg.src = user.photoURL;
       }
     }
+    RecentActivity.insertActivities(user?.displayName as string);
+    Results.insertResults(user?.displayName as string);
   } catch (error) {
     console.error("Something went wrong");
     await signOut(auth);
