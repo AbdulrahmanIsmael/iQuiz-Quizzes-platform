@@ -53,9 +53,9 @@ export const getResult = (quiz: DocumentData, result: T_result) => {
                     <h3 class="text-purple-800 text-xl font-bold">
                       ${quiz.title}
                     </h3>
-                    <div class="text-2xl font-bold text-purple-600">${
+                    <div class="text-2xl font-bold text-purple-600">${Math.round(
                       result.percent
-                    }%</div>
+                    )}%</div>
                   </div>
                   <small class="text-sm text-purple-500"
                     >${quiz.owner.id}</small
@@ -66,7 +66,7 @@ export const getResult = (quiz: DocumentData, result: T_result) => {
                 <div class="flex-1 h-2 bg-purple-100 rounded-full">
                   <div 
                     class="h-full bg-purple-600 rounded-full"
-                    style="width: ${Math.ceil(result.percent)}%"
+                    style="width: ${result.percent}%"
                   ></div>
                 </div>
               </div>
