@@ -66,7 +66,7 @@ export const getResult = (quiz: DocumentData, result: T_result) => {
                 <div class="flex-1 h-2 bg-purple-100 rounded-full">
                   <div 
                     class="h-full bg-purple-600 rounded-full"
-                    style="width: ${result.percent}%"
+                    style="width: ${Math.ceil(result.percent)}%"
                   ></div>
                 </div>
               </div>
